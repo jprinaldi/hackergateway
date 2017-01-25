@@ -43,6 +43,9 @@ end
 # Use Bootstrap as the front-end framework
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
+# Use Devise for user authentication
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
