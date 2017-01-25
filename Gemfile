@@ -41,6 +41,9 @@ group :development, :test do
 
   # Use RSpec as the testing framework
   gem 'rspec-rails', '~> 3.5'
+
+  # Use Capybara to simulate how a real user would interact with the app
+  gem 'capybara'
 end
 
 group :development do
