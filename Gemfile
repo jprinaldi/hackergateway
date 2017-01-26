@@ -43,6 +43,9 @@ end
 # Use Bootstrap as the front-end framework
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
+# Use Font Awesome for icons support
+gem "font-awesome-rails"
+
 # Use Devise for user authentication
 gem 'devise'
 

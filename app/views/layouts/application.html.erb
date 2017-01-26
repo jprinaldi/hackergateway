@@ -19,30 +19,40 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Challenges
+              <%= fa_icon 'star', text: 'Challenges', class: 'fa-fw' %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to 'All', challenges_path, class: 'dropdown-item' %>
+              <%= link_to challenges_path, class: 'dropdown-item' do %>
+                <%= fa_icon 'globe', text: 'All', class: 'fa-fw' %>
+              <% end %>
               <% @categories.each do |category| %>
-                <%= link_to category.name, category_path(category), class: 'dropdown-item' %>
+                <%= link_to category_path(category), class: 'dropdown-item' do %>
+                  <%= fa_icon category.icon, text: category.name, class: 'fa-fw' %>
+                <% end %>
               <% end %>
             </div>
           </li>
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.email %>
+                <%= fa_icon 'user', text: current_user.email, class: 'fa-fw' %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
+                  <%= fa_icon 'sign-out', text: 'Sign out', class: 'fa-fw' %>
+                <% end %>
               </div>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+              <%= link_to new_user_session_path, class: 'nav-link' do %>
+                <%= fa_icon 'sign-in', text: 'Sign in', class: 'fa-fw' %>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              <%= link_to new_user_registration_path, class: 'nav-link' do %>
+                <%= fa_icon 'user-plus', text: 'Sign up', class: 'fa-fw' %>
+              <% end %>
             </li>
           <% end %>
         </ul>
