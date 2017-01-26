@@ -31,6 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.datetime :locked_at
 
       t.string :username
+      t.string :slug
 
       t.timestamps null: false
     end
@@ -40,5 +41,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true
     add_index :users, :username,             unique: true
+    add_index :users, :slug,                 unique: true
   end
 end

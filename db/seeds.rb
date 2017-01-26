@@ -6,21 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u = User.new
-u.username = 'guest'
-u.email = 'guest@example.com'
-u.password = 'aaaaaa'
-u.add_role :user
-u.confirm
-u.save
-
-a = User.new
-a.username = 'admin'
-a.email = 'admin@example.com'
-a.password = 'aaaaaa'
+a = User.create(
+  email: 'admin@example.com',
+  username: 'admin',
+  password: 'aaaaaa'
+)
 a.add_role :admin
 a.confirm
 a.save
+
+u = User.create(
+  email: 'guest@example.com',
+  username: 'guest',
+  password: 'aaaaaa'
+)
+u.add_role :user
+u.confirm
+u.save
 
 crypto = Category.create(name: 'Cryptography', icon: 'lock')
 stegano = Category.create(name: 'Steganography', icon: 'picture-o')
