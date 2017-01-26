@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  resourcify
 
   has_many :challenges
 

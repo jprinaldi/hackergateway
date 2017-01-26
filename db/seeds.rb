@@ -10,8 +10,17 @@ u = User.new
 u.username = 'guest'
 u.email = 'guest@example.com'
 u.password = 'aaaaaa'
+u.add_role :user
 u.confirm
 u.save
+
+a = User.new
+a.username = 'admin'
+a.email = 'admin@example.com'
+a.password = 'aaaaaa'
+a.add_role :admin
+a.confirm
+a.save
 
 crypto = Category.create(name: 'Cryptography', icon: 'lock')
 stegano = Category.create(name: 'Steganography', icon: 'picture-o')

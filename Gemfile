@@ -53,6 +53,12 @@ gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'b
 # Add FriendlyId for pretty URLs support
 gem 'friendly_id', '~> 5.1.0'
 
+# Use Rolify for user role management support
+gem "rolify"
+
+# Use CanCanCan for user authorization support
+gem 'cancancan'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

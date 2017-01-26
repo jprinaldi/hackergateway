@@ -1,6 +1,7 @@
 class Challenge < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  resourcify
 
   belongs_to :category
   has_many :solutions, dependent: :destroy
