@@ -35,7 +35,7 @@
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= fa_icon 'user', text: current_user.email, class: 'fa-fw' %>
+                <%= fa_icon 'user', text: current_user.username, class: 'fa-fw' %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>

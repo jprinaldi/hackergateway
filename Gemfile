@@ -48,6 +48,7 @@ gem "font-awesome-rails"
 
 # Use Devise for user authentication
 gem 'devise'
+gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'bootstrap4'
 
 # Add FriendlyId for pretty URLs support
 gem 'friendly_id', '~> 5.1.0'

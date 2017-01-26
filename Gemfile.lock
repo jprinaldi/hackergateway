@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/hisea/devise-bootstrap-views.git
+  revision: bf7ccf240a03599feaed4d895970ee6a5beed44c
+  branch: bootstrap4
+  specs:
+    devise-bootstrap-views (1.0.0.alpha1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -212,6 +219,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   devise
+  devise-bootstrap-views!
   font-awesome-rails
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
