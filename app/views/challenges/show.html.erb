@@ -1,5 +1,12 @@
-<h1><%= @challenge.name %></h1>
-
-<div class="challenge-body">
-  <%= raw @challenge.body %>
+<div class="card mt-4">
+  <h2 class="card-header"><%= @challenge.name %></h2>
+  <div class="card-block">
+    <%= raw @challenge.body %>
+  </div>
+  <div class="card-footer">
+    <%= form_tag(solve_challenge_path(@challenge), method: "post") do %>
+    <%= content_tag(:div, text_field_tag(:answer, nil, class: "form-control", placeholder: "Enter answer"), class: "form-group") %>
+      <%= submit_tag("Submit", class: "btn btn-primary", id: "submit-answer") %>
+    <% end %>
+  </div>
 </div>

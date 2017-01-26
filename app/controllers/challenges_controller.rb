@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: :solve
 
   # GET /challenges
   # GET /challenges.json
@@ -61,6 +62,25 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def solve
+    challenge = Challenge.find(params[:id])
+
+    if current_user.solved_challenges.include? challenge
+      flash.notice = "You've already solved this challenge!"
+    elsif challenge.answer == params[:answer]
+      Solution.create(user: current_user, challenge: challenge)
+      flash.notice = "You solved this challenge!"
+    else
+      flash.alert = "Your answer is wrong!"
+    end
+
+    redirect_to challenge_path(challenge)
+  end
+
+  def solvers
+    @challenge = Challenge.find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge
@@ -69,6 +89,6 @@ class ChallengesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
-      params.require(:challenge).permit(:name, :body, :category_id)
+      params.require(:challenge).permit(:name, :body, :answer, :category_id)
     end
 end
