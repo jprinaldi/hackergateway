@@ -5,8 +5,11 @@ class CreateChallenges < ActiveRecord::Migration[5.0]
       t.text :body
       t.string :answer
       t.references :category, foreign_key: true
+      t.string :slug
 
       t.timestamps
     end
+    add_index :challenges, :name, unique: true
+    add_index :challenges, :slug, unique: true
   end
 end
