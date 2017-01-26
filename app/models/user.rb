@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :solutions, dependent: :destroy
   has_many :solved_challenges, through: :solutions, source: :challenge
 
+  validates :username, presence: true, uniqueness: true
+
   after_create :assign_default_role
 
   def assign_default_role
