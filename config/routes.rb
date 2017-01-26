@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   resources :challenges do
-    member do
-      get 'solvers'
-      post 'solve'
-    end
+    resources :solutions, only: [:index, :create]
   end
   resources :categories
   devise_for :users

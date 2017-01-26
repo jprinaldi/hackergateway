@@ -1,6 +1,6 @@
 <%= content_tag :h2, "#{@challenge.name} solvers" %>
 <ul class="list-group">
   <% @challenge.solvers.each do |solver| %>
-    <li class="list-group-item"><strong><%= solver.email %></strong></li>
+    <li class="list-group-item"><strong><%= solver.username %></strong></li>
   <% end %>
 </ul>

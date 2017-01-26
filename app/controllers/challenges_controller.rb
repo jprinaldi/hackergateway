@@ -12,6 +12,7 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    @solution = Solution.new
   end
 
   # GET /challenges/new
@@ -61,22 +62,6 @@ class ChallengesController < ApplicationController
       format.html { redirect_to challenges_url, notice: 'Challenge was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def solve
-    if current_user.solved_challenges.include? @challenge
-      flash.notice = "You've already solved this challenge!"
-    elsif @challenge.answer == params[:answer]
-      Solution.create(user: current_user, challenge: @challenge)
-      flash.notice = "You solved this challenge!"
-    else
-      flash.alert = "Your answer is wrong!"
-    end
-
-    redirect_to challenge_path(@challenge)
-  end
-
-  def solvers
   end
 
   private
