@@ -1,0 +1,7 @@
+<h1><%= @category.name %> Challenges</h1>
+
+<div class="list-group">
+  <% @category.challenges.each do |challenge| %>
+    <%= link_to challenge.name, challenge_path(challenge), class: 'list-group-item list-group-item-action' %>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<h1>All Challenges</h1>
+
+<div class="list-group">
+  <% @challenges.each do |challenge| %>
+    <%= link_to challenge_path(challenge), class: 'list-group-item list-group-item-action justify-content-between' do %>
+      <%= challenge.name %>
+      <span class="badge badge-default"><%= challenge.category.name %></span>
+    <% end %>
+  <% end %>
+</div>
