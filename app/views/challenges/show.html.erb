@@ -1,14 +1,8 @@
 <div class="card mt-4">
-  <h2 class="card-header">
-    <%= @challenge.name %>
-    <% if user_signed_in? %>
-      <% if current_user.solved_challenges.include? @challenge %>
-        <span class="badge badge-success">Solved</span>
-      <% else %>
-        <span class="badge badge-warning">Unsolved</span>
-      <% end %>
-    <% end %>
-  </h2>
+  <div class="card-header justify-content-between">
+    <%= content_tag :h4, @challenge.name %>
+    <%= render 'badges', challenge: @challenge %>
+  </div>
   <div class="card-block">
     <%= raw @challenge.body %>
   </div>

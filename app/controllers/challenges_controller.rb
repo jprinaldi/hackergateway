@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :solve, :solvers]
   before_action :authenticate_user!, only: :solve
 
   # GET /challenges
@@ -63,22 +63,19 @@ class ChallengesController < ApplicationController
   end
 
   def solve
-    challenge = Challenge.find(params[:id])
-
-    if current_user.solved_challenges.include? challenge
+    if current_user.solved_challenges.include? @challenge
       flash.notice = "You've already solved this challenge!"
-    elsif challenge.answer == params[:answer]
-      Solution.create(user: current_user, challenge: challenge)
+    elsif @challenge.answer == params[:answer]
+      Solution.create(user: current_user, challenge: @challenge)
       flash.notice = "You solved this challenge!"
     else
       flash.alert = "Your answer is wrong!"
     end
 
-    redirect_to challenge_path(challenge)
+    redirect_to challenge_path(@challenge)
   end
 
   def solvers
-    @challenge = Challenge.find(params[:id])
   end
 
   private
