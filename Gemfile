@@ -46,11 +46,11 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 # Use Font Awesome for icons support
 gem "font-awesome-rails"
 
-# Use Devise for user authentication
+# Use Devise for user authentication support
 gem 'devise'
 gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'bootstrap4'
 
-# Add FriendlyId for pretty URLs support
+# Use FriendlyId for pretty URLs support
 gem 'friendly_id', '~> 5.1.0'
 
 # Use Rolify for user role management support
