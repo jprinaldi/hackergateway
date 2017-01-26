@@ -2,6 +2,17 @@
 
 <div class="list-group">
   <% @category.challenges.each do |challenge| %>
-    <%= link_to challenge.name, challenge_path(challenge), class: 'list-group-item list-group-item-action' %>
+    <%= link_to challenge_path(challenge), class: 'list-group-item list-group-item-action' do %>
+      <strong><%= challenge.name %></strong>&nbsp;
+      <ul class="list-inline mb-0">
+        <% if user_signed_in? %>
+          <% if current_user.solved_challenges.include? challenge %>
+            <li class="list-inline-item"><span class="badge badge-success">Solved</span></li>
+          <% else %>
+            <li class="list-inline-item"><span class="badge badge-warning">Unsolved</span></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
