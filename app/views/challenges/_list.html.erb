@@ -2,7 +2,7 @@
   <% challenges.each do |challenge| %>
     <li class="list-group-item justify-content-between">
       <%= link_to challenge.name, challenge %>
-      <%= render 'challenges/badges', challenge: challenge %>
+      <%= render 'challenges/badges', challenge: challenge, show_category: local_assigns[:show_category] %>
     </li>
   <% end %>
 </ul>

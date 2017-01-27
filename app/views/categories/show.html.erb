@@ -1,3 +1,6 @@
-<h1><%= @category.name %> Challenges</h1>
-
-<%= render 'challenges/list', challenges: @category.challenges %>
+<div class="card">
+  <h3 class="card-header">
+    <%= fa_icon @category.icon, text: @category.name %>
+  </h3>
+  <%= render 'challenges/list', challenges: @category.challenges %>
+</div>

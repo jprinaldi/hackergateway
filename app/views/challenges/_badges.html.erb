@@ -1,11 +1,13 @@
 <ul class="list-inline mb-0">
-  <li class="list-inline-item">
-    <%= link_to challenge.category do %>
-      <span class="badge badge-default">
-        <%= challenge.category.name %>
-      </span>
-    <% end %>
-  </li>
+  <% if local_assigns[:show_category] %>
+    <li class="list-inline-item">
+      <%= link_to challenge.category do %>
+        <span class="badge badge-default">
+          <%= challenge.category.name %>
+        </span>
+      <% end %>
+    </li>
+  <% end %>
   <li class="list-inline-item">
     <%= link_to challenge_solutions_path(challenge) do %>
       <span class="badge badge-info"><%= pluralize challenge.solutions.size, 'solver' %></span>

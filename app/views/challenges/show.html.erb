@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header justify-content-between">
     <%= content_tag :h4, @challenge.name %>
-    <%= render 'badges', challenge: @challenge %>
+    <%= render 'badges', challenge: @challenge, show_category: true %>
   </div>
   <div class="card-block">
     <%= raw @challenge.body %>

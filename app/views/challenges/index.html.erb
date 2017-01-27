@@ -1,3 +1,14 @@
-<h1>All Challenges</h1>
-
-<%= render 'list', challenges: @challenges %>
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="col-lg-6">
+      <div class="card">
+        <h3 class="card-header">
+          <%= link_to category do %>
+            <%= fa_icon category.icon, text: category.name %>
+          <% end %>
+        </h3>
+        <%= render 'list', challenges: category.challenges %>
+      </div>
+    </div>
+  <% end %>
+</div>
