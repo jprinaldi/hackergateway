@@ -12,7 +12,8 @@
  *
  */
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
- @import "font-awesome";
- @import "devise_bootstrap_views";
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "font-awesome";
+@import "flag-icon";
+@import "devise_bootstrap_views";

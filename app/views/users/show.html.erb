@@ -1,7 +1,34 @@
 <%= content_tag :h2, "#{@user.username}'s profile" %>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
+    <dl class="row">
+      <dt class="col-sm-3">Username</dt>
+      <dd class="col-sm-9"><%= @user.username %></dd>
+
+      <dt class="col-sm-3">Country</dt>
+      <dd class="col-sm-9">
+        <% if @user.country.blank? %>
+          <%= fa_icon 'question-circle', text: 'Unknown', class: 'fa-fw' %>
+        <% else %>
+          <%= flag_icon(@user.country.downcase) %>
+          <%= content_tag :span do %>
+            <%= ISO3166::Country[@user.country].name %>
+          <% end %>
+        <% end %>
+      </dd>
+
+      <dt class="col-sm-3">Solved challenges</dt>
+      <dd class="col-sm-9">
+        <%= link_to user_solutions_path(@user) do %>
+          <%= content_tag :span, class: 'badge badge-success badge-pill' do %>
+            <%= @user.solutions.count %>
+          <% end %>
+        <% end %>
+      </dd>
+    </dl>
+  </div>
+  <div class="col-md-6">
     <div class="card">
       <div class="card-header">
         <%= link_to user_solutions_path(@user) do %>

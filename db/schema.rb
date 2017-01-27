@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170126181922) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "username"
+    t.string   "country"
     t.string   "slug"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

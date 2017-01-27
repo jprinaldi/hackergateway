@@ -59,6 +59,12 @@ gem "rolify"
 # Use CanCanCan for user authorization support
 gem 'cancancan'
 
+# Use Country Select for country selection support
+gem 'country_select'
+
+# Use flag-icon-css for country flags support
+gem 'flag-icons-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
