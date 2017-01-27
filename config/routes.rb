@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show] do
     resources :solutions, only: :index
+    collection do
+      get 'rankings'
+    end
   end
   resources :challenges do
     resources :solutions, only: [:index, :create]

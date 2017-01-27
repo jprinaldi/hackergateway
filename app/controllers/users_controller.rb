@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def rankings
+    @users = User.all.sort_by { |user| user.solutions.count }.reverse
+  end
+
   private
 
   def set_user
