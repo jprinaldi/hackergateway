@@ -1,2 +1,18 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h4>Newest challenges</h4>
+      </div>
+      <%= render 'challenges/list', challenges: @newest_challenges %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h4>Newest users</h4>
+      </div>
+      <%= render 'users/list', users: @newest_users, solutions_count: false %>
+    </div>
+  </div>
+</div>
