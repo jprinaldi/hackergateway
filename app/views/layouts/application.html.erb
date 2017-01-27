@@ -11,66 +11,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded mb-4">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <%= link_to 'Project Silver', root_path, class: 'navbar-brand' %>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= fa_icon 'star', text: 'Challenges', class: 'fa-fw' %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to challenges_path, class: 'dropdown-item' do %>
-                <%= fa_icon 'globe', text: 'All', class: 'fa-fw' %>
-              <% end %>
-              <% @categories.each do |category| %>
-                <%= link_to category_path(category), class: 'dropdown-item' do %>
-                  <%= fa_icon category.icon, text: category.name, class: 'fa-fw' %>
-                <% end %>
-              <% end %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <%= link_to rankings_users_path, class: 'nav-link' do %>
-              <%= fa_icon 'trophy', text: 'Rankings', class: 'fa-fw' %>
-            <% end %>
-          </li>
-          <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= fa_icon 'user', text: current_user.username, class: 'fa-fw' %>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to current_user, class: 'dropdown-item' do %>
-                  <%= fa_icon 'eye', text: 'View profile', class: 'fa-fw' %>
-                <% end %>
-                <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                  <%= fa_icon 'pencil', text: 'Edit profile', class: 'fa-fw' %>
-                <% end %>
-                <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
-                  <%= fa_icon 'sign-out', text: 'Sign out', class: 'fa-fw' %>
-                <% end %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to new_user_session_path, class: 'nav-link' do %>
-                <%= fa_icon 'sign-in', text: 'Sign in', class: 'fa-fw' %>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_user_registration_path, class: 'nav-link' do %>
-                <%= fa_icon 'user-plus', text: 'Sign up', class: 'fa-fw' %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+    <%= render 'layouts/navbar' %>
     <div class="container">
       <%= flash_messages %>
       <%= yield %>

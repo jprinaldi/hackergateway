@@ -1,4 +1,16 @@
 module ApplicationHelper
+  # Create nav items in Bootstrap 4 style
+  def nav_item(body = nil, url, &block)
+    active = "active" if current_page?(url)
+    content_tag :li, class: "nav-item #{active}" do
+      if body.nil?
+        link_to(url, { class: 'nav-link' }, &block)
+      else
+        link_to(body, url, { class: 'nav-link' })
+      end
+    end
+  end
+
   def bootstrap_class_for flash_type
     { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
