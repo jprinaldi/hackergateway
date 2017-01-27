@@ -3,8 +3,10 @@
     <li class="list-group-item justify-content-between">
       <%= link_to user.username, user %>
       <% if solutions_count %>
-        <%= content_tag :span, class: 'badge badge-success badge-pill' do %>
-          <%= user.solutions.count %>
+        <%= link_to user_solutions_path(user) do %>
+          <%= content_tag :span, class: 'badge badge-success badge-pill' do %>
+            <%= user.solutions.count %>
+          <% end %>
         <% end %>
       <% end %>
     </li>
