@@ -1,0 +1,9 @@
+<%= content_tag :h2, "#{@challenge.name} solvers" %>
+<ul class="list-group">
+  <% @challenge.solutions.each do |solution| %>
+    <li class="list-group-item justify-content-between">
+      <%= link_to solution.user.username, solution.user %>
+      <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+    </li>
+  <% end %>
+</ul>

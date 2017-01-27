@@ -1,11 +1,20 @@
 class SolutionsController < ApplicationController
-  before_action :set_challenge, only: [:index, :create]
+  before_action :authenticate_user!, only: :create
+  before_action :set_challenge, only: :create
   load_and_authorize_resource
 
   # GET /solutions
   # GET /solutions.json
   def index
-    @solutions = Solution.all
+    if params[:user_id]
+      @user = User.friendly.find(params[:user_id])
+      render :challenges
+    elsif params[:challenge_id]
+      @challenge = Challenge.friendly.find(params[:challenge_id])
+      render :users
+    else
+      @solutions = Solution.all
+    end
   end
 
   # POST /solutions
