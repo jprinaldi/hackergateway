@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: :show do
+  resources :users, only: [:index, :show] do
     resources :solutions, only: :index
   end
   resources :challenges do
