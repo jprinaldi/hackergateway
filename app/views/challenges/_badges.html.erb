@@ -1,5 +1,11 @@
 <ul class="list-inline mb-0">
-  <li class="list-inline-item"><span class="badge badge-default"><%= challenge.category.name %></span></li>
+  <li class="list-inline-item">
+    <%= link_to challenge.category do %>
+      <span class="badge badge-default">
+        <%= challenge.category.name %>
+      </span>
+    <% end %>
+  </li>
   <li class="list-inline-item">
     <%= link_to challenge_solutions_path(challenge) do %>
       <span class="badge badge-info"><%= pluralize challenge.solvers.count, 'solver' %></span>

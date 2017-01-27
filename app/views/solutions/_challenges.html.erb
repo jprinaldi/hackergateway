@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <% user.solutions.each do |solution| %>
+    <li class="list-group-item justify-content-between">
+      <span>
+        <%= link_to solution.challenge.name, solution.challenge %>
+        <%= render 'challenges/badges', challenge: solution.challenge %>
+      </span>
+      <span>
+        Solved <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+      </soan>
+    </li>
+  <% end %>
+</ul>

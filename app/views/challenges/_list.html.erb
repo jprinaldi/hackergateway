@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <% challenges.each do |challenge| %>
+    <li class="list-group-item justify-content-between">
+      <%= link_to challenge.name, challenge %>
+      <%= render 'challenges/badges', challenge: challenge %>
+    </li>
+  <% end %>
+</ul>

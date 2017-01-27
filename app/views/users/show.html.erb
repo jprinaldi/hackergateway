@@ -1,1 +1,16 @@
-<%= @user.username %>
+<%= content_tag :h2, "#{@user.username}'s profile" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <%= link_to user_solutions_path(@user) do %>
+          Solved challenges (<%= @user.solutions.count %>/<%= Challenge.count %>)
+        <% end %>
+      </div>
+      <div class="card-block">
+        <%= render 'solutions/challenges', user: @user %>
+      </div>
+    </div>
+  </div>
+</div>
