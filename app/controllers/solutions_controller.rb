@@ -22,22 +22,17 @@ class SolutionsController < ApplicationController
   def create
     if current_user.solved_challenges.include? @challenge
       flash.notice = "You've already solved this challenge!"
-      redirect_to @challenge
     elsif @challenge.answer == params[:answer]
       @solution = Solution.new(user: current_user, challenge: @challenge)
-      respond_to do |format|
-        if @solution.save
-          format.html { redirect_to @challenge, notice: 'You solved this challenge!' }
-          format.json { render :show, status: :created, location: @solution }
-        else
-          format.html { render :new }
-          format.json { render json: @solution.errors, status: :unprocessable_entity }
-        end
+      if @solution.save
+        flash[:success] = "You solved this challenge!"
+      else
+        flash[:error] = "Something went wrong!"
       end
     else
-      flash.alert = "Your answer is wrong!"
-      redirect_to @challenge
+      flash[:error] = "Your answer is wrong!"
     end
+    redirect_to @challenge
   end
 
   private
