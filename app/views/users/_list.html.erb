@@ -5,7 +5,7 @@
       <% if solutions_count %>
         <%= link_to user_solutions_path(user) do %>
           <%= content_tag :span, class: 'badge badge-success badge-pill' do %>
-            <%= user.solutions.count %>
+            <%= user.solutions.size %>
           <% end %>
         <% end %>
       <% end %>

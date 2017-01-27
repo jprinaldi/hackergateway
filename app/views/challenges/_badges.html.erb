@@ -8,7 +8,7 @@
   </li>
   <li class="list-inline-item">
     <%= link_to challenge_solutions_path(challenge) do %>
-      <span class="badge badge-info"><%= pluralize challenge.solvers.count, 'solver' %></span>
+      <span class="badge badge-info"><%= pluralize challenge.solutions.size, 'solver' %></span>
     <% end %>
   </li>
   <% if user_signed_in? %>
