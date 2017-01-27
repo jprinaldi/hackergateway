@@ -5,6 +5,9 @@ class Category < ApplicationRecord
 
   has_many :challenges
 
+  validates :name, presence: true, uniqueness: true
+  validates :icon, presence: true
+
   def should_generate_new_friendly_id?
     name_changed?
   end
