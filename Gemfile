@@ -74,6 +74,9 @@ group :development, :test do
 
   # Use Capybara to simulate how a real user would interact with the app
   gem 'capybara'
+
+  # Use Factory Girl for test data support
+  gem 'factory_girl_rails'
 end
 
 group :development do
