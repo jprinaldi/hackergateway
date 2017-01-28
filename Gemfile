@@ -89,6 +89,9 @@ group :development do
 
   # Use Rubocop for static code analysis support
   gem 'rubocop', require: false
+
+  # Use Letter Opener for email previewing support
+  gem "letter_opener"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
