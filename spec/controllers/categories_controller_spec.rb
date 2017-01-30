@@ -20,6 +20,8 @@ require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
 
+  before { skip }
+
   # This should return the minimal set of attributes required to create a valid
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
