@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20170126181922) do
     t.text     "body"
     t.string   "answer"
     t.integer  "category_id"
+    t.integer  "solutions_count", default: 0
     t.string   "slug"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["category_id"], name: "index_challenges_on_category_id", using: :btree
     t.index ["name"], name: "index_challenges_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_challenges_on_slug", unique: true, using: :btree
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170126181922) do
     t.datetime "locked_at"
     t.string   "username"
     t.string   "country"
+    t.integer  "solutions_count",        default: 0
     t.string   "slug"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

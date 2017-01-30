@@ -32,6 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :username
       t.string :country
+      t.integer :solutions_count, default: 0
       t.string :slug
 
       t.timestamps null: false
