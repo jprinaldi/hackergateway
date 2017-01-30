@@ -96,6 +96,10 @@ group :development do
   # Use Better Errors for improved error reporting support
   gem "better_errors"
   gem "binding_of_caller"
+
+  # Use Bullet for help in reducing the number of queries the app makes
+  # Read more: https://github.com/flyerhzm/bullet
+  gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
