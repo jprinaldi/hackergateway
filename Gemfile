@@ -92,6 +92,10 @@ group :development do
 
   # Use Letter Opener for email previewing support
   gem "letter_opener"
+
+  # Use Better Errors for improved error reporting support
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
