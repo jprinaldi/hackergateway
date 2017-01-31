@@ -81,6 +81,10 @@ group :development, :test do
 
   # Use Factory Girl for test data support
   gem 'factory_girl_rails'
+
+  # Use dotenv to load environment variables in development
+  # Read more: https://github.com/bkeepers/dotenv
+  gem 'dotenv-rails'
 end
 
 group :development do
