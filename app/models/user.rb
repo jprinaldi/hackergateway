@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
+
+  include Gravtastic
+  gravtastic default: 'mm'
+
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

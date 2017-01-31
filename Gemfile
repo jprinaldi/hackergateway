@@ -65,6 +65,10 @@ gem 'country_select'
 # Use flag-icon-css for country flags support
 gem 'flag-icons-rails'
 
+# Use Gravtastic to add user profile images through Gravatar
+# Read more: https://github.com/chrislloyd/gravtastic
+gem 'gravtastic'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
