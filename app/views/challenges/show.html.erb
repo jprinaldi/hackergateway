@@ -12,7 +12,10 @@
         <%= label_tag :answer %>
         <%= text_field_tag :answer, nil, class: 'form-control', placeholder: "Enter answer" %>
       </div>
-      <%= submit_tag("Solve", class: "btn btn-primary", id: "submit-answer") %>
+      <div class="form-group">
+        <%= recaptcha_tags theme: :dark %>
+      </div>
+      <%= button_tag("Solve", class: "btn btn-primary", id: "submit-answer") %>
     <% end %>
   </div>
 </div>
