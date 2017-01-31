@@ -17,7 +17,7 @@ RSpec.feature "User solves challenge", type: :feature do
     challenge = FactoryGirl.create(:challenge)
     login_as(user)
     visit challenge_path(challenge)
-    fill_in 'Answer', with: challenge.answer.concat('x')
+    fill_in 'Answer', with: "wrong #{challenge.answer}"
     click_button 'Solve'
     expect(page).to have_current_path(challenge_path(challenge))
     expect(page).to have_content("Your answer is wrong!")

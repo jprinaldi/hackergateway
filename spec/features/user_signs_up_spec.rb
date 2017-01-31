@@ -44,11 +44,12 @@ RSpec.feature "User signs up", type: :feature do
 
   scenario "with non-matching passwords" do
     user = FactoryGirl.build(:user)
+    non_matching_password = "non-matching #{user.password}"
     visit new_user_registration_path
     fill_in 'Username', with: user.username
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password.concat('x')
+    fill_in 'Password confirmation', with: non_matching_password
     click_button 'Sign up'
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
