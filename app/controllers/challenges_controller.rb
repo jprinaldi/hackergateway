@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
   # GET /challenges
   # GET /challenges.json
   def index
-    @challenges = Challenge.all
+    @categories = Category.includes(:challenges).all
   end
 
   # GET /challenges/1

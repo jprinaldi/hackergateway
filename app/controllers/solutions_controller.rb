@@ -7,10 +7,10 @@ class SolutionsController < ApplicationController
   # GET /solutions.json
   def index
     if params[:user_id]
-      @user = User.friendly.find(params[:user_id])
+      @user = User.includes(solutions: :challenge).friendly.find(params[:user_id])
       render :challenges
     elsif params[:challenge_id]
-      @challenge = Challenge.friendly.find(params[:challenge_id])
+      @challenge = Challenge.includes(solutions: :user).friendly.find(params[:challenge_id])
       render :users
     else
       @solutions = Solution.all
