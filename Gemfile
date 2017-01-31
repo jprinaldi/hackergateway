@@ -89,6 +89,10 @@ group :development, :test do
   # Use dotenv to load environment variables in development
   # Read more: https://github.com/bkeepers/dotenv
   gem 'dotenv-rails'
+
+  # Use Brakeman for static analysis security vulnerability scanning
+  # Read more: https://github.com/presidentbeef/brakeman
+  gem 'brakeman', require: false
 end
 
 group :development do
