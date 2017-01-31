@@ -19,3 +19,15 @@
 @import "font-awesome";
 @import "flag-icon";
 @import "devise_bootstrap_views";
+
+@import "footer";
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-container {
+  flex: 1;
+}

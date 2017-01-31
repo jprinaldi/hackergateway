@@ -12,9 +12,10 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container">
+    <div id="main-container" class="container">
       <%= flash_messages %>
       <%= yield %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
