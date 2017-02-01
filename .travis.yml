@@ -2,5 +2,11 @@ language: ruby
 rvm:
   - 2.4.0
 
+services:
+  - postgresql
+
 before_install:
   - gem update --system
+
+before_script:
+  - psql -c 'create database HackerGateway_test;' -U postgres
