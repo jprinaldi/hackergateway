@@ -73,6 +73,15 @@ gem 'gravtastic'
 # Read more: https://github.com/ambethia/recaptcha
 gem "recaptcha", require: "recaptcha/rails"
 
+# Use Rollbar for exception tracking and logging support
+# Read more: https://github.com/rollbar/rollbar-gem
+gem 'rollbar'
+
+# Use Oj for optimized JSON support
+# Rollbar recommended installing this gem
+# Read more: https://github.com/ohler55/oj
+gem 'oj'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
