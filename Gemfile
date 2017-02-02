@@ -41,28 +41,39 @@ source 'https://rails-assets.org' do
 end
 
 # Use Bootstrap as the front-end framework
+# Read more: https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # Use Font Awesome for icons support
+# Read more: https://github.com/bokmann/font-awesome-rails
 gem "font-awesome-rails"
 
 # Use Devise for user authentication support
+# Read more: https://github.com/plataformatec/devise
 gem 'devise'
+
+# Use this gem to generate Devise views with Bootstrap
+# Read more: https://github.com/hisea/devise-bootstrap-views
 gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'bootstrap4'
 
 # Use FriendlyId for pretty URLs support
+# Read more: https://github.com/norman/friendly_id
 gem 'friendly_id', '~> 5.1.0'
 
 # Use Rolify for user role management support
+# Read more: https://github.com/RolifyCommunity/rolify
 gem "rolify"
 
 # Use CanCanCan for user authorization support
+# Read more: https://github.com/CanCanCommunity/cancancan
 gem 'cancancan'
 
 # Use Country Select for country selection support
+# Read more: https://github.com/stefanpenner/country_select
 gem 'country_select'
 
 # Use flag-icon-css for country flags support
+# Read more: https://github.com/eugenegarl/flag-icons-rails
 gem 'flag-icons-rails'
 
 # Use Gravtastic to add user profile images through Gravatar
@@ -77,7 +88,6 @@ gem "recaptcha", require: "recaptcha/rails"
 # Read more: https://github.com/rollbar/rollbar-gem
 gem 'rollbar'
 
-# Use Oj for optimized JSON support
 # Rollbar recommended installing this gem
 # Read more: https://github.com/ohler55/oj
 gem 'oj'
@@ -91,12 +101,15 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   # Use RSpec as the testing framework
+  # Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.5'
 
   # Use Capybara to simulate how a real user would interact with the app
+  # Read more: https://github.com/teamcapybara/capybara
   gem 'capybara'
 
   # Use Factory Girl for test data support
+  # Read more: https://github.com/thoughtbot/factory_girl_rails
   gem 'factory_girl_rails'
 
   # Use dotenv to load environment variables in development
@@ -117,20 +130,27 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Use Rubocop for static code analysis support
+  # Read more: https://github.com/bbatsov/rubocop
   gem 'rubocop', require: false
 
   # Use Letter Opener for email previewing support
+  # Read more: https://github.com/ryanb/letter_opener
   gem "letter_opener"
 
   # Use Better Errors for improved error reporting support
+  # Read more: https://github.com/charliesome/better_errors
   gem "better_errors"
+
+  # Use this gem to enable advanced features for Better Errors
+  # Read more: https://github.com/banister/binding_of_caller
   gem "binding_of_caller"
 
   # Use Bullet for help in reducing the number of queries the app makes
   # Read more: https://github.com/flyerhzm/bullet
   gem 'bullet'
 
-
+  # Use this gem to generate favicons for multiple devices
+  # Read more: https://github.com/RealFaviconGenerator/rails_real_favicon
   gem 'rails_real_favicon'
 end
 
