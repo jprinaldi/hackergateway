@@ -123,6 +123,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    google-analytics-rails (1.1.0)
     gravtastic (3.2.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -314,6 +315,7 @@ DEPENDENCIES
   flag-icons-rails
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  google-analytics-rails (= 1.1.0)
   gravtastic
   jbuilder (~> 2.5)
   jquery-rails
