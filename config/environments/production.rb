@@ -64,7 +64,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
-    user_name: ENV["SENDGRID_USERNAME"],
+    user_name: 'apikey',
     password: ENV["SENDGRID_API_KEY"],
     domain: 'hackergateway.com',
     address: 'smtp.sendgrid.net',
