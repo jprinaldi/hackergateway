@@ -78,6 +78,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: HackerGateway_staging
+  username: HackerGateway
+  password: <%= ENV['HACKERGATEWAY_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: HackerGateway_production
