@@ -59,9 +59,34 @@ RSpec.feature "User signs up", type: :feature do
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
 
+  scenario 'with a short password' do
+    user = FactoryGirl.build(:user)
+    short_password = 'a' * 7
+    visit new_user_registration_path
+    fill_in 'Username', with: user.username
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: short_password
+    fill_in 'Password confirmation', with: short_password
+    check 'terms'
+    click_button 'Sign up'
+    expect(page).to have_content('Password is too short')
+  end
+
+  scenario 'with a long password' do
+    user = FactoryGirl.build(:user)
+    long_password = 'a' * 129
+    visit new_user_registration_path
+    fill_in 'Username', with: user.username
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: long_password
+    fill_in 'Password confirmation', with: long_password
+    check 'terms'
+    click_button 'Sign up'
+    expect(page).to have_content('Password is too long')
+  end
+
   scenario "without accepting terms" do
     user = FactoryGirl.build(:user)
-    non_matching_password = "non-matching #{user.password}"
     visit new_user_registration_path
     fill_in 'Username', with: user.username
     fill_in 'Email', with: user.email
