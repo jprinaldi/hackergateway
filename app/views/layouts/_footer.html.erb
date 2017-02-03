@@ -22,9 +22,15 @@
         <h5>Support</h5>
         <ul class="list-unstyled">
           <li>
+            <%= link_to 'FAQ', faq_path %>
+          </li>
+          <li>
             <a href="https://webchat.freenode.net/?channels=hackergateway" target="_blank">
               IRC
             </a>
+          </li>
+          <li>
+            <%= mail_to 'support@hackergateway.com', 'Contact' %>
           </li>
         </ul>
       </div>
