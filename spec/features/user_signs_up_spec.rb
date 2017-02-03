@@ -7,6 +7,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: user.password
+    check 'terms'
     click_button 'Sign up'
     expect(page).to have_content("Username can't be blank")
   end
@@ -17,6 +18,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: user.password
+    check 'terms'
     click_button 'Sign up'
     expect(page).to have_content("Email can't be blank")
   end
@@ -26,6 +28,7 @@ RSpec.feature "User signs up", type: :feature do
     visit new_user_registration_path
     fill_in 'Username', with: user.username
     fill_in 'Email', with: user.email
+    check 'terms'
     click_button 'Sign up'
     expect(page).to have_content("Password can't be blank")
   end
@@ -37,6 +40,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: user.password
+    check 'terms'
     click_button 'Sign up'
     expect(page).to have_current_path(root_path)
     expect(page).to have_content('activate your account')
@@ -50,7 +54,20 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: non_matching_password
+    check 'terms'
     click_button 'Sign up'
     expect(page).to have_content("Password confirmation doesn't match Password")
+  end
+
+  scenario "without accepting terms" do
+    user = FactoryGirl.build(:user)
+    non_matching_password = "non-matching #{user.password}"
+    visit new_user_registration_path
+    fill_in 'Username', with: user.username
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    click_button 'Sign up'
+    expect(page).to have_content("Terms of service must be accepted")
   end
 end

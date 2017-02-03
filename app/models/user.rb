@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :solved_challenges, through: :solutions, source: :challenge
 
   validates :username, presence: true, uniqueness: true
+  validates :terms_of_service, acceptance: true
 
   after_create :assign_default_role
   after_validation :move_friendly_id_error_to_username
