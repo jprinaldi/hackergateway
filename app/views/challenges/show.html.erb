@@ -12,6 +12,12 @@
       <%= label_tag :answer %>
       <%= text_field_tag :answer, nil, class: 'form-control', placeholder: "Enter answer" %>
     </div>
+    <script>
+      function submitSolveForm() {
+        var form = document.getElementById("solveForm");
+        form.submit();
+      }
+    </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <%= button_tag("Solve", class: "g-recaptcha btn btn-primary", id: "submit-answer", data: { sitekey: ENV['RECAPTCHA_SITE_KEY'], callback: 'submitSolveForm' }) %>
     <% end %>
