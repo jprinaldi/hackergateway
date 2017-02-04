@@ -1,14 +1,17 @@
 <ul class="list-group">
   <% users.each do |user| %>
-    <li class="list-group-item justify-content-between">
-      <%= link_to user.username, user %>
-      <% if solutions_count %>
-        <%= link_to user_solutions_path(user) do %>
-          <%= content_tag :span, class: 'badge badge-success badge-pill' do %>
-            <%= user.solutions.size %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </li>
+  <li class="list-group-item justify-content-between">
+    <%= link_to user.username, user %>
+    <% if local_assigns[:solutions_count] %>
+    <%= link_to user_solutions_path(user) do %>
+    <span class="badge badge-success badge-pill">
+      <%= user.solutions.size %>
+    </span>
+    <% end %>
+    <% end %>
+    <% if local_assigns[:registered_date] %>
+    <%= "#{time_ago_in_words(user.created_at)} ago" %>
+    <% end %>
+  </li>
   <% end %>
 </ul>
