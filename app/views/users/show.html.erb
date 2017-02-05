@@ -11,13 +11,13 @@
 
       <dt class="col-sm-3">Country</dt>
       <dd class="col-sm-9">
-        <% if @user.country.blank? %>
+        <% if @user.country_code.blank? %>
           <%= fa_icon 'question-circle', text: 'Unknown', class: 'fa-fw' %>
         <% else %>
-          <%= flag_icon(@user.country.downcase) %>
-          <%= content_tag :span do %>
-            <%= ISO3166::Country[@user.country].name %>
-          <% end %>
+          <%= @user.country.emoji_flag %>
+          <span>
+            <%= @user.country.name %>
+          </span>
         <% end %>
       </dd>
 

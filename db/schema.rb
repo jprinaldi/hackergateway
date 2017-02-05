@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20170126181922) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "username"
-    t.string   "country"
+    t.string   "country_code"
     t.integer  "solutions_count",        default: 0
     t.string   "slug"
     t.datetime "created_at",                          null: false

@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "user#{n}@example.com" }
     sequence(:username) { |n| "user#{n}" }
-    country "AR"
+    country_code "AR"
     password "12345678"
 
     trait :admin do

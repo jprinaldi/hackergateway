@@ -20,6 +20,10 @@ class User < ApplicationRecord
   after_create :assign_default_role
   after_validation :move_friendly_id_error_to_username
 
+  def country
+    ISO3166::Country[self[:country_code]]
+  end
+
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
   end

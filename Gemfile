@@ -72,10 +72,6 @@ gem 'cancancan'
 # Read more: https://github.com/stefanpenner/country_select
 gem 'country_select'
 
-# Use flag-icon-css for country flags support
-# Read more: https://github.com/eugenegarl/flag-icons-rails
-gem 'flag-icons-rails'
-
 # Use Gravtastic to add user profile images through Gravatar
 # Read more: https://github.com/chrislloyd/gravtastic
 gem 'gravtastic'
