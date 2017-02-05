@@ -13,7 +13,7 @@ class SolutionsController < ApplicationController
       @challenge = Challenge.includes(solutions: :user).friendly.find(params[:challenge_id])
       render :users
     else
-      @solutions = Solution.all
+      @solutions = Solution.includes(:user, :challenge).all
     end
   end
 
