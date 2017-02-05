@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def rankings
     @users = User.all.sort_by { |user| user.solutions.count }.reverse
+    @solutions_counts_users_counts = User.group(:solutions_count).count
   end
 
   private

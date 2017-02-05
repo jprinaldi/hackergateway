@@ -1,3 +1,18 @@
 <h1>Top users</h1>
 
-<%= render 'list', users: @users, solutions_count: true %>
+<div class="row">
+  <div class="col-lg-6">
+    <%= render 'list', users: @users, solutions_count: true %>
+  </div>
+  <div class="col-lg-6">
+    <%= column_chart @solutions_counts_users_counts,
+        xtitle: "Number of challenges solved", ytitle: "Number of users",
+        label: "Users",
+        colors: ["#5BC0DE"],
+        library: {
+          backgroundColor: { stroke: "#141619", strokeWidth: "2", fill: "#32383E" },
+          hAxis: { textStyle: { color: "#AAAAAA" }, titleTextStyle: { color: "#AAAAAA" } },
+          vAxis: { textStyle: { color: "#AAAAAA" }, titleTextStyle: { color: "#AAAAAA" } }
+        } %>
+  </div>
+</div>

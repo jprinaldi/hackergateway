@@ -96,6 +96,10 @@ gem 'oj'
 # Read more: https://github.com/bgarret/google-analytics-rails
 gem 'google-analytics-rails', '1.1.0'
 
+# Use Chartkick for charts support
+# Read more: https://github.com/ankane/chartkick
+gem 'chartkick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
