@@ -2,7 +2,30 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <%= render 'list', users: @users, solutions_count: true %>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each_with_index do |user, index| %>
+          <tr class="<%= 'table-active' if user_signed_in? and user == current_user %>">
+            <th scope="row"><%= (index + 1) * (params[:page] || 1).to_i %></th>
+            <td><%= link_to user.username, user %></td>
+            <td>
+              <%= link_to user_solutions_path(user) do %>
+              <span class="badge badge-success badge-pill">
+                <%= user.solutions_count %>
+              </span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <%= paginate @users %>
   </div>
   <div class="col-lg-6">
