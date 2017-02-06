@@ -96,6 +96,10 @@ gem 'google-analytics-rails', '1.1.0'
 # Read more: https://github.com/ankane/chartkick
 gem 'chartkick'
 
+# Use Kaminari for pagination support
+# Read more: https://github.com/kaminari/kaminari
+gem 'kaminari'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

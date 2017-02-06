@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def rankings
-    @users = User.all.sort_by { |user| user.solutions.count }.reverse
+    @users = User.all.order(solutions_count: :desc).page(params[:page])
     @solutions_counts_users_counts = User.group(:solutions_count).count
   end
 
