@@ -54,21 +54,6 @@ RSpec.describe SolutionsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new solution as @solution" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:solution)).to be_a_new(Solution)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested solution as @solution" do
-      solution = Solution.create! valid_attributes
-      get :edit, params: {id: solution.to_param}, session: valid_session
-      expect(assigns(:solution)).to eq(solution)
-    end
-  end
-
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Solution" do
@@ -99,62 +84,6 @@ RSpec.describe SolutionsController, type: :controller do
         post :create, params: {solution: invalid_attributes}, session: valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested solution" do
-        solution = Solution.create! valid_attributes
-        put :update, params: {id: solution.to_param, solution: new_attributes}, session: valid_session
-        solution.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested solution as @solution" do
-        solution = Solution.create! valid_attributes
-        put :update, params: {id: solution.to_param, solution: valid_attributes}, session: valid_session
-        expect(assigns(:solution)).to eq(solution)
-      end
-
-      it "redirects to the solution" do
-        solution = Solution.create! valid_attributes
-        put :update, params: {id: solution.to_param, solution: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(solution)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the solution as @solution" do
-        solution = Solution.create! valid_attributes
-        put :update, params: {id: solution.to_param, solution: invalid_attributes}, session: valid_session
-        expect(assigns(:solution)).to eq(solution)
-      end
-
-      it "re-renders the 'edit' template" do
-        solution = Solution.create! valid_attributes
-        put :update, params: {id: solution.to_param, solution: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested solution" do
-      solution = Solution.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: solution.to_param}, session: valid_session
-      }.to change(Solution, :count).by(-1)
-    end
-
-    it "redirects to the solutions list" do
-      solution = Solution.create! valid_attributes
-      delete :destroy, params: {id: solution.to_param}, session: valid_session
-      expect(response).to redirect_to(solutions_url)
     end
   end
 

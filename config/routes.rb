@@ -7,11 +7,11 @@ Rails.application.routes.draw do
       get 'rankings'
     end
   end
-  resources :challenges do
+  resources :challenges, only: [:index, :show] do
     resources :solutions, only: [:index, :create]
   end
   resources :solutions, only: :index
-  resources :categories
+  resources :categories, only: [:index, :show]
   root to: 'home#index'
   get 'policies', to: 'policies#index'
   get 'policies/privacy'

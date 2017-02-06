@@ -6,9 +6,10 @@ RSpec.feature "User updates challenge", type: :feature do
     challenge = FactoryGirl.create(:challenge)
     new_challenge_name = "ch4ll3ng3"
     login_as(user)
-    visit edit_challenge_path(challenge)
+    visit rails_admin.edit_path(model_name: 'challenge', id: challenge.id)
     fill_in 'Name', with: new_challenge_name
-    click_button 'Update'
+    click_button 'Save'
+    expect(page).to have_current_path(rails_admin.index_path(model_name: 'challenge'))
     expect(page).to have_content(new_challenge_name)
     expect(page).not_to have_content(challenge.name)
   end
@@ -18,14 +19,13 @@ RSpec.feature "User updates challenge", type: :feature do
     challenge = FactoryGirl.create(:challenge)
     login_as(user)
     expect {
-      visit edit_challenge_path(challenge)
+      visit rails_admin.edit_path(model_name: 'challenge', id: challenge.id)
     }.to raise_error(CanCan::AccessDenied)
   end
 
   scenario "without signing in" do
     challenge = FactoryGirl.create(:challenge)
-    expect {
-      visit edit_challenge_path(challenge)
-    }.to raise_error(CanCan::AccessDenied)
+    visit rails_admin.edit_path(model_name: 'challenge', id: challenge.id)
+    expect(page).to have_current_path(new_user_session_path)
   end
 end
