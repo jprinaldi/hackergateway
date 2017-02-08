@@ -3,14 +3,14 @@
 <div class="row">
   <div class="col-md-6">
     <dl class="row">
-      <dt class="col-sm-3">Profile image</dt>
-      <dd class="col-sm-9"><%= image_tag @user.gravatar_url %></dd>
+      <dt class="col-md-3">Profile image</dt>
+      <dd class="col-md-9"><%= image_tag @user.gravatar_url %></dd>
 
-      <dt class="col-sm-3">Username</dt>
-      <dd class="col-sm-9"><%= @user.username %></dd>
+      <dt class="col-md-3">Username</dt>
+      <dd class="col-md-9"><%= @user.username %></dd>
 
-      <dt class="col-sm-3">Country</dt>
-      <dd class="col-sm-9">
+      <dt class="col-md-3">Country</dt>
+      <dd class="col-md-9">
         <% if @user.country_code.blank? %>
           <%= fa_icon 'question-circle', text: 'Unknown', class: 'fa-fw' %>
         <% else %>
@@ -21,13 +21,18 @@
         <% end %>
       </dd>
 
-      <dt class="col-sm-3">Solved challenges</dt>
-      <dd class="col-sm-9">
+      <dt class="col-md-3">Solved challenges</dt>
+      <dd class="col-md-9">
         <%= link_to user_solutions_path(@user) do %>
           <%= content_tag :span, class: 'badge badge-success badge-pill' do %>
             <%= @user.solutions.size %>
           <% end %>
         <% end %>
+      </dd>
+
+      <dt class="col-md-3">Badges</dt>
+      <dd class="col-md-9">
+        <%= render 'badges', badges: @user.badges %>
       </dd>
     </dl>
   </div>

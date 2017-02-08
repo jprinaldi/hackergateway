@@ -8,20 +8,18 @@
 
 a = User.create(
   email: 'admin@example.com',
-  username: 'admin',
-  password: 'aaaaaa'
+  username: 'adminx',
+  password: 'aaaaaaaa'
 )
 a.add_role :admin
-a.confirm
 a.save
 
 u = User.create(
   email: 'guest@example.com',
   username: 'guest',
-  password: 'aaaaaa'
+  password: 'aaaaaaaa'
 )
 u.add_role :user
-u.confirm
 u.save
 
 crypto = Category.create(name: 'Cryptography', icon: 'lock')

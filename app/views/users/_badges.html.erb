@@ -1,0 +1,9 @@
+<ul class="list-inline">
+  <% badges.each do |badge| %>
+  <li class="list-linline-item">
+    <%= content_tag :span, class: 'badge badge-primary', data: { toggle: 'tooltip', placement: 'top', title: badge.description } do %>
+    <%= badge.name %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
