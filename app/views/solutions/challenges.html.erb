@@ -1,2 +1,5 @@
 <%= content_tag :h2, "#{@user.username}'s solved challenges" %>
 <%= render 'challenges', solutions: @user.solutions %>
+<% if @user.solutions.empty? %>
+  <p>This user hasn't solved any challenges yet.</p>
+<% end %>

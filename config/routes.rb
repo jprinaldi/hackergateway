@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index, :show] do
     resources :solutions, only: :index
-    collection do
-      get 'rankings'
-    end
   end
   resources :challenges, only: [:index, :show] do
     resources :solutions, only: [:index, :create]
@@ -15,6 +12,7 @@ Rails.application.routes.draw do
   resources :solutions, only: :index
   resources :categories, only: [:index, :show]
   root to: 'home#index'
+  get 'leaderboard', to: 'leaderboard#index'
   get 'policies', to: 'policies#index'
   get 'policies/privacy'
   get 'policies/terms'

@@ -12,8 +12,8 @@
       <%= nav_item challenges_path do %>
         <%= fa_icon 'star', text: 'Challenges', class: 'fa-fw' %>
       <% end %>
-      <%= nav_item rankings_users_path do %>
-        <%= fa_icon 'trophy', text: 'Rankings', class: 'fa-fw' %>
+      <%= nav_item leaderboard_path do %>
+        <%= fa_icon 'trophy', text: 'Leaderboard', class: 'fa-fw' %>
       <% end %>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
