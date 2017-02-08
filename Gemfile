@@ -52,10 +52,6 @@ gem "font-awesome-rails"
 # Read more: https://github.com/plataformatec/devise
 gem 'devise'
 
-# Use this gem to generate Devise views with Bootstrap
-# Read more: https://github.com/hisea/devise-bootstrap-views
-gem 'devise-bootstrap-views', github: 'hisea/devise-bootstrap-views', branch: 'bootstrap4'
-
 # Use FriendlyId for pretty URLs support
 # Read more: https://github.com/norman/friendly_id
 gem 'friendly_id', '~> 5.1.0'
