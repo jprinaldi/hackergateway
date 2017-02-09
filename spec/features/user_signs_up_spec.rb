@@ -1,6 +1,42 @@
 require 'rails_helper'
 
 RSpec.feature "User signs up", type: :feature do
+  scenario "with a short username" do
+    user = FactoryGirl.build(:user)
+    visit new_user_registration_path
+    fill_in 'Username', with: '012'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    check 'terms'
+    click_button 'Sign up'
+    expect(page).to have_content("Username is too short")
+  end
+
+  scenario "with a long username" do
+    user = FactoryGirl.build(:user)
+    visit new_user_registration_path
+    fill_in 'Username', with: '0123456789abcdef'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    check 'terms'
+    click_button 'Sign up'
+    expect(page).to have_content("Username is too long")
+  end
+
+  scenario "with a username containing unallowed characters" do
+    user = FactoryGirl.build(:user)
+    visit new_user_registration_path
+    fill_in 'Username', with: '0123_abCD'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    check 'terms'
+    click_button 'Sign up'
+    expect(page).to have_content("Username only allows letters, numbers and hyphens")
+  end
+
   scenario "without entering username" do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path

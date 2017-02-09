@@ -14,7 +14,12 @@ class User < ApplicationRecord
   has_many :solutions, dependent: :destroy
   has_many :solved_challenges, through: :solutions, source: :challenge
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true,
+    length: { minimum: 4, maximum: 15 },
+    format: {
+      with: /\A[a-zA-Z0-9\-]+\z/,
+      message: "only allows letters, numbers and hyphens"
+    }
   validates :terms_of_service, acceptance: true
 
   after_create :assign_default_role
