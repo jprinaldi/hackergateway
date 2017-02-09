@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  has_merit
-
   extend FriendlyId
   friendly_id :username, use: :slugged
 
