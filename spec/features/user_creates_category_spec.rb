@@ -7,7 +7,6 @@ RSpec.feature "User creates category", type: :feature do
     category = FactoryGirl.build(:category)
     visit rails_admin.new_path(model_name: 'category')
     fill_in 'Name', with: category.name
-    fill_in 'Icon', with: category.icon
     click_button 'Save'
     expect(page)
       .to have_current_path(rails_admin.index_path(model_name: 'category'))
