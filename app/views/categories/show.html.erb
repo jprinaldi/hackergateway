@@ -1,6 +1,12 @@
 <div class="card">
-  <h3 class="card-header">
-    <%= fa_icon @category.icon, text: @category.name %>
-  </h3>
+  <div class="card-header">
+    <h3>
+      <%= @category.name %>
+    </h3>
+    <%= render 'badges', category: @category %>
+  </div>
   <%= render 'challenges/list', challenges: @category.challenges %>
+  <% if @category.challenges.empty? %>
+    <p>This category doesn't have any challenges yet.</p>
+  <% end %>
 </div>

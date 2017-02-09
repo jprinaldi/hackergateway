@@ -22,8 +22,8 @@ u = User.create(
 u.add_role :user
 u.save
 
-crypto = Category.create(name: 'Cryptography', icon: 'lock')
-stegano = Category.create(name: 'Steganography', icon: 'picture-o')
+crypto = Category.create(name: 'Cryptography')
+stegano = Category.create(name: 'Steganography')
 
 Challenge.create(name: 'Test', body: '<strong>hello, world</strong>', answer: 'testing', category: crypto)
 Challenge.create(name: 'Test 2', body: '<em>goodbye, world</em>', answer: 'testing2', category: stegano)

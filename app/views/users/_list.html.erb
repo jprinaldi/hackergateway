@@ -8,7 +8,7 @@
     <% end %>
     <% end %>
     <% if local_assigns[:registered_date] %>
-    <%= "#{time_ago_in_words(user.created_at)} ago" %>
+    <%= "registered #{time_ago_in_words(user.created_at)} ago" %>
     <% end %>
   </li>
   <% end %>

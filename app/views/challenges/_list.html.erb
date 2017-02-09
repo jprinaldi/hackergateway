@@ -1,8 +1,11 @@
 <ul class="list-group">
   <% challenges.each do |challenge| %>
     <li class="list-group-item justify-content-between">
-      <%= link_to challenge.name, challenge %>
-      <%= render 'challenges/badges', challenge: challenge, show_category: local_assigns[:show_category] %>
+      <span>
+        <%= link_to challenge.name, challenge %>
+        <%= render 'challenges/badges', challenge: challenge, show_category: local_assigns[:show_category] %>
+      </span>
+      <%= "added #{time_ago_in_words(challenge.created_at)} ago" %>
     </li>
   <% end %>
 </ul>

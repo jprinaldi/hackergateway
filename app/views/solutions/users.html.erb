@@ -3,7 +3,10 @@
   <% @challenge.solutions.each do |solution| %>
     <li class="list-group-item justify-content-between">
       <%= link_to solution.user.username, solution.user %>
-      <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+      <%= "solved #{time_ago_in_words(solution.created_at)} ago" %>
     </li>
   <% end %>
 </ul>
+<% if @challenge.solvers.empty? %>
+  <p>This challenge doesn't have any solvers yet.</p>
+<% end %>

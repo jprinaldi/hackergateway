@@ -1,14 +1,10 @@
-<div class="row">
+<ul class="list-group">
   <% @categories.each do |category| %>
-    <div class="col-lg-6">
-      <div class="card">
-        <h3 class="card-header">
-          <%= link_to category do %>
-            <%= fa_icon category.icon, text: category.name %>
-          <% end %>
-        </h3>
-        <%= render 'challenges/list', challenges: category.challenges %>
-      </div>
-    </div>
+    <li class="list-group-item justify-content-between">
+      <span>
+        <%= link_to category.name, category %>
+      </span>
+      <span><%= pluralize category.challenges.size, 'challenge' %></span>
+    </li>
   <% end %>
-</div>
+</ul>

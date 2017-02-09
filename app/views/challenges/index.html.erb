@@ -1,12 +1,13 @@
 <div class="row">
   <% @categories.each do |category| %>
-    <div class="col-lg-6">
+    <div class="col-lg-6 mb-3">
       <div class="card">
-        <h3 class="card-header">
-          <%= link_to category do %>
-            <%= fa_icon category.icon, text: category.name %>
-          <% end %>
-        </h3>
+        <div class="card-header">
+          <h3>
+            <%= link_to category.name, category %>
+          </h3>
+          <%= render 'categories/badges', category: category %>
+        </div>
         <%= render 'list', challenges: category.challenges %>
       </div>
     </div>

@@ -3,7 +3,7 @@ class Challenge < ApplicationRecord
   friendly_id :name, use: :slugged
   resourcify
 
-  belongs_to :category
+  belongs_to :category, counter_cache: true
   has_many :solutions, dependent: :destroy
   has_many :solvers, through: :solutions, source: :user
 

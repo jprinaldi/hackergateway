@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20170126181922) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "icon"
+    t.integer  "challenges_count", default: 0
     t.string   "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["name"], name: "index_categories_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
