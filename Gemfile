@@ -116,6 +116,10 @@ gem 'roboto'
 # Read more: https://github.com/james2m/seedbank
 gem "seedbank"
 
+# Use New Relic for performance management support
+# Read more: https://github.com/newrelic/rpm
+gem 'newrelic_rpm'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
