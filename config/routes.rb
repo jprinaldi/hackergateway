@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :solutions, only: :index
   resources :categories, only: [:index, :show]
+  resources :faqs, only: :index
   root to: 'home#index'
   get 'leaderboard', to: 'leaderboard#index'
   get 'policies', to: 'policies#index'
