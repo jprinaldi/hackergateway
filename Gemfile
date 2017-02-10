@@ -104,6 +104,10 @@ gem 'rails_admin', '~> 1.0'
 # Read more: https://github.com/kpumuk/meta-tags
 gem 'meta-tags'
 
+# Use Lockup to protect staging environment with a codeword
+# Read more: https://github.com/gblakeman/lockup
+gem 'lockup'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
