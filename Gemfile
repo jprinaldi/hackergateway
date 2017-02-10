@@ -108,6 +108,10 @@ gem 'meta-tags'
 # Read more: https://github.com/gblakeman/lockup
 gem 'lockup'
 
+# Use Roboto for environment specific robots.txt support
+# Read more: https://github.com/LaunchAcademy/roboto
+gem 'roboto'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

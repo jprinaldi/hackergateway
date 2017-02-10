@@ -236,6 +236,9 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    roboto (0.2.0)
+      actionpack (>= 3.0.0)
+      rails (>= 3.1.0)
     rolify (5.1.0)
     rollbar (2.14.0)
       multi_json
@@ -352,6 +355,7 @@ DEPENDENCIES
   rails_admin (~> 1.0)
   rails_real_favicon
   recaptcha
+  roboto
   rolify
   rollbar
   rspec-rails (~> 3.5)
