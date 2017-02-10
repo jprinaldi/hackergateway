@@ -1,5 +1,9 @@
 RailsAdmin.config do |config|
 
+  # This line was added to allow the app to rescue from CanCan exceptions
+  # when accessing the admin dashboard
+  config.parent_controller = 'ApplicationController'
+
   ### Popular gems integration
 
   ## == Devise ==
