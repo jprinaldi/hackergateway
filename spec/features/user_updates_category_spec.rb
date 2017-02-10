@@ -18,9 +18,9 @@ RSpec.feature "User updates category", type: :feature do
     user = FactoryGirl.create(:user, :confirmed)
     category = FactoryGirl.create(:category)
     login_as(user)
-    expect {
-      visit rails_admin.edit_path(model_name: 'category', id: category.id)
-    }.to raise_error(CanCan::AccessDenied)
+    visit rails_admin.edit_path(model_name: 'category', id: category.id)
+    expect(page).to have_current_path(root_path)
+    expect(page).to have_content("You are not authorized to access this page")
   end
 
   scenario "without signing in" do

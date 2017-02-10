@@ -17,9 +17,9 @@ RSpec.feature "User creates category", type: :feature do
   scenario "without admin role" do
     user = FactoryGirl.create(:user, :confirmed)
     login_as(user)
-    expect {
-      visit rails_admin.new_path(model_name: 'category')
-    }.to raise_error(CanCan::AccessDenied)
+    visit rails_admin.new_path(model_name: 'category')
+    expect(page).to have_current_path(root_path)
+    expect(page).to have_content("You are not authorized to access this page")
   end
 
   scenario "without signing in" do
