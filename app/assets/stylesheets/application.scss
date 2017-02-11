@@ -13,17 +13,17 @@
  */
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "variables";
-@import "bootstrap";
-@import "bootswatch";
-@import "font-awesome";
+@import 'variables';
+@import 'bootstrap';
+@import 'bootswatch';
+@import 'font-awesome';
 
-@import "footer";
+@import 'footer';
 
 body {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 #main-container {

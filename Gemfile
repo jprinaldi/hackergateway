@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
@@ -46,7 +45,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # Use Font Awesome for icons support
 # Read more: https://github.com/bokmann/font-awesome-rails
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Use Devise for user authentication support
 # Read more: https://github.com/plataformatec/devise
@@ -58,7 +57,7 @@ gem 'friendly_id', '~> 5.1.0'
 
 # Use Rolify for user role management support
 # Read more: https://github.com/RolifyCommunity/rolify
-gem "rolify"
+gem 'rolify'
 
 # Use CanCanCan for user authorization support
 # Read more: https://github.com/CanCanCommunity/cancancan
@@ -74,7 +73,7 @@ gem 'gravtastic'
 
 # Use this gem for reCAPTCHA support
 # Read more: https://github.com/ambethia/recaptcha
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # Use Rollbar for exception tracking and logging support
 # Read more: https://github.com/rollbar/rollbar-gem
@@ -114,14 +113,15 @@ gem 'roboto'
 
 # Use Seedbank for environment specific seed data support
 # Read more: https://github.com/james2m/seedbank
-gem "seedbank"
+gem 'seedbank'
 
 # Use New Relic for performance management support
 # Read more: https://github.com/newrelic/rpm
 gem 'newrelic_rpm'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to
+  # stop execution and get a debugger console
   gem 'byebug', platform: :mri
 
   # Use RSpec as the testing framework
@@ -146,10 +146,14 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # Access an IRB console on exception pages or
+  # by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
+  # Spring speeds up development by keeping your
+  # application running in the background.
+  # Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
@@ -159,15 +163,15 @@ group :development do
 
   # Use Letter Opener for email previewing support
   # Read more: https://github.com/ryanb/letter_opener
-  gem "letter_opener"
+  gem 'letter_opener'
 
   # Use Better Errors for improved error reporting support
   # Read more: https://github.com/charliesome/better_errors
-  gem "better_errors"
+  gem 'better_errors'
 
   # Use this gem to enable advanced features for Better Errors
   # Read more: https://github.com/banister/binding_of_caller
-  gem "binding_of_caller"
+  gem 'binding_of_caller'
 
   # Use Bullet for help in reducing the number of queries the app makes
   # Read more: https://github.com/flyerhzm/bullet

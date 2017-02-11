@@ -6,11 +6,13 @@ class User < ApplicationRecord
   gravtastic default: 'mm'
 
   rolify
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
+
   has_many :solutions, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :solved_challenges, through: :solutions, source: :challenge
 
@@ -20,7 +22,7 @@ class User < ApplicationRecord
             length: { minimum: 4, maximum: 15 },
             format: {
               with: /\A[a-zA-Z0-9\-]+\z/,
-              message: "only allows letters, numbers and hyphens"
+              message: 'only allows letters, numbers and hyphens'
             }
   validates :terms_of_service, acceptance: true
 

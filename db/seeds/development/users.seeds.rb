@@ -5,7 +5,7 @@ a = User.create(
 )
 a.add_role :admin
 
-u = User.create(
+User.create(
   email: 'guest@example.com',
   username: 'guest',
   password: 'aaaaaaaa'

@@ -1,20 +1,23 @@
-#footer {
-    border: 1px solid rgba(0, 0, 0, 0.6);
-}
+$facebook: #0077e2;
+$twitter: #00aced;
 
-#footer .footer-copyright {
+.footer {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+
+  .footer-copyright {
     background-color: rgba(0, 0, 0, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+  }
 
-#footer .social-networks {
+  .social-networks {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
+  }
 
-#footer .facebook:hover {
-    color: #0077e2;
-}
+  .facebook:hover {
+    color: $facebook;
+  }
 
-#footer .twitter:hover {
-    color: #00aced;
+  .twitter:hover {
+    color: $twitter;
+  }
 }

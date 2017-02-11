@@ -4,23 +4,29 @@ class SolutionsController < ApplicationController
   load_and_authorize_resource
 
   # GET /solutions
-  # GET /solutions.json
   def index
     if params[:user_id]
-      @user = User.includes(solutions: :challenge)
-                  .friendly.find(params[:user_id])
-      render :challenges
+      user_solutions
     elsif params[:challenge_id]
-      @challenge = Challenge.includes(solutions: :user)
-                            .friendly.find(params[:challenge_id])
-      render :users
+      challenge_solutions
     else
       @solutions = Solution.includes(:user, :challenge).all
     end
   end
 
+  def user_solutions
+    @user = User.includes(solutions: :challenge)
+                .friendly.find(params[:user_id])
+    render :user_solutions
+  end
+
+  def challenge_solutions
+    @challenge = Challenge.includes(solutions: :user)
+                          .friendly.find(params[:challenge_id])
+    render :challenge_solutions
+  end
+
   # POST /solutions
-  # POST /solutions.json
   def create
     if !verify_recaptcha
     elsif current_user.solved? @challenge

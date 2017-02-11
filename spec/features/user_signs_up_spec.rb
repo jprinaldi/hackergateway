@@ -34,7 +34,8 @@ RSpec.feature 'User signs up', type: :feature do
     fill_in 'Password confirmation', with: user.password
     check 'terms'
     click_button 'Sign up'
-    expect(page).to have_content('Username only allows letters, numbers and hyphens')
+    expect(page)
+      .to have_content('Username only allows letters, numbers and hyphens')
   end
 
   scenario 'without entering username' do
