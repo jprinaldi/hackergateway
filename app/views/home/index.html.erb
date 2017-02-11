@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-6 mb-3">
+  <div class="col-lg-8 mb-3">
     <div class="card">
       <div class="card-header">
         <h4>Newest challenges</h4>
@@ -7,15 +7,7 @@
       <%= render 'challenges/list', challenges: @newest_challenges, show_category: true %>
     </div>
   </div>
-  <div class="col-lg-6 mb-3">
-    <div class="card">
-      <div class="card-header">
-        <h4>Newest solutions</h4>
-      </div>
-      <%= render 'solutions/list', solutions: @newest_solutions %>
-    </div>
-  </div>
-  <div class="col-lg-6 mb-3">
+  <div class="col-lg-4 mb-3">
     <div class="card">
       <div class="card-header">
         <h4>Newest users</h4>
@@ -23,7 +15,15 @@
       <%= render 'users/list', users: @newest_users, registered_date: true %>
     </div>
   </div>
-  <div class="col-lg-6 mb-3">
+  <div class="col-lg-8 mb-3">
+    <div class="card">
+      <div class="card-header">
+        <h4>Newest solutions</h4>
+      </div>
+      <%= render 'solutions/list', solutions: @newest_solutions %>
+    </div>
+  </div>
+  <div class="col-lg-4 mb-3">
     <div class="card">
       <div class="card-header">
         <h4>Top users</h4>

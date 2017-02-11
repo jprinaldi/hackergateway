@@ -15,8 +15,16 @@
   <body>
     <%= render 'layouts/navbar' %>
     <div id="main-container" class="container">
-      <%= flash_messages %>
-      <%= yield %>
+      <div class="row">
+        <div class="col-xl-2 push-xl-10 mb-4">
+          <%= render 'layouts/adblock' %>
+          <%= render 'layouts/adsense' %>
+        </div>
+        <div class="col-xl-10 pull-xl-2">
+          <%= flash_messages %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>
