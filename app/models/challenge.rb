@@ -12,6 +12,10 @@ class Challenge < ApplicationRecord
   validates :answer, presence: true
   validates :category, presence: true
 
+  def check(proposed_answer)
+    answer.casecmp(proposed_answer).zero?
+  end
+
   def should_generate_new_friendly_id?
     name_changed?
   end

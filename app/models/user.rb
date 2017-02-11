@@ -29,8 +29,16 @@ class User < ApplicationRecord
     ISO3166::Country[self[:country_code]]
   end
 
+  def solve(challenge)
+    solutions.create!(challenge: challenge)
+  end
+
+  def solved?(challenge)
+    solved_challenges.include? challenge
+  end
+
   def assign_default_role
-    self.add_role(:user) if self.roles.blank?
+    add_role(:user) if roles.blank?
   end
 
   def should_generate_new_friendly_id?

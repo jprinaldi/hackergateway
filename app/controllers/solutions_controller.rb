@@ -20,16 +20,12 @@ class SolutionsController < ApplicationController
   # POST /solutions
   # POST /solutions.json
   def create
-    if not verify_recaptcha
-    elsif current_user.solved_challenges.include? @challenge
+    if !verify_recaptcha
+    elsif current_user.solved? @challenge
       flash.notice = "You've already solved this challenge!"
-    elsif @challenge.answer.downcase == params[:answer].downcase
-      @solution = Solution.new(user: current_user, challenge: @challenge)
-      if @solution.save
-        flash[:success] = "You solved this challenge!"
-      else
-        flash[:error] = "Something went wrong!"
-      end
+    elsif @challenge.check(params[:answer])
+      current_user.solve(@challenge)
+      flash[:success] = "You solved this challenge!"
     else
       flash[:error] = "Your answer is wrong!"
     end
