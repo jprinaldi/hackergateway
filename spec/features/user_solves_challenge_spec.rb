@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "User solves challenge", type: :feature do
-  scenario "with correct answer" do
+RSpec.feature 'User solves challenge', type: :feature do
+  scenario 'with correct answer' do
     user = FactoryGirl.create(:user, :confirmed)
     challenge = FactoryGirl.create(:challenge)
     login_as(user)
@@ -9,10 +9,10 @@ RSpec.feature "User solves challenge", type: :feature do
     fill_in 'Answer', with: challenge.answer
     click_button 'Solve'
     expect(page).to have_current_path(challenge_path(challenge))
-    expect(page).to have_content("You solved this challenge!")
+    expect(page).to have_content('You solved this challenge!')
   end
 
-  scenario "with incorrect answer" do
+  scenario 'with incorrect answer' do
     user = FactoryGirl.create(:user, :confirmed)
     challenge = FactoryGirl.create(:challenge)
     login_as(user)
@@ -20,13 +20,13 @@ RSpec.feature "User solves challenge", type: :feature do
     fill_in 'Answer', with: "wrong #{challenge.answer}"
     click_button 'Solve'
     expect(page).to have_current_path(challenge_path(challenge))
-    expect(page).to have_content("Your answer is wrong!")
+    expect(page).to have_content('Your answer is wrong!')
   end
 
-  scenario "while having already solved it" do
+  scenario 'while having already solved it' do
     user = FactoryGirl.create(:user, :confirmed)
     challenge = FactoryGirl.create(:challenge)
-    solution = FactoryGirl.create(:solution, user: user, challenge: challenge)
+    user.solve(challenge)
     login_as(user)
     visit challenge_path(challenge)
     fill_in 'Answer', with: challenge.answer
@@ -35,7 +35,7 @@ RSpec.feature "User solves challenge", type: :feature do
     expect(page).to have_content("You've already solved this challenge!")
   end
 
-  scenario "without being logged in" do
+  scenario 'without being logged in' do
     challenge = FactoryGirl.create(:challenge)
     visit challenge_path(challenge)
     fill_in 'Answer', with: challenge.answer

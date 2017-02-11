@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "User signs up", type: :feature do
-  scenario "with a short username" do
+RSpec.feature 'User signs up', type: :feature do
+  scenario 'with a short username' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Username', with: '012'
@@ -10,10 +10,10 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Password confirmation', with: user.password
     check 'terms'
     click_button 'Sign up'
-    expect(page).to have_content("Username is too short")
+    expect(page).to have_content('Username is too short')
   end
 
-  scenario "with a long username" do
+  scenario 'with a long username' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Username', with: '0123456789abcdef'
@@ -22,10 +22,10 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Password confirmation', with: user.password
     check 'terms'
     click_button 'Sign up'
-    expect(page).to have_content("Username is too long")
+    expect(page).to have_content('Username is too long')
   end
 
-  scenario "with a username containing unallowed characters" do
+  scenario 'with a username containing unallowed characters' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Username', with: '0123_abCD'
@@ -34,10 +34,10 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Password confirmation', with: user.password
     check 'terms'
     click_button 'Sign up'
-    expect(page).to have_content("Username only allows letters, numbers and hyphens")
+    expect(page).to have_content('Username only allows letters, numbers and hyphens')
   end
 
-  scenario "without entering username" do
+  scenario 'without entering username' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Email', with: user.email
@@ -59,7 +59,7 @@ RSpec.feature "User signs up", type: :feature do
     expect(page).to have_content("Email can't be blank")
   end
 
-  scenario "without entering password" do
+  scenario 'without entering password' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Username', with: user.username
@@ -69,7 +69,7 @@ RSpec.feature "User signs up", type: :feature do
     expect(page).to have_content("Password can't be blank")
   end
 
-  scenario "with matching passwords" do
+  scenario 'with matching passwords' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Username', with: user.username
@@ -82,7 +82,7 @@ RSpec.feature "User signs up", type: :feature do
     expect(page).to have_content('activate your account')
   end
 
-  scenario "with non-matching passwords" do
+  scenario 'with non-matching passwords' do
     user = FactoryGirl.build(:user)
     non_matching_password = "non-matching #{user.password}"
     visit new_user_registration_path
@@ -121,7 +121,7 @@ RSpec.feature "User signs up", type: :feature do
     expect(page).to have_content('Password is too long')
   end
 
-  scenario "without accepting terms" do
+  scenario 'without accepting terms' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
     fill_in 'Username', with: user.username
@@ -129,6 +129,6 @@ RSpec.feature "User signs up", type: :feature do
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: user.password
     click_button 'Sign up'
-    expect(page).to have_content("Terms of service must be accepted")
+    expect(page).to have_content('Terms of service must be accepted')
   end
 end
