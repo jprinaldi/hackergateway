@@ -23,7 +23,7 @@ class SolutionsController < ApplicationController
     if not verify_recaptcha
     elsif current_user.solved_challenges.include? @challenge
       flash.notice = "You've already solved this challenge!"
-    elsif @challenge.answer == params[:answer]
+    elsif @challenge.answer.downcase == params[:answer].downcase
       @solution = Solution.new(user: current_user, challenge: @challenge)
       if @solution.save
         flash[:success] = "You solved this challenge!"
