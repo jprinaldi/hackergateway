@@ -9,9 +9,4 @@ RSpec.feature 'User signs out', type: :feature do
     expect(page).to have_current_path(root_path)
     expect(page).not_to have_content('Sign out')
   end
-
-  scenario 'while being signed out' do
-    visit root_path
-    expect(page).not_to have_content('Sign out')
-  end
 end

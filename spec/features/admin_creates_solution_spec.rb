@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Admin creates solution', type: :feature do
-  scenario 'which already exists' do
+  before(:each) do
     admin = FactoryGirl.create(:user, :confirmed, :admin)
-    old_solution = FactoryGirl.create(:solution)
     login_as(admin)
+  end
+
+  scenario 'which already exists' do
+    old_solution = FactoryGirl.create(:solution)
     visit rails_admin.new_path(model_name: 'solution')
     select old_solution.user.username, from: 'User'
     select old_solution.challenge.name, from: 'Challenge'
@@ -15,9 +18,7 @@ RSpec.feature 'Admin creates solution', type: :feature do
   end
 
   scenario 'successfully' do
-    admin = FactoryGirl.create(:user, :confirmed, :admin)
     solution = FactoryGirl.build(:solution)
-    login_as(admin)
     visit rails_admin.new_path(model_name: 'solution')
     select solution.user.username, from: 'User'
     select solution.challenge.name, from: 'Challenge'
