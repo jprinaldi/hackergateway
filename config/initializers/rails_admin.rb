@@ -43,5 +43,9 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.label_methods << :username
+  config.model 'User' do
+    object_label_method do
+      :username
+    end
+  end
 end
