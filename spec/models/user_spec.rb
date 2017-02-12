@@ -20,4 +20,9 @@ RSpec.describe User, type: :model do
     user = FactoryGirl.build(:user, country_code: nil)
     expect(user).to be_valid
   end
+
+  it 'is invalid with an invalid country code' do
+    user = FactoryGirl.build(:user, country_code: 'XX')
+    expect(user).not_to be_valid
+  end
 end

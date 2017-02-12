@@ -24,6 +24,11 @@ class User < ApplicationRecord
               with: /\A[a-zA-Z0-9\-]+\z/,
               message: 'only allows letters, numbers and hyphens'
             }
+  validates :country_code, inclusion: {
+    in: ISO3166::Country.all.map(&:alpha2),
+    allow_blank: true,
+    message: 'is not valid'
+  }
   validates :terms_of_service, acceptance: true
 
   after_create :assign_default_role
