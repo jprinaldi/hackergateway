@@ -31,24 +31,45 @@ RSpec.feature 'User updates profile', type: :feature do
       .to have_content('Username only allows letters, numbers and hyphens')
   end
 
-  scenario 'with an invalid current password' do
-    new_username = 'us3rn4m3'
-    invalid_password = 'p4ssw0rd'
+  scenario 'with a blank email' do
     visit edit_user_registration_path
-    fill_in 'Username', with: new_username
-    fill_in 'Current password', with: invalid_password
+    fill_in 'Email', with: ''
+    fill_in 'Current password', with: @user.password
     click_button 'Update'
-    expect(page).to have_content('Current password is invalid')
-    expect(page).to have_content(@user.username)
-    expect(page).not_to have_content(new_username)
+    expect(page).to have_content("Email can't be blank")
   end
 
-  scenario 'with the correct current password' do
+  scenario 'with non-matching new passwords' do
+    visit edit_user_registration_path
+    fill_in 'Password', with: 'new #{@user.password}'
+    fill_in 'Password confirmation', with: 'other #{@user.password}'
+    fill_in 'Current password', with: @user.password
+    click_button 'Update'
+    expect(page).to have_content("Password confirmation doesn't match Password")
+  end
+
+  scenario 'with a blank current password' do
+    visit edit_user_registration_path
+    fill_in 'Username', with: @user.username
+    fill_in 'Current password', with: ''
+    click_button 'Update'
+    expect(page).to have_content("Current password can't be blank")
+  end
+
+  scenario 'with an invalid current password' do
+    visit edit_user_registration_path
+    fill_in 'Current password', with: "invalid #{@user.password}"
+    click_button 'Update'
+    expect(page).to have_content('Current password is invalid')
+  end
+
+  scenario 'successfully' do
     new_username = 'us3rn4m3'
     visit edit_user_registration_path
     fill_in 'Username', with: new_username
     fill_in 'Current password', with: @user.password
     click_button 'Update'
+    expect(page).to have_content('Your account has been updated successfully')
     expect(page).to have_content(new_username)
     expect(page).not_to have_content(@user.username)
   end
