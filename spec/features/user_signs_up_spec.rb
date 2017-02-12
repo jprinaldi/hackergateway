@@ -38,6 +38,19 @@ RSpec.feature 'User signs up', type: :feature do
       .to have_content('Username only allows letters, numbers and hyphens')
   end
 
+  scenario 'with a taken username' do
+    FactoryGirl.create(:user, username: 'MyUsername')
+    user = FactoryGirl.build(:user)
+    visit new_user_registration_path
+    fill_in 'Username', with: 'mYuSeRnAmE'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    check 'terms'
+    click_button 'Sign up'
+    expect(page).to have_content('Username has already been taken')
+  end
+
   scenario 'without entering username' do
     user = FactoryGirl.build(:user)
     visit new_user_registration_path
