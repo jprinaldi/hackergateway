@@ -15,4 +15,11 @@ RSpec.describe Solution, type: :model do
     solution = FactoryGirl.build(:solution, challenge: nil)
     expect(solution).not_to be_valid
   end
+
+  it "correctly updates its related objects counts when destroyed" do
+    solution = FactoryGirl.create(:solution)
+    expect { solution.destroy }
+      .to change { solution.user.solutions_count }.by(-1)
+      .and change { solution.challenge.solutions_count }.by(-1)
+  end
 end

@@ -4,7 +4,7 @@ class Category < ApplicationRecord
   friendly_id :name, use: :slugged
   resourcify
 
-  has_many :challenges
+  has_many :challenges, dependent: :restrict_with_error
 
   validates :name, presence: true, uniqueness: true
 

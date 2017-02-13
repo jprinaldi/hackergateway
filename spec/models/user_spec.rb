@@ -25,4 +25,20 @@ RSpec.describe User, type: :model do
     user = FactoryGirl.build(:user, country_code: "XX")
     expect(user).not_to be_valid
   end
+
+  it "can solve challenges" do
+    user = FactoryGirl.create(:user, :confirmed)
+    challenge = FactoryGirl.create(:challenge)
+    expect { user.solve(challenge) }
+      .to change { Solution.count }.by(1)
+      .and change { user.solutions_count }.by(1)
+      .and change { challenge.solutions_count }.by(1)
+  end
+
+  it "correctly updates its related objects counts when destroyed" do
+    solution = FactoryGirl.create(:solution)
+    expect { solution.user.destroy }
+      .to change { Solution.count }.by(-1)
+      .and change { solution.challenge.reload.solutions_count }.by(-1)
+  end
 end
