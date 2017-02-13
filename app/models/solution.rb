@@ -6,6 +6,6 @@ class Solution < ApplicationRecord
   validates :user, presence: :true
   validates :challenge, presence: :true
   validates :user, uniqueness: {
-    scope: :challenge, message: 'has already solved this challenge'
+    scope: :challenge, message: "has already solved this challenge"
   }
 end

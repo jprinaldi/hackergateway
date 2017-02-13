@@ -1,2 +1,2 @@
-Category.create(name: 'Cryptography')
-Category.create(name: 'Steganography')
+Category.create(name: "Cryptography")
+Category.create(name: "Steganography")

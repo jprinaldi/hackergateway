@@ -1,1 +1,1 @@
-json.partial! 'challenges/challenge', challenge: @challenge
+json.partial! "challenges/challenge", challenge: @challenge

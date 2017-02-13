@@ -1,28 +1,28 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  it 'has a valid factory' do
+  it "has a valid factory" do
     user = FactoryGirl.build(:user)
     expect(user).to be_valid
   end
 
-  it 'is invalid without an email' do
+  it "is invalid without an email" do
     user = FactoryGirl.build(:user, username: nil)
     expect(user).not_to be_valid
   end
 
-  it 'is invalid without a username' do
+  it "is invalid without a username" do
     user = FactoryGirl.build(:user, email: nil)
     expect(user).not_to be_valid
   end
 
-  it 'is valid without a country code' do
+  it "is valid without a country code" do
     user = FactoryGirl.build(:user, country_code: nil)
     expect(user).to be_valid
   end
 
-  it 'is invalid with an invalid country code' do
-    user = FactoryGirl.build(:user, country_code: 'XX')
+  it "is invalid with an invalid country code" do
+    user = FactoryGirl.build(:user, country_code: "XX")
     expect(user).not_to be_valid
   end
 end

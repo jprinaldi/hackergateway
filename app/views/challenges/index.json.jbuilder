@@ -1,1 +1,1 @@
-json.array! @challenges, partial: 'challenges/challenge', as: :challenge
+json.array! @challenges, partial: "challenges/challenge", as: :challenge

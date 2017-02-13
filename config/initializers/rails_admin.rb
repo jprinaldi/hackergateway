@@ -1,8 +1,7 @@
 RailsAdmin.config do |config|
-
   # This line was added to allow the app to rescue from CanCan exceptions
   # when accessing the admin dashboard
-  config.parent_controller = 'ApplicationController'
+  config.parent_controller = "ApplicationController"
 
   ### Popular gems integration
 
@@ -43,7 +42,7 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'User' do
+  config.model "User" do
     object_label_method do
       :username
     end

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   friendly_id :username, use: :slugged
 
   include Gravtastic
-  gravtastic default: 'mm'
+  gravtastic default: "mm"
 
   rolify
 
@@ -22,12 +22,12 @@ class User < ApplicationRecord
             length: { minimum: 4, maximum: 15 },
             format: {
               with: /\A[a-zA-Z0-9\-]+\z/,
-              message: 'only allows letters, numbers and hyphens'
+              message: "only allows letters, numbers and hyphens"
             }
   validates :country_code, inclusion: {
     in: ISO3166::Country.all.map(&:alpha2),
     allow_blank: true,
-    message: 'is not valid'
+    message: "is not valid"
   }
   validates :terms_of_service, acceptance: true
 

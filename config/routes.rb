@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount_roboto
-  mount Lockup::Engine, at: '/lockup'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Lockup::Engine, at: "/lockup"
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   devise_for :users
   resources :users, only: [:index, :show] do
     resources :solutions, only: :index
@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   resources :solutions, only: :index
   resources :categories, only: [:index, :show]
   resources :faqs, only: :index
-  root to: 'home#index'
-  get 'leaderboard', to: 'leaderboard#index'
-  get 'policies', to: 'policies#index'
-  get 'policies/privacy'
-  get 'policies/terms'
-  get 'faq', to: 'faq#index'
-  get 'about', to: 'about#index'
-  get 'chat', to: 'chat#index'
+  root to: "home#index"
+  get "leaderboard", to: "leaderboard#index"
+  get "policies", to: "policies#index"
+  get "policies/privacy"
+  get "policies/terms"
+  get "faq", to: "faq#index"
+  get "about", to: "about#index"
+  get "chat", to: "chat#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
