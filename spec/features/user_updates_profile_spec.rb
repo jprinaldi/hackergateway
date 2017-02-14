@@ -31,6 +31,14 @@ RSpec.feature "User updates profile", type: :feature do
       .to have_content("Username only allows letters, numbers and hyphens")
   end
 
+  scenario "with a reserved username" do
+    visit edit_user_registration_path
+    fill_in "Username", with: "admin"
+    fill_in "Current password", with: @user.password
+    click_button "Update"
+    expect(page).to have_content("Username is reserved")
+  end
+
   scenario "with a blank email" do
     visit edit_user_registration_path
     fill_in "Email", with: ""
