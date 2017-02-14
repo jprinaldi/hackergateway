@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord # :nodoc:
   extend FriendlyId
   friendly_id :username, use: :slugged
 
@@ -55,6 +55,7 @@ class User < ApplicationRecord
   end
 
   def move_friendly_id_error_to_username
-    errors.add :username, *errors.delete(:friendly_id) if errors[:friendly_id].present?
+    return unless errors[:friendly_id].present?
+    errors.add :username, *errors.delete(:friendly_id)
   end
 end

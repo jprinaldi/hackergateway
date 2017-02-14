@@ -1,4 +1,6 @@
-class Ability
+# This class is used to define User permissions which are enforced
+# by the CanCanCan gem
+class Ability # :nodoc:
   include CanCan::Ability
 
   def initialize(user)
