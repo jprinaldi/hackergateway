@@ -1,2 +1,3 @@
-json.extract! challenge, :id, :name, :body, :category_id, :created_at, :updated_at
-json.url challenge_url(challenge, format: :json)
+json.extract! challenge, :name, :category, :solutions_count
+json.name challenge.slug
+json.category challenge.category.slug

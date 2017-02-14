@@ -1,2 +1,3 @@
-json.extract! solution, :id, :user_id, :challenge_id, :created_at, :updated_at
-json.url solution_url(solution, format: :json)
+json.extract! solution, :user, :challenge
+json.user solution.user.username
+json.challenge solution.challenge.slug
