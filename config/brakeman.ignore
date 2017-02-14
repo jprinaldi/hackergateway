@@ -1,0 +1,25 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "b31fe1f3ca96cab56d0339353416fdfd2f3911ced28eb5b716ddb2b48a0ed7f1",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/challenges/show.html.erb",
+      "line": 8,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Challenge.friendly.find(params[:id]).body",
+      "render_path": [{"type":"controller","class":"ChallengesController","method":"show","line":15,"file":"app/controllers/challenges_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "challenges/show"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": "That unescaped model attribute is needed because of the nature of challenges, and only admins can manipulate it."
+    }
+  ],
+  "updated": "2017-02-13 23:23:04 -0300",
+  "brakeman_version": "3.5.0"
+}
