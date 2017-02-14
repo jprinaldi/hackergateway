@@ -1,13 +1,9 @@
 module ApplicationHelper
   # Create nav items in Bootstrap 4 style
-  def nav_item(body = nil, url, &block)
+  def nav_item(url, &block)
     active = "active" if current_page?(url)
     content_tag :li, class: "nav-item #{active}" do
-      if body.nil?
-        link_to(url, { class: "nav-link" }, &block)
-      else
-        link_to(body, url, class: "nav-link")
-      end
+      link_to(url, { class: "nav-link" }, &block)
     end
   end
 

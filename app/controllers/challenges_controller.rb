@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_action :set_challenge, only: :show
   load_and_authorize_resource
 
   # GET /challenges
@@ -19,11 +19,5 @@ class ChallengesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_challenge
     @challenge = Challenge.friendly.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet,
-  # only allow the white list through.
-  def challenge_params
-    params.require(:challenge).permit(:name, :body, :answer, :category_id)
   end
 end

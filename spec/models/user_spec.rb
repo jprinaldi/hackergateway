@@ -26,6 +26,13 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
   end
 
+  it "has access to its countrie's information" do
+    user = FactoryGirl.build(:user, country_code: "AR")
+    country = user.country
+    expect(country.name).to eq("Argentina")
+    expect(country.emoji_flag).to eq("🇦🇷")
+  end
+
   it "can solve challenges" do
     user = FactoryGirl.create(:user, :confirmed)
     challenge = FactoryGirl.create(:challenge)

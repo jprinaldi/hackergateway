@@ -46,10 +46,4 @@ class SolutionsController < ApplicationController
   def set_challenge
     @challenge = Challenge.friendly.find(params[:challenge_id])
   end
-
-  # Never trust parameters from the scary internet,
-  # only allow the white list through.
-  def solution_params
-    { user_id: current_user.id, challenge_id: :challenge_id }
-  end
 end
