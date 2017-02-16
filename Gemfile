@@ -180,6 +180,10 @@ group :development do
   # Use this gem to generate favicons for multiple devices
   # Read more: https://github.com/RealFaviconGenerator/rails_real_favicon
   gem "rails_real_favicon"
+
+  # Use Pry as a replacement for IRB
+  # Read more: https://github.com/rweng/pry-rails
+  gem "pry-rails"
 end
 
 group :test do
