@@ -21,5 +21,14 @@ Rails.application.routes.draw do
   get "about", to: "about#index"
   get "chat", to: "chat#index"
 
+  namespace :api do
+    namespace :wechall do
+      namespace :users do
+        get "validate"
+        get "score"
+      end
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
