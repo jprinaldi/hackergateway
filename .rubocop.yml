@@ -1,3 +1,7 @@
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+
 Documentation:
   Exclude:
     - "app/controllers/*"
@@ -10,12 +14,11 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - "config/environments/*"
-    - "db/schema.rb"
+    - "config/routes.rb"
     - "spec/**/*"
 
 Metrics/LineLength:
   Exclude:
-    - "db/schema.rb"
     - "config/application.rb"
     - "config/environments/*"
     - "config/initializers/*"
