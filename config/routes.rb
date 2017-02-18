@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount_roboto
   mount Lockup::Engine, at: "/lockup"
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
-  devise_for :users
+  devise_for :users, controllers: { registrations: :registrations }
   resources :users, only: [:index, :show] do
     resources :solutions, only: :index
   end

@@ -77,6 +77,7 @@ RSpec.feature "User updates profile", type: :feature do
     fill_in "Username", with: new_username
     fill_in "Current password", with: @user.password
     click_button "Update"
+    expect(page).to have_current_path(user_path(id: new_username))
     expect(page).to have_content("Your account has been updated successfully")
     expect(page).to have_content(new_username)
     expect(page).not_to have_content(@user.username)
