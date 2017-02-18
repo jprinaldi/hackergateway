@@ -6,7 +6,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :encrypted_password, null: false, default: ""
 
       # Custom attributes
-      t.string :username
+      t.string :username, null: false, default: ""
+      t.string :name
       t.string :country_code
       t.integer :solutions_count, default: 0
       t.string :slug

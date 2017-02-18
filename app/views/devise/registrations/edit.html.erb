@@ -19,6 +19,10 @@
     <%= f.email_field :email, class: 'form-control', required: true %>
   </div>
   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.label :country %>
     <%= country_select(:user, :country_code, { include_blank: 'Select a country' }, { id: 'user_country', class: 'form-control' }) %>
   </div>
