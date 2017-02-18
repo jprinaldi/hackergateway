@@ -10,13 +10,13 @@
 
   <dt class="col-md-3">Country</dt>
   <dd class="col-md-9">
-    <% if @user.country_code.blank? %>
-      <%= fa_icon 'question-circle', text: 'Unknown', class: 'fa-fw' %>
-    <% else %>
+    <% if @user.country_code? %>
       <%= @user.country.emoji_flag %>
       <span>
         <%= @user.country.name %>
       </span>
+    <% else %>
+      <%= fa_icon 'question-circle', text: 'Unknown', class: 'fa-fw' %>
     <% end %>
   </dd>
 
