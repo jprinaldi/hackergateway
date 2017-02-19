@@ -14,14 +14,22 @@ module Api
       def score
         user = User.find_by(username: params[:username])
         head(:no_content) && return unless user
-        data = {
-          score: user.solutions_count,
-          max_score: Challenge.count
-        }
-        render plain: data.values.join(":")
+        render plain: score_data(user).values.join(":")
       end
 
       private
+
+      def score_data(user)
+        {
+          username: user.username,
+          rank: user.rank,
+          score: user.solutions_count,
+          max_score: Challenge.count,
+          solutions_count: user.solutions_count,
+          challenges_count: Challenge.count,
+          users_count: User.count
+        }
+      end
 
       def restrict_access
         api_key = ApiKey.find_by(token: params[:token])

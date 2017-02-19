@@ -66,14 +66,22 @@ RSpec.describe "API for WeChall", type: :request do
       challenges[0..5].each do |challenge|
         user.solve(challenge)
       end
-      data = { score: user.solutions_count, max_score: Challenge.count }
+      score_data = {
+        username: user.username,
+        rank: user.rank,
+        score: user.solutions_count,
+        max_score: Challenge.count,
+        solutions_count: user.solutions_count,
+        challenges_count: Challenge.count,
+        users_count: User.count
+      }
       get api_wechall_users_score_path(
         username: user.username,
         token: api_key.token
       )
       expect(response).to have_http_status(200)
       expect(response.body)
-        .to include(data.values.join(":"))
+        .to include(score_data.values.join(":"))
     end
   end
 end
