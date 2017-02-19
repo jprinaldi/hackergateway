@@ -13,8 +13,10 @@ class User < ApplicationRecord # :nodoc:
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  has_many :solutions, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :solutions, dependent: :destroy
   has_many :solved_challenges, through: :solutions, source: :challenge
+
+  scope :ranked, -> { order(solutions_count: :desc, last_solution_at: :asc) }
 
   validates :username,
             presence: true,
@@ -39,11 +41,16 @@ class User < ApplicationRecord # :nodoc:
   end
 
   def solve(challenge)
-    solutions.create!(challenge: challenge)
+    solution = solutions.create!(challenge: challenge)
+    update_attribute(:last_solution_at, solution.created_at)
   end
 
   def solved?(challenge)
     solved_challenges.include? challenge
+  end
+
+  def rank
+    User.ranked.index(self) + 1
   end
 
   def assign_default_role

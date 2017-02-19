@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :country_code
       t.integer :solutions_count, default: 0
+      t.datetime :last_solution_at
       t.string :slug
 
       ## Recoverable

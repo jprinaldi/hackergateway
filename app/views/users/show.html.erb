@@ -39,6 +39,11 @@
   <dd class="col-md-9"><%= time_tag(@user.created_at.to_date) %></dd>
 
   <dt class="col-md-3">
+    <%= fa_icon('trophy', text: 'Rank', class: 'fa-fw') %>
+  </dt>
+  <dd class="col-md-9"><%= @user.rank %></dd>
+
+  <dt class="col-md-3">
     <%= fa_icon('check-circle', text: 'Solved challenges', class: 'fa-fw') %>
   </dt>
   <dd class="col-md-9">

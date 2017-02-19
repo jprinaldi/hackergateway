@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170214231442) do
     t.string   "name"
     t.string   "country_code"
     t.integer  "solutions_count",        default: 0
+    t.datetime "last_solution_at"
     t.string   "slug"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

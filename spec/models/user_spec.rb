@@ -42,6 +42,19 @@ RSpec.describe User, type: :model do
       .and change { challenge.solutions_count }.by(1)
   end
 
+  it "can improve her rank" do
+    user = FactoryGirl.create(:user, :confirmed)
+    other_user = FactoryGirl.create(:user, :confirmed)
+    challenge = FactoryGirl.create(:challenge)
+    other_challenge = FactoryGirl.create(:challenge)
+    other_user.solve(challenge)
+    expect(other_user.rank).to eq(1)
+    expect(user.rank).to eq(2)
+    expect { user.solve(challenge) && user.solve(other_challenge) }
+      .to change { user.rank }.by(-1)
+      .and change { other_user.rank }.by(1)
+  end
+
   it "correctly updates its related objects counts when destroyed" do
     solution = FactoryGirl.create(:solution)
     expect { solution.user.destroy }

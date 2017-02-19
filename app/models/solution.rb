@@ -8,4 +8,12 @@ class Solution < ApplicationRecord # :nodoc:
   validates :user, uniqueness: {
     scope: :challenge, message: "has already solved this challenge"
   }
+
+  after_destroy do |solution|
+    new_solution = user.solutions.second_to_last
+    solution.user.update_attribute(
+      :last_solution_at,
+      new_solution ? new_solution.created_at : nil
+    )
+  end
 end
