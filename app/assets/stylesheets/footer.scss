@@ -1,5 +1,6 @@
-$facebook: #0077e2;
-$twitter: #00aced;
+$facebook: #3b5998;
+$twitter: #55acee;
+$github: #000;
 
 .footer {
   border: 1px solid rgba(0, 0, 0, 0.6);
@@ -19,5 +20,9 @@ $twitter: #00aced;
 
   .twitter:hover {
     color: $twitter;
+  }
+
+  .github:hover {
+    color: $github;
   }
 }
