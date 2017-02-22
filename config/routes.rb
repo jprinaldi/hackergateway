@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount_roboto
   mount Lockup::Engine, at: "/lockup"
+  authenticate :user, ->(user) { user.has_role? :admin } do
+    mount PgHero::Engine, at: "pghero"
+  end
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   devise_for :users, controllers: { registrations: :registrations }
   resources :users, only: [:index, :show] do

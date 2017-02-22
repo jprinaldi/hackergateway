@@ -119,6 +119,11 @@ gem "seedbank"
 # Read more: https://github.com/newrelic/rpm
 gem "newrelic_rpm"
 
+# Use PgHero for PostgreSQL performance dashboard support
+# Read more: https://github.com/ankane/pghero
+gem "pghero"
+gem "pg_query"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
