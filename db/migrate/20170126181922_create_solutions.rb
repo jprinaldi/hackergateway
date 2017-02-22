@@ -6,6 +6,5 @@ class CreateSolutions < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :solutions, [:user_id, :challenge_id], unique: true
   end
 end

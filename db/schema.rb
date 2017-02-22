@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20170214231442) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["challenge_id"], name: "index_solutions_on_challenge_id", using: :btree
-    t.index ["user_id", "challenge_id"], name: "index_solutions_on_user_id_and_challenge_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_solutions_on_user_id", using: :btree
   end
 
