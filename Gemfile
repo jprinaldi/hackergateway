@@ -53,7 +53,7 @@ gem "devise"
 
 # Use FriendlyId for pretty URLs support
 # Read more: https://github.com/norman/friendly_id
-gem "friendly_id", "~> 5.1.0"
+gem "friendly_id"
 
 # Use Rolify for user role management support
 # Read more: https://github.com/RolifyCommunity/rolify
