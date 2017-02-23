@@ -196,10 +196,6 @@ group :test do
   # Read more: https://github.com/colszowka/simplecov
   gem "simplecov", require: false
 
-  # Use Codecov for code coverage reports support
-  # Read more: https://github.com/codecov/codecov-ruby
-  gem "codecov", require: false
-
   # Use this gem to report code coverage results to Code Climate
   # Read more: https://github.com/codeclimate/ruby-test-reporter
   gem "codeclimate-test-reporter", "~> 1.0.0"
