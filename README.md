@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/juampi/hackergateway.svg?branch=master)](https://travis-ci.org/juampi/hackergateway)
 [![Code Climate](https://codeclimate.com/github/juampi/hackergateway/badges/gpa.svg)](https://codeclimate.com/github/juampi/hackergateway)
-[![Test Coverage](https://codeclimate.com/github/juampi/hackergateway/badges/coverage.svg)](https://codeclimate.com/github/juampi/hackergateway/coverage)
+[![codecov](https://codecov.io/gh/juampi/hackergateway/branch/master/graph/badge.svg)](https://codecov.io/gh/juampi/hackergateway)
 
 # Hacker Gateway
 
