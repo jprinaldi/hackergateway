@@ -11,6 +11,7 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    eval(@challenge.code) if @challenge.code?
     @solution = Solution.new
   end
 

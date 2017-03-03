@@ -1,6 +1,26 @@
 {
   "ignored_warnings": [
     {
+      "warning_type": "Dangerous Eval",
+      "warning_code": 13,
+      "fingerprint": "aa9c0c2e76e9b697811d64d6bee5b850a1919d48f81ff5bc89681c1ede886b4b",
+      "check_name": "Evaluation",
+      "message": "User input in eval",
+      "file": "app/controllers/challenges_controller.rb",
+      "line": 14,
+      "link": "http://brakemanscanner.org/docs/warning_types/dangerous_eval/",
+      "code": "eval(Challenge.friendly.find(params[:id]).code)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ChallengesController",
+        "method": "show"
+      },
+      "user_input": "Challenge.friendly.find(params[:id])",
+      "confidence": "High",
+      "note": "That ueval function is needed because of the nature of challenges, and only admins can manipulate what gets evaluated."
+    },
+    {
       "warning_type": "Cross Site Scripting",
       "warning_code": 2,
       "fingerprint": "b31fe1f3ca96cab56d0339353416fdfd2f3911ced28eb5b716ddb2b48a0ed7f1",
@@ -10,7 +30,7 @@
       "line": 8,
       "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
       "code": "Challenge.friendly.find(params[:id]).body",
-      "render_path": [{"type":"controller","class":"ChallengesController","method":"show","line":15,"file":"app/controllers/challenges_controller.rb"}],
+      "render_path": [{"type":"controller","class":"ChallengesController","method":"show","line":16,"file":"app/controllers/challenges_controller.rb"}],
       "location": {
         "type": "template",
         "template": "challenges/show"
@@ -20,6 +40,6 @@
       "note": "That unescaped model attribute is needed because of the nature of challenges, and only admins can manipulate it."
     }
   ],
-  "updated": "2017-02-13 23:23:04 -0300",
+  "updated": "2017-03-03 15:38:37 -0300",
   "brakeman_version": "3.5.0"
 }

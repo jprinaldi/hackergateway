@@ -30,6 +30,10 @@ Metrics/MethodLength:
   Exclude:
     - "db/migrate/*"
 
+Security/Eval:
+  Exclude:
+    - "app/controllers/challenges_controller.rb"
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes

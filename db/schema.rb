@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214231442) do
+ActiveRecord::Schema.define(version: 20170303150222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "token"
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170214231442) do
     t.string   "slug"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.text     "code"
     t.index ["category_id"], name: "index_challenges_on_category_id", using: :btree
     t.index ["name"], name: "index_challenges_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_challenges_on_slug", unique: true, using: :btree
