@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 submitSolveForm = ->
-  form = document.getElementById('solveForm')
+  form = document.getElementById('solve-form')
   form.submit()
   return

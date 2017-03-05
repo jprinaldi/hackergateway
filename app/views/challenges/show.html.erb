@@ -8,14 +8,14 @@
     <%= raw @challenge.body %>
   </div>
   <div class="card-footer">
-    <%= form_tag(challenge_solutions_path(@challenge), method: "post", id: 'solveForm') do %>
+    <%= form_tag(challenge_solutions_path(@challenge), method: "post", id: 'solve-form') do %>
     <div class="form-group">
       <%= label_tag :answer %>
       <%= text_field_tag :answer, nil, class: 'form-control', placeholder: "Enter answer" %>
     </div>
     <script>
       function submitSolveForm() {
-        var form = document.getElementById("solveForm");
+        var form = document.getElementById("solve-form");
         form.submit();
       }
     </script>
