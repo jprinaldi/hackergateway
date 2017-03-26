@@ -121,8 +121,8 @@ gem "newrelic_rpm"
 
 # Use PgHero for PostgreSQL performance dashboard support
 # Read more: https://github.com/ankane/pghero
-gem "pghero"
 gem "pg_query"
+gem "pghero"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
@@ -192,14 +192,10 @@ group :development do
 end
 
 group :test do
-  # Use SimpleCov for code coverage support
-  # Read more: https://github.com/colszowka/simplecov
-  gem "simplecov", require: false
-
   # Use this gem to report code coverage results to Code Climate
   # Read more: https://github.com/codeclimate/ruby-test-reporter
   gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
