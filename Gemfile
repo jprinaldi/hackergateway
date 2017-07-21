@@ -85,7 +85,7 @@ gem "oj"
 
 # Use this gem for Google Analytis tracking support
 # Read more: https://github.com/bgarret/google-analytics-rails
-gem "google-analytics-rails", "1.1.0"
+gem "google-analytics-rails", "1.1.1"
 
 # Use Chartkick for charts support
 # Read more: https://github.com/ankane/chartkick
