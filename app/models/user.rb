@@ -42,7 +42,7 @@ class User < ApplicationRecord # :nodoc:
 
   def solve(challenge)
     solution = solutions.create!(challenge: challenge)
-    update_attribute(:last_solution_at, solution.created_at)
+    update_attributes(last_solution_at: solution.created_at)
   end
 
   def solved?(challenge)
@@ -62,7 +62,7 @@ class User < ApplicationRecord # :nodoc:
   end
 
   def move_friendly_id_error_to_username
-    return unless errors[:friendly_id].present?
+    return if errors[:friendly_id].blank?
     errors.add :username, *errors.delete(:friendly_id)
   end
 end

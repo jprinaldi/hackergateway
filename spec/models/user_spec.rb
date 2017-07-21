@@ -37,9 +37,12 @@ RSpec.describe User, type: :model do
     user = FactoryGirl.create(:user, :confirmed)
     challenge = FactoryGirl.create(:challenge)
     expect { user.solve(challenge) }
-      .to change { Solution.count }.by(1)
-      .and change { user.solutions_count }.by(1)
-      .and change { challenge.solutions_count }.by(1)
+      .to change { Solution.count }
+      .by(1)
+      .and change { user.solutions_count }
+      .by(1)
+      .and change { challenge.solutions_count }
+      .by(1)
   end
 
   it "can improve her rank" do
@@ -51,14 +54,18 @@ RSpec.describe User, type: :model do
     expect(other_user.rank).to eq(1)
     expect(user.rank).to eq(2)
     expect { user.solve(challenge) && user.solve(other_challenge) }
-      .to change { user.rank }.by(-1)
-      .and change { other_user.rank }.by(1)
+      .to change { user.rank }
+      .by(-1)
+      .and change { other_user.rank }
+      .by(1)
   end
 
   it "correctly updates its related objects counts when destroyed" do
     solution = FactoryGirl.create(:solution)
     expect { solution.user.destroy }
-      .to change { Solution.count }.by(-1)
-      .and change { solution.challenge.reload.solutions_count }.by(-1)
+      .to change { Solution.count }
+      .by(-1)
+      .and change { solution.challenge.reload.solutions_count }
+      .by(-1)
   end
 end

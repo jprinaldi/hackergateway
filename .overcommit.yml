@@ -39,6 +39,7 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail
+    flags: ['--rails']
   TravisLint:
     enabled: true
     on_warn: fail

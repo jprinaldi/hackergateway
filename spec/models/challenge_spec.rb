@@ -24,8 +24,11 @@ RSpec.describe Challenge, type: :model do
   it "correctly updates its related objects counts when destroyed" do
     solution = FactoryGirl.create(:solution)
     expect { solution.challenge.destroy }
-      .to change { Solution.count }.by(-1)
-      .and change { solution.user.reload.solutions_count }.by(-1)
-      .and change { solution.challenge.category.challenges_count }.by(-1)
+      .to change { Solution.count }
+      .by(-1)
+      .and change { solution.user.reload.solutions_count }
+      .by(-1)
+      .and change { solution.challenge.category.challenges_count }
+      .by(-1)
   end
 end

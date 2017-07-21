@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   end
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   devise_for :users, controllers: { registrations: :registrations }
-  resources :users, only: [:index, :show] do
+  resources :users, only: %i[index show] do
     resources :solutions, only: :index
   end
-  resources :challenges, only: [:index, :show] do
-    resources :solutions, only: [:index, :create]
+  resources :challenges, only: %i[index show] do
+    resources :solutions, only: %i[index create]
   end
   resources :solutions, only: :index
-  resources :categories, only: [:index, :show]
+  resources :categories, only: %i[index show]
   resources :faqs, only: :index
   root to: "home#index"
   get "leaderboard", to: "leaderboard#index"

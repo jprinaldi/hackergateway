@@ -11,8 +11,8 @@ class Solution < ApplicationRecord # :nodoc:
 
   after_destroy do |solution|
     new_solution = user.solutions.second_to_last
-    solution.user.update_attribute(
-      :last_solution_at,
+    solution.user.update_attributes(
+      last_solution_at:
       new_solution ? new_solution.created_at : nil
     )
   end

@@ -13,7 +13,7 @@ FactoryGirl.define do
     end
 
     trait :confirmed do
-      confirmed_at Time.now
+      confirmed_at Time.current
     end
   end
 end
