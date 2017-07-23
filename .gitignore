@@ -21,3 +21,7 @@
 
 # Ignore SimpleCov code coverage report files.
 /coverage
+
+# Ignore RSpec helper file used to support
+# the `--only-failures` and `--next-failure` CLI options.
+spec/examples.txt
