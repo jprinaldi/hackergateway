@@ -97,7 +97,7 @@ gem "kaminari"
 
 # Use RailsAdmin for admin dashboards support
 # Read more: https://github.com/sferik/rails_admin
-gem "rails_admin", "~> 1.0"
+gem "rails_admin", "~> 1.2"
 
 # Use MetaTags for SEO support
 # Read more: https://github.com/kpumuk/meta-tags
