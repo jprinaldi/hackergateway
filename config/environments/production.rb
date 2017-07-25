@@ -70,7 +70,7 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     user_name: "apikey",
-    password: ENV["SENDGRID_API_KEY"],
+    password: Rails.application.secrets.sendgrid_api_key,
     domain: "hackergateway.com",
     address: "smtp.sendgrid.net",
     port: 587,
