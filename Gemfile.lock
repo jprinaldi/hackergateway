@@ -71,8 +71,6 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     chartkick (2.2.4)
-    codeclimate-test-reporter (1.0.8)
-      simplecov (<= 0.13)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -373,7 +371,6 @@ DEPENDENCIES
   cancancan
   capybara
   chartkick
-  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   country_select
   devise
@@ -409,6 +406,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   seedbank
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

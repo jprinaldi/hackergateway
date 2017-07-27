@@ -192,9 +192,9 @@ group :development do
 end
 
 group :test do
-  # Use this gem to report code coverage results to Code Climate
-  # Read more: https://github.com/codeclimate/ruby-test-reporter
-  gem "codeclimate-test-reporter", "~> 1.0.0"
+  # Use SimpleCov for code coverage analysis
+  # Read more: https://github.com/colszowka/simplecov
+  gem "simplecov", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

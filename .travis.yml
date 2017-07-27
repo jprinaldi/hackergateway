@@ -1,7 +1,3 @@
-addons:
-  code_climate:
-    repo_token: $CODECLIMATE_REPO_TOKEN
-
 language: ruby
 rvm:
   - 2.4.0
@@ -13,8 +9,11 @@ before_install:
   - gem update --system
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
 
-after_success:
-  - bundle exec codeclimate-test-reporter
+script:
+  - bundle exec rspec
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
