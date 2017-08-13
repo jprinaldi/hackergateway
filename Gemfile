@@ -41,7 +41,7 @@ end
 
 # Use Bootstrap as the front-end framework
 # Read more: https://github.com/twbs/bootstrap-rubygem
-gem "bootstrap", "~> 4.0.0.alpha6"
+gem "bootstrap", "4.0.0.alpha6"
 
 # Use Font Awesome for icons support
 # Read more: https://github.com/bokmann/font-awesome-rails
