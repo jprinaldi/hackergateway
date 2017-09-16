@@ -49,8 +49,8 @@ RSpec.feature "User updates profile", type: :feature do
 
   scenario "with non-matching new passwords" do
     visit edit_user_registration_path
-    fill_in "Password", with: 'new #{@user.password}'
-    fill_in "Password confirmation", with: 'other #{@user.password}'
+    fill_in "Password", with: "new #{@user.password}"
+    fill_in "Password confirmation", with: "other #{@user.password}"
     fill_in "Current password", with: @user.password
     click_button "Update"
     expect(page).to have_content("Password confirmation doesn't match Password")

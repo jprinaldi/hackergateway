@@ -13,7 +13,7 @@ RSpec.feature "User signs in", type: :feature do
 
   scenario "with invalid credentials" do
     user = FactoryGirl.create(:user, :confirmed)
-    invalid_password = 'invalid #{user.password}'
+    invalid_password = "invalid #{user.password}"
     visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: invalid_password

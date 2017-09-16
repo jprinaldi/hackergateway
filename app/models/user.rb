@@ -14,7 +14,8 @@ class User < ApplicationRecord # :nodoc:
          :confirmable, :lockable
 
   has_many :solutions, dependent: :destroy
-  has_many :solved_challenges, through: :solutions, source: :challenge
+  has_many :solved_challenges, through: :solutions, source: :challenge,
+                               dependent: :destroy
 
   scope :ranked, -> { order(solutions_count: :desc, last_solution_at: :asc) }
 
