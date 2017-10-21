@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User visits someone's profile", type: :feature do
   scenario "successfully" do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     visit user_path(user)
     expect(page)
       .to have_current_path(user_path(user))

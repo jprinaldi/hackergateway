@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User signs out", type: :feature do
   scenario "while being signed in" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     login_as(user)
     visit root_path
     click_link "Sign out"

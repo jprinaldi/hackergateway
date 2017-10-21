@@ -2,12 +2,12 @@ require "rails_helper"
 
 RSpec.feature "User solves challenge", type: :feature do
   before(:each) do
-    @challenge = FactoryGirl.create(:challenge)
+    @challenge = FactoryBot.create(:challenge)
     visit challenge_path(@challenge)
   end
 
   scenario "with correct answer" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     login_as(user)
     fill_in "Answer", with: @challenge.answer
     click_button "Solve"
@@ -16,7 +16,7 @@ RSpec.feature "User solves challenge", type: :feature do
   end
 
   scenario "with incorrect answer" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     login_as(user)
     visit challenge_path(@challenge)
     fill_in "Answer", with: "wrong #{@challenge.answer}"
@@ -26,7 +26,7 @@ RSpec.feature "User solves challenge", type: :feature do
   end
 
   scenario "while having already solved it" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     user.solve(@challenge)
     login_as(user)
     visit challenge_path(@challenge)

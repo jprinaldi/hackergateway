@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User signs up", type: :feature do
   before(:each) do
-    @user = FactoryGirl.build(:user)
+    @user = FactoryBot.build(:user)
     visit new_user_registration_path
   end
 
@@ -38,7 +38,7 @@ RSpec.feature "User signs up", type: :feature do
   end
 
   scenario "with a taken username" do
-    FactoryGirl.create(:user, username: "MyUsername")
+    FactoryBot.create(:user, username: "MyUsername")
     fill_in "Username", with: "mYuSeRnAmE"
     fill_in "Email", with: @user.email
     fill_in "Password", with: @user.password

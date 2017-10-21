@@ -2,12 +2,12 @@ require "rails_helper"
 
 RSpec.feature "Admin creates category", type: :feature do
   before(:each) do
-    admin = FactoryGirl.create(:user, :confirmed, :admin)
+    admin = FactoryBot.create(:user, :confirmed, :admin)
     login_as(admin)
   end
 
   scenario "with a non-unique name" do
-    existing_category = FactoryGirl.create(:category)
+    existing_category = FactoryBot.create(:category)
     visit rails_admin.new_path(model_name: "category")
     fill_in "Name", with: existing_category.name
     click_button "Save"
@@ -19,7 +19,7 @@ RSpec.feature "Admin creates category", type: :feature do
   end
 
   scenario "successfully" do
-    category = FactoryGirl.build(:category)
+    category = FactoryBot.build(:category)
     visit rails_admin.new_path(model_name: "category")
     fill_in "Name", with: category.name
     click_button "Save"

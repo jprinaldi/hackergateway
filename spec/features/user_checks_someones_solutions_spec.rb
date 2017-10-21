@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User checks someone's solutions", type: :feature do
   scenario "successfully" do
-    solution = FactoryGirl.create(:solution)
+    solution = FactoryBot.create(:solution)
     visit user_solutions_path(solution.user)
     expect(page)
       .to have_current_path(user_solutions_path(solution.user))

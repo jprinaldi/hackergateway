@@ -137,9 +137,9 @@ group :development, :test do
   # Read more: https://github.com/teamcapybara/capybara
   gem "capybara"
 
-  # Use Factory Girl for test data support
-  # Read more: https://github.com/thoughtbot/factory_girl_rails
-  gem "factory_girl_rails"
+  # Use Factory Bot for test data support
+  # Read more: https://github.com/thoughtbot/factory_bot_rails
+  gem "factory_bot_rails"
 
   # Use dotenv to load environment variables in development
   # Read more: https://github.com/bkeepers/dotenv

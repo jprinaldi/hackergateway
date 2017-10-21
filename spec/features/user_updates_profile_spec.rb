@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User updates profile", type: :feature do
   before(:each) do
-    @user = FactoryGirl.create(:user, :confirmed)
+    @user = FactoryBot.create(:user, :confirmed)
     login_as(@user)
   end
 

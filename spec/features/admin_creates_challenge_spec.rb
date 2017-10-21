@@ -2,13 +2,13 @@ require "rails_helper"
 
 RSpec.feature "Admin creates challenge", type: :feature do
   before(:each) do
-    admin = FactoryGirl.create(:user, :confirmed, :admin)
+    admin = FactoryBot.create(:user, :confirmed, :admin)
     login_as(admin)
   end
 
   scenario "with a non-unique name" do
-    existing_challenge = FactoryGirl.create(:challenge)
-    new_challenge = FactoryGirl.build(:challenge)
+    existing_challenge = FactoryBot.create(:challenge)
+    new_challenge = FactoryBot.build(:challenge)
     visit rails_admin.new_path(model_name: "challenge")
     fill_in "Name", with: existing_challenge.name
     fill_in "Body", with: new_challenge.body
@@ -23,7 +23,7 @@ RSpec.feature "Admin creates challenge", type: :feature do
   end
 
   scenario "successfully" do
-    challenge = FactoryGirl.build(:challenge)
+    challenge = FactoryBot.build(:challenge)
     visit rails_admin.new_path(model_name: "challenge")
     fill_in "Name", with: challenge.name
     fill_in "Body", with: challenge.body

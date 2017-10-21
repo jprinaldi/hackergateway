@@ -12,14 +12,14 @@ RSpec.describe "API for WeChall", type: :request do
     end
 
     it "is unauthorized without a valid token" do
-      api_key = FactoryGirl.create(:api_key)
+      api_key = FactoryBot.create(:api_key)
       get api_wechall_users_validate_path(token: "invlaid #{api_key.token}")
       expect(response).to have_http_status(401)
     end
 
     it "returns 0 with non-matching credentials" do
-      user = FactoryGirl.create(:user)
-      api_key = FactoryGirl.create(:api_key)
+      user = FactoryBot.create(:user)
+      api_key = FactoryBot.create(:api_key)
       get api_wechall_users_validate_path(
         username: user.username,
         email: "different #{user.email}",
@@ -30,8 +30,8 @@ RSpec.describe "API for WeChall", type: :request do
     end
 
     it "returns 1 with matching credentials" do
-      user = FactoryGirl.create(:user)
-      api_key = FactoryGirl.create(:api_key)
+      user = FactoryBot.create(:user)
+      api_key = FactoryBot.create(:api_key)
       get api_wechall_users_validate_path(
         username: user.username,
         email: user.email,
@@ -44,14 +44,14 @@ RSpec.describe "API for WeChall", type: :request do
 
   describe "score" do
     it "is unauthorized without a token" do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       get api_wechall_users_score_path(user)
       expect(response).to have_http_status(401)
     end
 
     it "is unauthorized without a valid token" do
-      user = FactoryGirl.create(:user)
-      api_key = FactoryGirl.create(:api_key)
+      user = FactoryBot.create(:user)
+      api_key = FactoryBot.create(:api_key)
       get api_wechall_users_score_path(
         username: user.username,
         token: "invlaid #{api_key.token}"
@@ -60,9 +60,9 @@ RSpec.describe "API for WeChall", type: :request do
     end
 
     it "works" do
-      user = FactoryGirl.create(:user)
-      challenges = FactoryGirl.create_list(:challenge, 10)
-      api_key = FactoryGirl.create(:api_key)
+      user = FactoryBot.create(:user)
+      challenges = FactoryBot.create_list(:challenge, 10)
+      api_key = FactoryBot.create(:api_key)
       challenges[0..5].each do |challenge|
         user.solve(challenge)
       end

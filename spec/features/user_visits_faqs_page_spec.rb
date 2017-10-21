@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User visits FAQs page", type: :feature do
   scenario "successfully" do
-    faq = FactoryGirl.create(:faq)
+    faq = FactoryBot.create(:faq)
     visit faqs_path
     expect(page)
       .to have_current_path(faqs_path)

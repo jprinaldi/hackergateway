@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User signs in", type: :feature do
   scenario "while being unconfirmed" do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
@@ -12,7 +12,7 @@ RSpec.feature "User signs in", type: :feature do
   end
 
   scenario "with invalid credentials" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     invalid_password = "invalid #{user.password}"
     visit new_user_session_path
     fill_in "Email", with: user.email
@@ -23,7 +23,7 @@ RSpec.feature "User signs in", type: :feature do
   end
 
   scenario "successfully" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password

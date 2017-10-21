@@ -2,12 +2,12 @@ require "rails_helper"
 
 RSpec.feature "Admin creates FAQ", type: :feature do
   before(:each) do
-    admin = FactoryGirl.create(:user, :confirmed, :admin)
+    admin = FactoryBot.create(:user, :confirmed, :admin)
     login_as(admin)
   end
 
   scenario "without a title" do
-    faq = FactoryGirl.build(:faq)
+    faq = FactoryBot.build(:faq)
     visit rails_admin.new_path(model_name: "faq")
     fill_in "Answer", with: faq.answer
     click_button "Save"
@@ -18,7 +18,7 @@ RSpec.feature "Admin creates FAQ", type: :feature do
   end
 
   scenario "without an answer" do
-    faq = FactoryGirl.build(:faq)
+    faq = FactoryBot.build(:faq)
     visit rails_admin.new_path(model_name: "faq")
     fill_in "Title", with: faq.title
     click_button "Save"
@@ -29,7 +29,7 @@ RSpec.feature "Admin creates FAQ", type: :feature do
   end
 
   scenario "successfully" do
-    faq = FactoryGirl.build(:faq)
+    faq = FactoryBot.build(:faq)
     visit rails_admin.new_path(model_name: "faq")
     fill_in "Title", with: faq.title
     fill_in "Answer", with: faq.answer

@@ -2,40 +2,40 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   it "has a valid factory" do
-    user = FactoryGirl.build(:user)
+    user = FactoryBot.build(:user)
     expect(user).to be_valid
   end
 
   it "is invalid without an email" do
-    user = FactoryGirl.build(:user, username: nil)
+    user = FactoryBot.build(:user, username: nil)
     expect(user).not_to be_valid
   end
 
   it "is invalid without a username" do
-    user = FactoryGirl.build(:user, email: nil)
+    user = FactoryBot.build(:user, email: nil)
     expect(user).not_to be_valid
   end
 
   it "is valid without a country code" do
-    user = FactoryGirl.build(:user, country_code: nil)
+    user = FactoryBot.build(:user, country_code: nil)
     expect(user).to be_valid
   end
 
   it "is invalid with an invalid country code" do
-    user = FactoryGirl.build(:user, country_code: "XX")
+    user = FactoryBot.build(:user, country_code: "XX")
     expect(user).not_to be_valid
   end
 
   it "has access to its countrie's information" do
-    user = FactoryGirl.build(:user, country_code: "AR")
+    user = FactoryBot.build(:user, country_code: "AR")
     country = user.country
     expect(country.name).to eq("Argentina")
     expect(country.emoji_flag).to eq("🇦🇷")
   end
 
   it "can solve challenges" do
-    user = FactoryGirl.create(:user, :confirmed)
-    challenge = FactoryGirl.create(:challenge)
+    user = FactoryBot.create(:user, :confirmed)
+    challenge = FactoryBot.create(:challenge)
     expect { user.solve(challenge) }
       .to change { Solution.count }
       .by(1)
@@ -46,10 +46,10 @@ RSpec.describe User, type: :model do
   end
 
   it "can improve her rank" do
-    user = FactoryGirl.create(:user, :confirmed)
-    other_user = FactoryGirl.create(:user, :confirmed)
-    challenge = FactoryGirl.create(:challenge)
-    other_challenge = FactoryGirl.create(:challenge)
+    user = FactoryBot.create(:user, :confirmed)
+    other_user = FactoryBot.create(:user, :confirmed)
+    challenge = FactoryBot.create(:challenge)
+    other_challenge = FactoryBot.create(:challenge)
     other_user.solve(challenge)
     expect(other_user.rank).to eq(1)
     expect(user.rank).to eq(2)
@@ -61,7 +61,7 @@ RSpec.describe User, type: :model do
   end
 
   it "correctly updates its related objects counts when destroyed" do
-    solution = FactoryGirl.create(:solution)
+    solution = FactoryBot.create(:solution)
     expect { solution.user.destroy }
       .to change { Solution.count }
       .by(-1)

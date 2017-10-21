@@ -2,14 +2,14 @@ require "rails_helper"
 
 RSpec.feature "User accesses admin dashboard", type: :feature do
   scenario "with admin role" do
-    user = FactoryGirl.create(:user, :confirmed, :admin)
+    user = FactoryBot.create(:user, :confirmed, :admin)
     login_as(user)
     visit rails_admin.dashboard_path
     expect(page).to have_current_path(rails_admin.dashboard_path)
   end
 
   scenario "without admin role" do
-    user = FactoryGirl.create(:user, :confirmed)
+    user = FactoryBot.create(:user, :confirmed)
     login_as(user)
     visit rails_admin.dashboard_path
     expect(page).to have_current_path(root_path)
