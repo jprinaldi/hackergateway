@@ -2,6 +2,13 @@ AllCops:
   Exclude:
     - "db/schema.rb"
 
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - staging
+    - production
+
 Documentation:
   Exclude:
     - "app/controllers/*"
