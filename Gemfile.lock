@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://rails-assets.org/
   specs:
     actioncable (5.1.4)
       actionpack (= 5.1.4)
@@ -220,7 +219,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.4)
       sprockets-rails (>= 2.0.0)
-    rails-assets-tether (1.4.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -397,7 +395,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.2)
-  rails-assets-tether (>= 1.3.3)!
   rails_admin (~> 1.2)
   rails_real_favicon
   recaptcha
