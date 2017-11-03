@@ -1,9 +1,9 @@
 <% title "#{@category.name} | Categories" %>
 <div class="card">
   <div class="card-header">
-    <h3>
+    <h4>
       <%= @category.name %>
-    </h3>
+    </h4>
     <%= render 'badges', category: @category %>
   </div>
   <%= render 'challenges/list', challenges: @category.challenges %>

@@ -1,10 +1,10 @@
 <% title "#{@challenge.name} | Challenges" %>
 <div class="card">
-  <div class="card-header justify-content-between">
+  <div class="card-header">
     <%= content_tag :h4, @challenge.name %>
     <%= render 'badges', challenge: @challenge, show_category: true %>
   </div>
-  <div class="card-block">
+  <div class="card-body">
     <%= raw @challenge.body %>
   </div>
   <div class="card-footer">

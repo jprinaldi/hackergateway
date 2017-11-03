@@ -1,6 +1,6 @@
 <ul class="list-group">
   <% challenges.each do |challenge| %>
-    <li class="list-group-item justify-content-between">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
       <span>
         <%= link_to challenge.name, challenge %>
         <%= render 'challenges/badges', challenge: challenge, show_category: local_assigns[:show_category] %>
