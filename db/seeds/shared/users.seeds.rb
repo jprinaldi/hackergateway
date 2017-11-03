@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActionMailer::Base.perform_deliveries = false
 
 a = User.create(

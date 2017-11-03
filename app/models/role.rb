@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable HasAndBelongsToMany
 class Role < ApplicationRecord # :nodoc:
   has_and_belongs_to_many :users, join_table: :users_roles

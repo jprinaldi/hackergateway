@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord # :nodoc:
   extend FriendlyId
   friendly_id :username, use: :slugged

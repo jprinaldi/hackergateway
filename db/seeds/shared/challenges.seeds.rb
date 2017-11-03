@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 after "shared:categories" do
   categories = Category.all
   categories.each do |category|

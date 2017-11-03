@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper # :nodoc:
   # Create nav items in Bootstrap 4 style
   def nav_item(url, &block)

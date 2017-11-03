@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This class is used to define User permissions which are enforced
 # by the CanCanCan gem
 class Ability # :nodoc:

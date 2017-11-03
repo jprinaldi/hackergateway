@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 after "shared:users", "shared:challenges" do
   users = User.all
   challenges = Challenge.all

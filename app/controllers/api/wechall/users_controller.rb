@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module Wechall
     class UsersController < ApplicationController # :nodoc:

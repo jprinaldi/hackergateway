@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   def index
     @newest_challenges = Challenge.includes(:category).last(5).reverse

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapDeviseHelper # :nodoc:
   def errors_sentence
     I18n.t(

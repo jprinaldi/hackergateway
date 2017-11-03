@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SolutionsController < ApplicationController
   before_action :authenticate_user!, only: :create
   before_action :set_challenge, only: :create

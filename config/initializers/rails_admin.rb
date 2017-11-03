@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RailsAdmin.config do |config|
   # This line was added to allow the app to rescue from CanCan exceptions
   # when accessing the admin dashboard

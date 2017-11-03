@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This model represents challenge categories
 class Category < ApplicationRecord
   extend FriendlyId

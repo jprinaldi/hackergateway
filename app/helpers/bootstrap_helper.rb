@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BootstrapHelper # :nodoc:
   def bootstrap_class_for(flash_type)
     {
