@@ -101,10 +101,6 @@ gem "rails_admin", "~> 1.2"
 # Read more: https://github.com/kpumuk/meta-tags
 gem "meta-tags"
 
-# Use Lockup to protect staging environment with a codeword
-# Read more: https://github.com/gblakeman/lockup
-gem "lockup"
-
 # Use Roboto for environment specific robots.txt support
 # Read more: https://github.com/LaunchAcademy/roboto
 gem "roboto"

@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   mount_roboto
-  mount Lockup::Engine, at: "/lockup"
   authenticate :user, ->(user) { user.has_role? :admin } do
     mount PgHero::Engine, at: "pghero"
   end
