@@ -42,9 +42,6 @@ PreCommit:
     enabled: true
     on_warn: fail
     flags: ['--rails']
-  TravisLint:
-    enabled: true
-    on_warn: fail
 
 PrePush:
   Brakeman:
