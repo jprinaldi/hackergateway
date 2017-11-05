@@ -187,6 +187,10 @@ group :development do
   # Use Pry as a replacement for IRB
   # Read more: https://github.com/rweng/pry-rails
   gem "pry-rails"
+
+  # Use Overcommit to manage and configure Git hooks
+  # Read more: https://github.com/brigade/overcommit
+  gem "overcommit"
 end
 
 group :test do
