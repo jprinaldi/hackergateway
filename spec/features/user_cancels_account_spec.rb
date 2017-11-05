@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.feature "User cancels account", type: :feature do
   before(:each) do
     @user = FactoryBot.create(:user, :confirmed)
-    login_as(@user)
+    login_as(@user, scope: :user)
   end
 
   scenario "successfully" do

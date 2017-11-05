@@ -93,10 +93,6 @@ gem "chartkick"
 # Read more: https://github.com/kaminari/kaminari
 gem "kaminari"
 
-# Use RailsAdmin for admin dashboards support
-# Read more: https://github.com/sferik/rails_admin
-gem "rails_admin", "~> 1.2"
-
 # Use MetaTags for SEO support
 # Read more: https://github.com/kpumuk/meta-tags
 gem "meta-tags"
@@ -117,6 +113,10 @@ gem "newrelic_rpm"
 # Read more: https://github.com/ankane/pghero
 gem "pg_query"
 gem "pghero"
+
+# Use Active Admin as the administration framework
+# Read more: https://github.com/activeadmin/activeadmin
+gem "activeadmin"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to

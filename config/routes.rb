@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: :registrations }
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   mount_roboto
   authenticate :user, ->(user) { user.has_role? :admin } do
     mount PgHero::Engine, at: "pghero"
   end
-  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
-  devise_for :users, controllers: { registrations: :registrations }
   resources :users, only: %i[index show] do
     resources :solutions, only: :index
   end

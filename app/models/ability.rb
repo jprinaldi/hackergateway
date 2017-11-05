@@ -11,7 +11,6 @@ class Ability # :nodoc:
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
-      can :access, :rails_admin
     else
       can :create, Solution
       can :read, :all

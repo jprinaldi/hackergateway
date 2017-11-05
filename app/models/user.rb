@@ -39,6 +39,8 @@ class User < ApplicationRecord # :nodoc:
   after_create :assign_default_role
   after_validation :move_friendly_id_error_to_username
 
+  alias_attribute :display_name, :username
+
   def country
     ISO3166::Country[self[:country_code]]
   end

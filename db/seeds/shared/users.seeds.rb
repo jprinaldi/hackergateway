@@ -2,17 +2,10 @@
 
 ActionMailer::Base.perform_deliveries = false
 
-a = User.create(
-  email: "admin@example.com",
-  username: "juampi",
-  password: "password"
-)
-a.add_role :admin
-
 10.times do |i|
   User.create(
-    email: "guest#{i}@example.com",
-    username: "guest#{i}",
+    email: "user#{i}@example.com",
+    username: "user#{i}",
     password: "password"
   )
 end
