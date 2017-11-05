@@ -39,6 +39,7 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail
+    command: ['bundle', 'exec', 'rubocop']
     flags: ['--rails']
   TravisLint:
     enabled: true
@@ -48,6 +49,8 @@ PrePush:
   Brakeman:
     enabled: true
     on_warn: fail
+    command: ['bundle', 'exec', 'brakeman']
   RSpec:
     enabled: true
     on_warn: fail
+    command: ['bundle', 'exec', 'rspec']
