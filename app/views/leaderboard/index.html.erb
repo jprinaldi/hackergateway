@@ -1,47 +1,59 @@
 <% title "Leaderboard" %>
-<div class="row">
-  <div class="col-lg-12">
-    <table class="table table-striped table-bordered table-hover">
-      <thead class="bg-primary">
-        <tr>
-          <th>Rank</th>
-          <th>User</th>
-          <th>Solved challenges</th>
-          <th>Last solution</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each_with_index do |user, index| %>
-          <tr class="<%= 'table-active' if user_signed_in? and user == current_user %>">
-            <th scope="row"><%= leaderboard_rank(index, params[:page], params[:per] || @default_per_page) %></th>
-            <td><%= link_to user.username, user %></td>
-            <td>
-              <%= link_to user_solutions_path(user) do %>
-                <%= user.solutions_count %>
-              <% end %>
-            </td>
-            <td>
-              <% if user.last_solution_at? %>
-                <%= time_tag(user.last_solution_at) %>
-              <% else %>
-                <span>N/A</span>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= paginate @users %>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h1 class="card-title">Leaderboard</h1>
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="bg-primary">
+            <tr>
+              <th>Rank</th>
+              <th>User</th>
+              <th>Solved challenges</th>
+              <th>Last solution</th>
+            </tr>
+          </thead>
+          <tbody class="bg-dark">
+            <% @users.each_with_index do |user, index| %>
+              <tr class="<%= 'table-active' if user_signed_in? and user == current_user %>">
+                <th scope="row"><%= leaderboard_rank(index, params[:page], params[:per] || @default_per_page) %></th>
+                <td><%= link_to user.username, user %></td>
+                <td>
+                  <%= link_to user_solutions_path(user) do %>
+                    <%= user.solutions_count %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if user.last_solution_at? %>
+                    <%= time_tag(user.last_solution_at) %>
+                  <% else %>
+                    <span>N/A</span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @users %>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-12">
-    <%= column_chart @solutions_counts_users_counts,
-        xtitle: "Number of challenges solved", ytitle: "Number of users",
-        label: "Users",
-        colors: ["#5BC0DE"],
-        library: {
-          backgroundColor: { stroke: "#141619", strokeWidth: "2", fill: "#32383E" },
-          hAxis: { textStyle: { color: "#AAAAAA" }, titleTextStyle: { color: "#AAAAAA" } },
-          vAxis: { textStyle: { color: "#AAAAAA" }, titleTextStyle: { color: "#AAAAAA" } }
-        } %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Solutions chart</h1>
+    <div class="col-lg-12">
+      <%= column_chart @solutions_counts_users_counts,
+          xtitle: "Number of challenges solved", ytitle: "Number of users",
+          label: "Users",
+          colors: ["#5BC0DE"],
+          library: {
+            backgroundColor: { fill: "#32383E" },
+            hAxis: { textStyle: { color: "#AAAAAA" }, titleTextStyle: { color: "#AAAAAA" } },
+            vAxis: { textStyle: { color: "#AAAAAA" }, titleTextStyle: { color: "#AAAAAA" } }
+          } %>
+    </div>
   </div>
 </div>

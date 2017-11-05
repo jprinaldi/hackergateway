@@ -1,13 +1,13 @@
 <% title "#{@challenge.name} solvers" %>
-<%= content_tag :h2, "#{@challenge.name} solvers" %>
-<ul class="list-group">
-  <% @challenge.solutions.each do |solution| %>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      <%= link_to solution.user.username, solution.user %>
-      <%= "solved #{time_ago_in_words(solution.created_at)} ago" %>
-    </li>
+
+<div class="card">
+  <div class="card-header">
+    <%= content_tag :h1, "#{@challenge.name} solvers" %>
+  </div>
+  <%= render 'solvers', challenge: @challenge %>
+  <% if @challenge.solvers.empty? %>
+    <div class="card-body">
+      <p class="card-text">This challenge doesn't have any solvers yet.</p>
+    </div>
   <% end %>
-</ul>
-<% if @challenge.solvers.empty? %>
-  <p>This challenge doesn't have any solvers yet.</p>
-<% end %>
+</div>

@@ -1,6 +1,13 @@
 <% title "#{@user.username}'s solved challenges" %>
-<%= content_tag :h2, "#{@user.username}'s solved challenges" %>
-<%= render 'challenges', solutions: @user.solutions %>
-<% if @user.solutions.empty? %>
-  <p>This user hasn't solved any challenges yet.</p>
-<% end %>
+
+<div class="card">
+  <div class="card-header">
+    <%= content_tag :h1, "#{@user.username}'s solved challenges" %>
+  </div>
+  <%= render 'solved_challenges', user: @user %>
+  <% if @user.solutions.empty? %>
+    <div class="card-body">
+      <p class="card-text">This user hasn't solved any challenges yet.</p>
+    </div>
+  <% end %>
+</div>

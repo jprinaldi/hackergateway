@@ -1,3 +1,8 @@
 <% title "Solutions" %>
-<%= content_tag :h2, "Solutions" %>
-<%= render 'list', solutions: @solutions %>
+
+<div class="card">
+  <div class="card-header">
+    <%= content_tag :h1, "Solutions" %>
+  </div>
+  <%= render 'list', solutions: @solutions %>
+</div>
