@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   mount_roboto
-  authenticate :user, ->(user) { user.has_role? :admin } do
+  authenticate :admin_user do
     mount PgHero::Engine, at: "pghero"
   end
   resources :users, only: %i[index show] do

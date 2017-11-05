@@ -7,8 +7,6 @@ class User < ApplicationRecord # :nodoc:
   include Gravtastic
   gravtastic default: "mm"
 
-  rolify
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,7 +34,6 @@ class User < ApplicationRecord # :nodoc:
   }
   validates :terms_of_service, acceptance: true
 
-  after_create :assign_default_role
   after_validation :move_friendly_id_error_to_username
 
   alias_attribute :display_name, :username
@@ -56,10 +53,6 @@ class User < ApplicationRecord # :nodoc:
 
   def rank
     User.ranked.index(self) + 1
-  end
-
-  def assign_default_role
-    add_role(:user) if roles.blank?
   end
 
   def should_generate_new_friendly_id?

@@ -3,7 +3,6 @@
 class Challenge < ApplicationRecord # :nodoc:
   extend FriendlyId
   friendly_id :name, use: :slugged
-  resourcify
 
   belongs_to :category, counter_cache: true
   has_many :solutions, -> { order(created_at: :desc) }, dependent: :destroy

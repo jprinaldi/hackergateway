@@ -294,7 +294,6 @@ GEM
       netrc (~> 0.8)
     roboto (1.0.1)
       rails (>= 4.2)
-    rolify (5.1.0)
     rollbar (2.15.5)
       multi_json
     rspec-core (3.7.0)
@@ -427,7 +426,6 @@ DEPENDENCIES
   rails_real_favicon
   recaptcha
   roboto
-  rolify
   rollbar
   rspec-rails (~> 3.5)
   rubocop

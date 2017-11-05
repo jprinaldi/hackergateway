@@ -53,10 +53,6 @@ gem "devise"
 # Read more: https://github.com/norman/friendly_id
 gem "friendly_id"
 
-# Use Rolify for user role management support
-# Read more: https://github.com/RolifyCommunity/rolify
-gem "rolify"
-
 # Use Country Select for country selection support
 # Read more: https://github.com/stefanpenner/country_select
 gem "country_select"
