@@ -142,6 +142,10 @@ group :development, :test do
   # Use Brakeman for static analysis security vulnerability scanning
   # Read more: https://github.com/presidentbeef/brakeman
   gem "brakeman", require: false
+
+  # Use Travis to interface with Travis CI
+  # Read more: https://github.com/travis-ci/travis.rb
+  gem "travis"
 end
 
 group :development do
