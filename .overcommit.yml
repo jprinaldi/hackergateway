@@ -32,27 +32,24 @@
 #  IndexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
 
+gemfile: Gemfile
+
 PreCommit:
   ImageOptim:
     enabled: true
     on_warn: fail
-    command: ['bundle', 'exec', 'image_optim']
   RuboCop:
     enabled: true
     on_warn: fail
-    command: ['bundle', 'exec', 'rubocop']
     flags: ['--rails']
   TravisLint:
     enabled: true
     on_warn: fail
-    command: ['bundle', 'exec', 'travis']
 
 PrePush:
   Brakeman:
     enabled: true
     on_warn: fail
-    command: ['bundle', 'exec', 'brakeman']
   RSpec:
     enabled: true
     on_warn: fail
-    command: ['bundle', 'exec', 'rspec']
