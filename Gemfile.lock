@@ -112,6 +112,7 @@ GEM
     ethon (0.11.0)
       ffi (>= 1.3.0)
     execjs (2.7.0)
+    exifr (1.3.2)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.8.2)
@@ -126,6 +127,7 @@ GEM
       railties (>= 3.2, < 5.2)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
+    fspath (3.1.0)
     gh (0.14.0)
       addressable
       backports
@@ -145,6 +147,17 @@ GEM
       domain_name (~> 0.5)
     i18n (0.8.6)
     i18n_data (0.8.0)
+    image_optim (0.25.0)
+      exifr (~> 1.2, >= 1.2.2)
+      fspath (~> 3.0)
+      image_size (~> 1.5)
+      in_threads (~> 1.3)
+      progress (~> 3.0, >= 3.0.1)
+    image_optim_pack (0.5.0.20171101)
+      fspath (>= 2.1, < 4)
+      image_optim (~> 0.19)
+    image_size (1.5.0)
+    in_threads (1.4.0)
     iniparse (1.4.4)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -218,6 +231,7 @@ GEM
       activerecord
     popper_js (1.12.5)
     powerpack (0.1.1)
+    progress (3.4.0)
     pry (0.11.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -419,6 +433,8 @@ DEPENDENCIES
   friendly_id
   google-analytics-rails (= 1.1.1)
   gravtastic
+  image_optim
+  image_optim_pack
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

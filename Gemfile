@@ -146,6 +146,11 @@ group :development, :test do
   # Use Travis to interface with Travis CI
   # Read more: https://github.com/travis-ci/travis.rb
   gem "travis"
+
+  # Use image_optim to optimize images
+  # Read more: https://github.com/toy/image_optim
+  gem "image_optim"
+  gem "image_optim_pack"
 end
 
 group :development do

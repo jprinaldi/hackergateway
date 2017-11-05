@@ -36,6 +36,7 @@ PreCommit:
   ImageOptim:
     enabled: true
     on_warn: fail
+    command: ['bundle', 'exec', 'image_optim']
   RuboCop:
     enabled: true
     on_warn: fail
