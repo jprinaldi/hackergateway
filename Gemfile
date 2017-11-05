@@ -57,10 +57,6 @@ gem "friendly_id"
 # Read more: https://github.com/RolifyCommunity/rolify
 gem "rolify"
 
-# Use CanCanCan for user authorization support
-# Read more: https://github.com/CanCanCommunity/cancancan
-gem "cancancan"
-
 # Use Country Select for country selection support
 # Read more: https://github.com/stefanpenner/country_select
 gem "country_select"

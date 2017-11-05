@@ -3,7 +3,6 @@
 class SolutionsController < ApplicationController
   before_action :authenticate_user!, only: :create
   before_action :set_challenge, only: :create
-  load_and_authorize_resource
 
   # GET /solutions
   def index

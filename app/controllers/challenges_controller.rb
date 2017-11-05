@@ -2,7 +2,6 @@
 
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: :show
-  load_and_authorize_resource
 
   # GET /challenges
   # GET /challenges.json
