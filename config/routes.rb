@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[index show] do
     resources :solutions, only: :index
+    get :impersonate, on: :member
   end
   resources :challenges, only: %i[index show] do
     resources :solutions, only: %i[index create]
