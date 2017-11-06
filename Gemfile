@@ -139,6 +139,10 @@ group :development, :test do
   # Read more: https://github.com/toy/image_optim
   gem "image_optim"
   gem "image_optim_pack"
+
+  # Use Bullet for help in reducing the number of queries the app makes
+  # Read more: https://github.com/flyerhzm/bullet
+  gem "bullet"
 end
 
 group :development do
@@ -168,10 +172,6 @@ group :development do
   # Use this gem to enable advanced features for Better Errors
   # Read more: https://github.com/banister/binding_of_caller
   gem "binding_of_caller"
-
-  # Use Bullet for help in reducing the number of queries the app makes
-  # Read more: https://github.com/flyerhzm/bullet
-  gem "bullet"
 
   # Use this gem to generate favicons for multiple devices
   # Read more: https://github.com/RealFaviconGenerator/rails_real_favicon
