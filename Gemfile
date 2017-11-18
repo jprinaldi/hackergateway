@@ -196,5 +196,11 @@ group :test do
   gem "simplecov", require: false
 end
 
+group :staging, :production do
+  # Use Lograge for improved logs
+  # Read more: https://github.com/roidrage/lograge
+  gem "lograge"
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

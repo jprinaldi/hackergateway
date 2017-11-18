@@ -54,7 +54,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = []
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -106,5 +106,12 @@ Rails.application.configure do
   config.after_initialize do
     # Google Analytics tracking ID
     GA.tracker = "UA-91349284-1"
+  end
+
+  config.lograge.enabled = true
+  config.lograge.custom_options = lambda do |event|
+    options = event.payload.slice(:request_id, :remote_ip, :user_id, :admin_user_id)
+    options[:params] = event.payload[:params].except("controller", "action")
+    options
   end
 end
