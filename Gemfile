@@ -200,6 +200,10 @@ group :staging, :production do
   # Use Lograge for improved logs
   # Read more: https://github.com/roidrage/lograge
   gem "lograge"
+
+  # Use this gem so that request.ip and request.remote_ip both work as expected
+  # Read more: https://github.com/modosc/cloudflare-rails
+  gem "cloudflare-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
