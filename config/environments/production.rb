@@ -109,6 +109,14 @@ Rails.application.configure do
   end
 
   config.lograge.enabled = true
+  config.lograge.custom_payload do |controller|
+    {
+      request_id: controller.request.uuid,
+      remote_ip: controller.request.remote_ip,
+      user_id: controller.current_user&.id,
+      admin_user_id: controller.current_admin_user&.id
+    }.compact
+  end
   config.lograge.custom_options = lambda do |event|
     options = event.payload.slice(:request_id, :remote_ip, :user_id, :admin_user_id)
     options[:params] = event.payload[:params].except("controller", "action")
