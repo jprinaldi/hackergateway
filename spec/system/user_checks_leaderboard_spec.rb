@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User checks leaderboard", type: :feature do
+RSpec.describe "User checks leaderboard", type: :system do
   scenario "successfully" do
     user = FactoryBot.create(:user)
     visit leaderboard_path

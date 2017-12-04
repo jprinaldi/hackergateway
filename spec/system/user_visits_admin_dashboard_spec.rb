@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User visits admin dashobard", type: :feature do
+RSpec.describe "User visits admin dashobard", type: :system do
   context "while being logged in as an admin user" do
     before(:each) do
       admin_user = FactoryBot.create(:admin_user)

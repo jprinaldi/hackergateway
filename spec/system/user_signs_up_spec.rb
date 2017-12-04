@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User signs up", type: :feature do
+RSpec.describe "User signs up", type: :system do
   before(:each) do
     @user = FactoryBot.build(:user)
     visit new_user_registration_path
@@ -15,7 +15,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: @user.password
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Username is too short")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "with a long username" do
@@ -25,7 +25,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: @user.password
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Username is too long")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "with a username containing unallowed characters" do
@@ -35,8 +35,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: @user.password
     check "terms"
     click_button "Sign up"
-    expect(page)
-      .to have_content("Username only allows letters, numbers and hyphens")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "with a taken username" do
@@ -56,7 +55,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: @user.password
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Username can't be blank")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "without entering email" do
@@ -65,7 +64,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: @user.password
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Email can't be blank")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "without entering password" do
@@ -73,7 +72,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Email", with: @user.email
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Password can't be blank")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "with non-matching passwords" do
@@ -83,7 +82,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: "non-matching #{@user.password}"
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Password confirmation doesn't match Password")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "with a short password" do
@@ -94,7 +93,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password confirmation", with: short_password
     check "terms"
     click_button "Sign up"
-    expect(page).to have_content("Password is too short")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "with a long password" do
@@ -114,7 +113,7 @@ RSpec.feature "User signs up", type: :feature do
     fill_in "Password", with: @user.password
     fill_in "Password confirmation", with: @user.password
     click_button "Sign up"
-    expect(page).to have_content("Terms of service must be accepted")
+    expect(page).to have_current_path(new_user_registration_path)
   end
 
   scenario "successfully" do

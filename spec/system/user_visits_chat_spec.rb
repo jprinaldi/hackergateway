@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User visits chat", type: :feature do
+RSpec.describe "User visits chat", type: :system do
   scenario "successfully" do
     visit chat_path
     expect(page).to have_current_path(chat_path)

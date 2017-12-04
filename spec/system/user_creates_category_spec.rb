@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User creates category", type: :feature do
+RSpec.describe "User creates category", type: :system do
   context "while being logged in as an admin user" do
     before(:each) do
       admin_user = FactoryBot.create(:admin_user)

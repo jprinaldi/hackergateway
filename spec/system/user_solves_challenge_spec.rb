@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User solves challenge", type: :feature do
+RSpec.describe "User solves challenge", type: :system do
   before(:each) do
     @challenge = FactoryBot.create(:challenge)
     visit challenge_path(@challenge)

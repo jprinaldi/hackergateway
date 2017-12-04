@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User visits category", type: :feature do
+RSpec.describe "User visits category", type: :system do
   scenario "successfully" do
     challenge = FactoryBot.create(:challenge)
     visit category_path(challenge.category)

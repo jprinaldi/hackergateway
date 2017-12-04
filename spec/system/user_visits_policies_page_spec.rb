@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User visits policies page", type: :feature do
+RSpec.describe "User visits policies page", type: :system do
   scenario "successfully" do
     visit policies_path
     expect(page)

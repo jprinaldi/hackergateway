@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User updates profile", type: :feature do
+RSpec.describe "User updates profile", type: :system do
   before(:each) do
     @user = FactoryBot.create(:user, :confirmed)
     login_as(@user, scope: :user)
@@ -13,7 +13,7 @@ RSpec.feature "User updates profile", type: :feature do
     fill_in "Username", with: "012"
     fill_in "Current password", with: @user.password
     click_button "Update"
-    expect(page).to have_content("Username is too short")
+    expect(page).to have_current_path(edit_user_registration_path)
   end
 
   scenario "with a long username" do
@@ -21,7 +21,7 @@ RSpec.feature "User updates profile", type: :feature do
     fill_in "Username", with: "0123456789abcdef"
     fill_in "Current password", with: @user.password
     click_button "Update"
-    expect(page).to have_content("Username is too long")
+    expect(page).to have_current_path(edit_user_registration_path)
   end
 
   scenario "with a username containing unallowed characters" do
@@ -29,8 +29,7 @@ RSpec.feature "User updates profile", type: :feature do
     fill_in "Username", with: "0123_abCD"
     fill_in "Current password", with: @user.password
     click_button "Update"
-    expect(page)
-      .to have_content("Username only allows letters, numbers and hyphens")
+    expect(page).to have_current_path(edit_user_registration_path)
   end
 
   scenario "with a reserved username" do
@@ -46,7 +45,7 @@ RSpec.feature "User updates profile", type: :feature do
     fill_in "Email", with: ""
     fill_in "Current password", with: @user.password
     click_button "Update"
-    expect(page).to have_content("Email can't be blank")
+    expect(page).to have_current_path(edit_user_registration_path)
   end
 
   scenario "with non-matching new passwords" do
@@ -63,7 +62,7 @@ RSpec.feature "User updates profile", type: :feature do
     fill_in "Username", with: @user.username
     fill_in "Current password", with: ""
     click_button "Update"
-    expect(page).to have_content("Current password can't be blank")
+    expect(page).to have_current_path(edit_user_registration_path)
   end
 
   scenario "with an invalid current password" do

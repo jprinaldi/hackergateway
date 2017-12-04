@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User visits terms of service page", type: :feature do
+RSpec.describe "User visits terms of service page", type: :system do
   scenario "successfully" do
     visit policies_terms_path
     expect(page)

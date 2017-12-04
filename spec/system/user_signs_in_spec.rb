@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User signs in", type: :feature do
+RSpec.describe "User signs in", type: :system do
   scenario "while being unconfirmed" do
     user = FactoryBot.create(:user)
     visit new_user_session_path
@@ -31,6 +31,6 @@ RSpec.feature "User signs in", type: :feature do
     fill_in "Password", with: user.password
     click_button "Sign in"
     expect(page).to have_current_path(root_path)
-    expect(page).to have_content("Sign out")
+    expect(page).to have_content("Signed in successfully")
   end
 end

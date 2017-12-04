@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.feature "User impersonates user", typqe: :feature do
+RSpec.describe "User impersonates user", typqe: :feature do
   before(:each) do
     @user_to_impersonate = FactoryBot.create(:user, :confirmed)
   end
