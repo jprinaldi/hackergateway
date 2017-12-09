@@ -9,12 +9,54 @@ RSpec.describe User, type: :model do
   end
 
   it "is invalid without an email" do
-    user = FactoryBot.build(:user, username: nil)
+    user = FactoryBot.build(:user, email: nil)
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a non-unique email" do
+    existing_user = FactoryBot.create(:user)
+    user = FactoryBot.build(:user, email: existing_user.email)
     expect(user).not_to be_valid
   end
 
   it "is invalid without a username" do
-    user = FactoryBot.build(:user, email: nil)
+    user = FactoryBot.build(:user, username: nil)
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a short username" do
+    user = FactoryBot.build(:user, username: "012")
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a long username" do
+    user = FactoryBot.build(:user, username: "0123456789abcdef")
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a username containing unallowed characters" do
+    user = FactoryBot.build(:user, username: "0123_abCD")
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a non-unique username" do
+    existing_user = FactoryBot.create(:user)
+    user = FactoryBot.build(:user, username: existing_user.username)
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid without a password" do
+    user = FactoryBot.build(:user, password: nil)
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a short password" do
+    user = FactoryBot.build(:user, password: "a" * 7)
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a long password" do
+    user = FactoryBot.build(:user, password: "a" * 129)
     expect(user).not_to be_valid
   end
 

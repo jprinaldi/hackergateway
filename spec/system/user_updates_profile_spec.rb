@@ -54,7 +54,7 @@ RSpec.describe "User updates profile", type: :system do
     fill_in "Password confirmation", with: "other #{@user.password}"
     fill_in "Current password", with: @user.password
     click_button "Update"
-    expect(page).to have_content("Password confirmation doesn't match Password")
+    expect(page).to have_current_path(edit_user_registration_path)
   end
 
   scenario "with a blank current password" do
