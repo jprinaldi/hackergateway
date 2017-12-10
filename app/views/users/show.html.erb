@@ -5,24 +5,24 @@
     <%= content_tag :h1, "#{@user.username}'s profile", class: "card-title" %>
     <dl class="row">
       <dt class="col-md-3">
-        <%= fa_icon('picture-o', text: 'Profile image', class: 'fa-fw') %>
+        <i class="fas fa-portrait fa-fw"></i> Profile image
       </dt>
       <dd class="col-md-9"><%= image_tag @user.gravatar_url %></dd>
 
       <dt class="col-md-3">
-        <%= fa_icon('user-secret', text: 'Username', class: 'fa-fw') %>
+        <i class="fas fa-user-secret fa-fw"></i> Username
       </dt>
       <dd class="col-md-9"><%= @user.username %></dd>
 
       <dt class="col-md-3">
-        <%= fa_icon('user', text: 'Name', class: 'fa-fw') %>
+        <i class="fas fa-user fa-fw"></i> Name
       </dt>
       <dd class="col-md-9">
-        <%= @user.name || fa_icon('question-circle', text: 'Unknown', class: 'fa-fw') %>
+        <%= @user.name || "<i class=\"fas fa-question-circle fa-fw\"></i>".html_safe %>
       </dd>
 
       <dt class="col-md-3">
-        <%= fa_icon('map-marker', text: 'Country', class: 'fa-fw') %>
+        <i class="fas fa-map-marker fa-fw"></i> Country
       </dt>
       <dd class="col-md-9">
         <% if @user.country_code? %>
@@ -31,22 +31,22 @@
             <%= @user.country.name %>
           </span>
         <% else %>
-          <%= fa_icon 'question-circle', text: 'Unknown', class: 'fa-fw' %>
+          <i class="fas fa-question-circle fa-fw"></i> Unknown
         <% end %>
       </dd>
 
       <dt class="col-md-3">
-        <%= fa_icon('calendar', text: 'Joined', class: 'fa-fw') %>
+        <i class="fas fa-user-plus fa-fw"></i> Joined
       </dt>
       <dd class="col-md-9"><%= time_tag(@user.created_at.to_date) %></dd>
 
       <dt class="col-md-3">
-        <%= fa_icon('trophy', text: 'Rank', class: 'fa-fw') %>
+        <i class="fas fa-trophy-alt fa-fw"></i> Rank
       </dt>
       <dd class="col-md-9"><%= @user.rank %></dd>
 
       <dt class="col-md-3">
-        <%= fa_icon('check-circle', text: 'Solved challenges', class: 'fa-fw') %>
+        <i class="fas fa-check-circle fa-fw"></i> Solved challenges
       </dt>
       <dd class="col-md-9">
         <%= link_to user_solutions_path(@user) do %>

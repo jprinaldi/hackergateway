@@ -41,10 +41,6 @@ gem "jbuilder", "~> 2.5"
 # Read more: https://github.com/twbs/bootstrap-rubygem
 gem "bootstrap", "~> 4.0.0.beta2.1"
 
-# Use Font Awesome for icons support
-# Read more: https://github.com/bokmann/font-awesome-rails
-gem "font-awesome-rails"
-
 # Use Devise for user authentication support
 # Read more: https://github.com/plataformatec/devise
 gem "devise"

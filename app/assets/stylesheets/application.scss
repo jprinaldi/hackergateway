@@ -13,12 +13,11 @@
  */
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import 'variables';
-@import 'bootstrap';
-@import 'bootswatch';
-@import 'font-awesome';
+@import "variables";
+@import "bootstrap";
+@import "bootswatch";
 
-@import 'footer';
+@import "footer";
 
 body {
   display: flex;
