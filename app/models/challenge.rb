@@ -5,7 +5,7 @@ class Challenge < ApplicationRecord # :nodoc:
   friendly_id :name, use: :slugged
 
   belongs_to :category, counter_cache: true
-  has_many :solutions, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :solutions, dependent: :destroy
   has_many :solvers, through: :solutions, source: :user, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
