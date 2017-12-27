@@ -183,10 +183,6 @@ group :development do
   # Use Overcommit to manage and configure Git hooks
   # Read more: https://github.com/brigade/overcommit
   gem "overcommit"
-
-  # Use RubyCritic for static code analysis reports
-  # Read more: https://github.com/whitesmith/rubycritic
-  gem "rubycritic", require: false
 end
 
 group :test do
