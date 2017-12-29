@@ -39,7 +39,7 @@ gem "jbuilder", "~> 2.5"
 
 # Use Bootstrap as the front-end framework
 # Read more: https://github.com/twbs/bootstrap-rubygem
-gem "bootstrap", "~> 4.0.0.beta2.1"
+gem "bootstrap", "~> 4.0.0.beta3"
 
 # Use Devise for user authentication support
 # Read more: https://github.com/plataformatec/devise
