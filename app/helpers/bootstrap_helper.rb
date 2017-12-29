@@ -17,6 +17,7 @@ module BootstrapHelper # :nodoc:
       message,
       class: "alert #{bootstrap_class_for(msg_type)} "\
              "alert-dismissible fade show",
+      role: "alert",
       &block
     )
   end
@@ -24,7 +25,7 @@ module BootstrapHelper # :nodoc:
   def bootstrap_alert_close_button
     content_tag(
       :button,
-      "x",
+      content_tag(:span, "\u00D7", aria: { hidden: true }),
       type: "button",
       class: "close",
       data: { dismiss: "alert" },
