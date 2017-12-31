@@ -199,6 +199,10 @@ group :staging, :production do
   # Use this gem so that request.ip and request.remote_ip both work as expected
   # Read more: https://github.com/modosc/cloudflare-rails
   gem "cloudflare-rails"
+
+  # Use Redis as the cache store
+  # Read more: https://github.com/redis-store/redis-rails
+  gem "redis-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
