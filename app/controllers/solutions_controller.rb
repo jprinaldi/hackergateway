@@ -29,8 +29,7 @@ class SolutionsController < ApplicationController
 
   # POST /solutions
   def create
-    if !verify_recaptcha
-    elsif current_user.solved? @challenge
+    if current_user.solved? @challenge
       flash.notice = "You've already solved this challenge!"
     elsif @challenge.check(params[:answer])
       current_user.solve(@challenge)

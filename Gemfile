@@ -57,10 +57,6 @@ gem "country_select"
 # Read more: https://github.com/chrislloyd/gravtastic
 gem "gravtastic"
 
-# Use this gem for reCAPTCHA support
-# Read more: https://github.com/ambethia/recaptcha
-gem "recaptcha", require: "recaptcha/rails"
-
 # Use Rollbar for exception tracking and logging support
 # Read more: https://github.com/rollbar/rollbar-gem
 gem "rollbar"
