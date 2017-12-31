@@ -102,6 +102,10 @@ gem "pghero"
 # Read more: https://github.com/activeadmin/activeadmin
 gem "activeadmin"
 
+# Use Rack::Attack for blocking & throttling abusive requests
+# Read more: https://github.com/kickstarter/rack-attack
+gem "rack-attack"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
