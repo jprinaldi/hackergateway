@@ -105,7 +105,7 @@ Rails.application.configure do
 
   config.after_initialize do
     # Google Analytics tracking ID
-    GA.tracker = "UA-91349284-1"
+    GA.tracker = Rails.application.secrets.google_analytics_tracking_id
   end
 
   config.lograge.enabled = true
