@@ -1,10 +1,10 @@
 <ul class="list-group list-group-flush">
   <% user.solutions.each do |solution| %>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <span>
+      <div>
         <%= link_to solution.challenge.name, solution.challenge %>
         <%= render 'challenges/badges', challenge: solution.challenge %>
-      </span>
+      </div>
       <span>
         solved <%= "#{time_ago_in_words(solution.created_at)} ago" %>
       </span>
