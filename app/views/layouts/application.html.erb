@@ -1,23 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= display_meta_tags site: 'Hacker Gateway', reverse: true %>
-    <%= csrf_meta_tags %>
-    <%= render 'application/favicon' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= analytics_init(skip_pageview: true) if GoogleAnalytics.valid_tracker? %>
-    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js", async: true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
-  </head>
-
-  <body>
-    <%= render 'layouts/navbar' %>
-    <div id="main-container" class="container">
-      <%= flash_messages %>
-      <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>
-  </body>
-</html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%= display_meta_tags site: 'Hacker Gateway', reverse: true %>
+<%= csrf_meta_tags %>
+<%= render 'application/favicon' %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= analytics_init(skip_pageview: true) if GoogleAnalytics.valid_tracker? %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js", async: true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
+<%= render 'layouts/navbar' %>
+<div id="main-container" class="container">
+  <%= flash_messages %>
+  <%= yield %>
+</div>
+<%= render 'layouts/footer' %>
