@@ -69,10 +69,6 @@ gem "oj"
 # Read more: https://github.com/bgarret/google-analytics-rails
 gem "google-analytics-rails", "1.1.1"
 
-# Use Chartkick for charts support
-# Read more: https://github.com/ankane/chartkick
-gem "chartkick"
-
 # Use Kaminari for pagination support
 # Read more: https://github.com/kaminari/kaminari
 gem "kaminari"

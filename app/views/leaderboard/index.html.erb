@@ -40,21 +40,3 @@
     </div>
   </div>
 </div>
-
-<div class="card">
-  <div class="card-body">
-    <h1 class="card-title">Solutions chart</h1>
-    <div class="col-lg-12">
-      <%= column_chart @solutions_counts_users_counts,
-          xtitle: "Number of challenges solved", ytitle: "Number of users",
-          label: "Users",
-          colors: ["#5BC0DE"],
-          library: {
-            backgroundColor: { fill: "#32383E" },
-            hAxis: { textStyle: { color: "#AAAAAA", fontName: "Share Tech Mono", fontSize: 16 }, titleTextStyle: { color: "#AAAAAA", fontName: "Share Tech Mono", fontSize: 16 } },
-            vAxis: { textStyle: { color: "#AAAAAA", fontName: "Share Tech Mono", fontSize: 16 }, titleTextStyle: { color: "#AAAAAA", fontName: "Share Tech Mono", fontSize: 16 } },
-            tooltip: { textStyle: { fontName: "Share Tech Mono", fontSize: 16 } }
-          } %>
-    </div>
-  </div>
-</div>
