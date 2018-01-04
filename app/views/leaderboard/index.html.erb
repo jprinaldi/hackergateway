@@ -8,32 +8,23 @@
         <table class="table table-striped table-bordered table-hover">
           <thead class="bg-primary">
             <tr>
-              <th>Rank</th>
-              <th>User</th>
-              <th>Solved challenges</th>
-              <th>Last solution</th>
-            </tr>
-          </thead>
+              <th>Rank
+              <th>User
+              <th>Solved challenges
+              <th>Last solution
           <tbody class="bg-dark">
             <% @users.each_with_index do |user, index| %>
               <tr class="<%= 'table-active' if user_signed_in? and user == current_user %>">
-                <th scope="row"><%= leaderboard_rank(index, params[:page], params[:per] || @default_per_page) %></th>
-                <td><%= link_to user.username, user %></td>
-                <td>
-                  <%= link_to user_solutions_path(user) do %>
-                    <%= user.solutions_count %>
-                  <% end %>
-                </td>
+                <td><%= leaderboard_rank(index, params[:page], params[:per] || @default_per_page) %>
+                <td><%= link_to user.username, user %>
+                <td><%= link_to user.solutions_count, user_solutions_path(user) %>
                 <td>
                   <% if user.last_solution_at? %>
                     <%= time_tag(user.last_solution_at) %>
                   <% else %>
                     <span>N/A</span>
                   <% end %>
-                </td>
-              </tr>
             <% end %>
-          </tbody>
         </table>
         <%= paginate @users %>
       </div>

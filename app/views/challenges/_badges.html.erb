@@ -6,18 +6,16 @@
           <%= challenge.category.name %>
         </span>
       <% end %>
-    </li>
   <% end %>
   <% if user_signed_in? %>
     <% if current_user.solved_challenges.include? challenge %>
-      <li class="list-inline-item"><span class="badge badge-success">Solved</span></li>
+      <li class="list-inline-item"><span class="badge badge-success">Solved</span>
     <% else %>
-      <li class="list-inline-item"><span class="badge badge-warning">Unsolved</span></li>
+      <li class="list-inline-item"><span class="badge badge-warning">Unsolved</span>
     <% end %>
   <% end %>
   <li class="list-inline-item">
     <%= link_to challenge_solutions_path(challenge) do %>
       <span class="badge badge-info"><%= pluralize challenge.solutions.size, 'solver' %></span>
     <% end %>
-  </li>
 </ul>

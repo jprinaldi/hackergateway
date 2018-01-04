@@ -31,18 +31,15 @@
               <i class="fas fa-sign-out fa-fw"></i> Sign out
             <% end %>
           </div>
-        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to new_user_session_path, class: 'nav-link' do %>
             <i class="fas fa-sign-in fa-fw"></i> Sign in
           <% end %>
-        </li>
         <li class="nav-item">
           <%= link_to new_user_registration_path, class: 'nav-link' do %>
             <i class="fas fa-user-plus fa-fw"></i> Sign up
           <% end %>
-        </li>
       <% end %>
     </ul>
   </div>
