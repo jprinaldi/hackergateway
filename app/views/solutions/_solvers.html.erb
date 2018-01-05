@@ -4,9 +4,7 @@
       <%= link_to solution.user.username, solution.user %>
       <span>
         solved
-        <%= time_tag solution.created_at do %>
-          <%= "#{time_ago_in_words(solution.created_at)} ago" %>
-        <% end %>
+        <%= time_tag solution.created_at, class: "timeago" %>
       </span>
   <% end %>
 </ul>

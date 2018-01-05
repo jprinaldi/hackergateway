@@ -1,5 +1,7 @@
 {
   "name": "hackergateway",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "timeago": "^1.6.1"
+  }
 }

@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require timeago/jquery.timeago
 //= require vendor_javascripts
 //= require_tree .

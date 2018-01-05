@@ -10,9 +10,7 @@
     <% if local_assigns[:registered_date] %>
     <span>
       registered
-      <%= time_tag user.created_at do %>
-        <%= "#{time_ago_in_words(user.created_at)} ago" %>
-      <% end %>
+      <%= time_tag user.created_at, class: "timeago" %>
     </span>
     <% end %>
   <% end %>

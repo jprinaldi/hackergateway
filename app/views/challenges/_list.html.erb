@@ -7,9 +7,7 @@
       </div>
       <span>
         added
-        <%= time_tag challenge.created_at do %>
-          <%= "#{time_ago_in_words(challenge.created_at)} ago" %>
-        <% end %>
+        <%= time_tag challenge.created_at, class: "timeago" %>
       </span>
   <% end %>
 </ul>
