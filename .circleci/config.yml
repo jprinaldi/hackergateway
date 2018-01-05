@@ -17,21 +17,40 @@ jobs:
     steps:
       - checkout
 
+      # Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
       # Restore bundle cache
-      - type: cache-restore
-        name: Restore bundle cache
-        key: hackergateway-bundle-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          key: hackergateway-bundle-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Bundle Install
           command: bundle install --path vendor/bundle
 
       # Store bundle cache
-      - type: cache-save
-        name: Store bundle cache
-        key: hackergateway-bundle-{{ checksum "Gemfile.lock" }}
-        paths:
-          - vendor/bundle
+      - save_cache:
+          key: hackergateway-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      # Restore yarn / webpacker cache
+      - restore_cache:
+          keys:
+            - hackergateway-yarn-{{ checksum "yarn.lock" }}
+            - hackergateway-yarn-
+
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      # Store yarn / webpacker cache
+      - save_cache:
+          key: hackergateway-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
 
       - run:
           name: Code Climate test-reporter setup
