@@ -5,6 +5,11 @@
         <%= link_to challenge.name, challenge %>
         <%= render 'challenges/badges', challenge: challenge, show_category: local_assigns[:show_category] %>
       </div>
-      <%= "added #{time_ago_in_words(challenge.created_at)} ago" %>
+      <span>
+        added
+        <%= time_tag challenge.created_at do %>
+          <%= "#{time_ago_in_words(challenge.created_at)} ago" %>
+        <% end %>
+      </span>
   <% end %>
 </ul>

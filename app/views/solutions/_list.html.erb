@@ -6,6 +6,8 @@
         solved
         <%= link_to solution.challenge.name, solution.challenge %>
       </span>
-      <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+      <%= time_tag solution.created_at do %>
+        <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+      <% end %>
   <% end %>
 </ul>

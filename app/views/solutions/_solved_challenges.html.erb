@@ -6,7 +6,10 @@
         <%= render 'challenges/badges', challenge: solution.challenge %>
       </div>
       <span>
-        solved <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+        solved
+        <%= time_tag solution.created_at do %>
+          <%= "#{time_ago_in_words(solution.created_at)} ago" %>
+        <% end %>
       </span>
   <% end %>
 </ul>
