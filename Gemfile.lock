@@ -438,7 +438,6 @@ DEPENDENCIES
   image_optim
   image_optim_pack
   jbuilder (~> 2.5)
-  jquery-rails
   kaminari
   letter_opener
   listen (>= 3.0.5, < 3.2)
