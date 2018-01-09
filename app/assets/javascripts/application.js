@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery3
-//= require popper
-//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap/dist/js/bootstrap.bundle
 //= require timeago/jquery.timeago
-//= require vendor_javascripts
+//= require @fortawesome/fontawesome
+//= require @fortawesome/fontawesome-free-brands
+//= require @fortawesome/fontawesome-pro-solid
+//= require turbolinks
 //= require_tree .

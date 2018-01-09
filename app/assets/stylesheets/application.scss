@@ -15,9 +15,9 @@
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "variables";
-@import "bootstrap";
-@import "bootswatch";
+@import "bootswatch/dist/slate/variables";
+@import "bootstrap/scss/bootstrap";
+@import "bootswatch/dist/slate/bootswatch";
 
 @import "footer";
 

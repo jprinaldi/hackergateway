@@ -37,10 +37,6 @@ gem "jbuilder", "~> 2.5"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use Bootstrap as the front-end framework
-# Read more: https://github.com/twbs/bootstrap-rubygem
-gem "bootstrap", "~> 4.0.0.beta3"
-
 # Use Devise for user authentication support
 # Read more: https://github.com/plataformatec/devise
 gem "devise"

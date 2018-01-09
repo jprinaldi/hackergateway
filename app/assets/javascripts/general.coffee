@@ -1,4 +1,3 @@
-# Enable tooltips everywhere
 $(document).on 'turbolinks:load', ->
   # Enable Google Analytics page tracking
   if typeof ga is "function"
@@ -8,7 +7,8 @@ $(document).on 'turbolinks:load', ->
   # Enable Bootstrap tooltips
   $('[data-toggle="tooltip"]').tooltip()
 
-  $("time.timeago").timeago();
+  # Enable timeago
+  $("time.timeago").timeago()
 
   # HACK: https://github.com/FortAwesome/Font-Awesome/issues/11924
   FontAwesome.dom.i2svg()
