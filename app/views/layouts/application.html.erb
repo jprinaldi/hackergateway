@@ -6,7 +6,7 @@
 <%= render 'application/favicon' %>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= analytics_init(skip_pageview: true) if GoogleAnalytics.valid_tracker? %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.staging? || Rails.env.production? %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <%= render 'layouts/navbar' %>
 <div id="main-container" class="container">
   <%= flash_messages %>
