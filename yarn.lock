@@ -2,27 +2,27 @@
 # yarn lockfile v1
 
 
-"@fortawesome/fontawesome-common-types@^0.1.0":
-  version "0.1.0"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.0.tgz#74390593716ad1137f61e11b6e07c4a5d2482b5e"
+"@fortawesome/fontawesome-common-types@^0.1.1":
+  version "0.1.1"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.1.tgz#28c78607ffd2d246abfcc09bacd28490952280af"
 
 "@fortawesome/fontawesome-free-brands@^5.0.3":
-  version "5.0.3"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.0.3.tgz#056139d951b8f9ee047487899888e7201b4478b8"
+  version "5.0.4"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.0.4.tgz#764ceaefc44b5ec5ca5b549cfa51e8cc672f72b4"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.0"
+    "@fortawesome/fontawesome-common-types" "^0.1.1"
 
 "@fortawesome/fontawesome-pro-solid@^5.0.3":
-  version "5.0.3"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-pro-solid/-/fontawesome-pro-solid-5.0.3.tgz#ae3c92275c524724b27d417ecdbb4072b841198d"
+  version "5.0.4"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-pro-solid/-/fontawesome-pro-solid-5.0.4.tgz#7a13c620a8465d623ff2126294f1998736154f61"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.0"
+    "@fortawesome/fontawesome-common-types" "^0.1.1"
 
 "@fortawesome/fontawesome@^1.1.1":
-  version "1.1.1"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome/-/fontawesome-1.1.1.tgz#016a850aac97de1b55df4b61e446b72abadb1d91"
+  version "1.1.2"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome/-/fontawesome-1.1.2.tgz#ddc83c2a747ebd83eb5970eaebfb257aa41c8bb4"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.0"
+    "@fortawesome/fontawesome-common-types" "^0.1.1"
 
 bootstrap@^4.0.0-beta.3:
   version "4.0.0-beta.3"
