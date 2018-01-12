@@ -4,5 +4,7 @@
   <div class="card-header">
     <%= content_tag :h1, "Solutions" %>
   </div>
-  <%= render 'list', solutions: @solutions %>
+  <ul class="list-group list-group-flush">
+    <%= render @solutions %>
+  </ul>
 </div>

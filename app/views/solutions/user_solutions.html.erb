@@ -4,7 +4,9 @@
   <div class="card-header">
     <%= content_tag :h1, "#{@user.username}'s solved challenges" %>
   </div>
-  <%= render 'solved_challenges', user: @user %>
+  <ul class="list-group list-group-flush">
+    <%= render partial: 'user_solution', collection: @user.solutions, as: :solution %>
+  </ul>
   <% if @user.solutions.empty? %>
     <div class="card-body">
       <p class="card-text">This user hasn't solved any challenges yet.

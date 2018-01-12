@@ -3,18 +3,7 @@
   <div class="card-body">
     <h1 class="card-title">Frequently Asked Questions</h1>
     <div id="faqAccordion" data-children=".item">
-      <% @faqs.each_with_index do |faq, index| %>
-      <div class="item">
-        <h2>
-          <a data-toggle="collapse" data-parent="#faqAccordion" href="#faqAccordion<%= index %>" aria-expanded="true" aria-controls="faqAccordion<%= index %>">
-            <%= faq.title %>
-          </a>
-        </h2>
-        <div id="faqAccordion<%= index %>" class="collapse" role="tabpanel">
-          <p><%= faq.answer %>
-        </div>
-      </div>
-      <% end %>
+      <%= render @faqs %>
     </div>
   </div>
 </div>

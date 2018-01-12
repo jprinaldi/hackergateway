@@ -1,0 +1,5 @@
+<li class="list-group-item d-flex justify-content-between align-items-center">
+  <%= yield %>
+  <%= link_to user_solutions_path(user) do %>
+    <%= pluralize user.solutions_count, 'solved challenge' %>
+  <% end %>

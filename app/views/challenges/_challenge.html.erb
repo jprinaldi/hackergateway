@@ -1,0 +1,28 @@
+<div>
+  <% if current_page? challenge %>
+    <%= tag.span challenge.name %>
+  <% else %>
+    <%= link_to challenge.name, challenge %>
+  <% end %>
+  <ul class="list-inline mb-0">
+    <% if local_assigns[:show_category] %>
+      <li class="list-inline-item">
+        <%= link_to challenge.category do %>
+          <span class="badge badge-secondary">
+            <%= challenge.category.name %>
+          </span>
+        <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.solved_challenges.include? challenge %>
+        <li class="list-inline-item"><span class="badge badge-success">Solved</span>
+      <% else %>
+        <li class="list-inline-item"><span class="badge badge-warning">Unsolved</span>
+      <% end %>
+    <% end %>
+    <li class="list-inline-item">
+      <%= link_to challenge_solutions_path(challenge) do %>
+        <span class="badge badge-info"><%= pluralize challenge.solutions.size, 'solver' %></span>
+      <% end %>
+  </ul>
+</div>

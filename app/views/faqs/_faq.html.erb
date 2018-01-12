@@ -1,0 +1,10 @@
+<div class="item">
+  <h2>
+    <a data-toggle="collapse" data-parent="#faqAccordion" href="#faqAccordion<%= faq.id %>" aria-expanded="true" aria-controls="faqAccordion<%= faq.id %>">
+      <%= faq.title %>
+    </a>
+  </h2>
+  <div id="faqAccordion<%= faq.id %>" class="collapse" role="tabpanel">
+    <p><%= faq.answer %>
+  </div>
+</div>

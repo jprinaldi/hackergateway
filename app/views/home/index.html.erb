@@ -4,7 +4,9 @@
       <div class="card-header">
         <h4>Newest challenges</h4>
       </div>
-      <%= render 'challenges/list', challenges: @newest_challenges, show_category: true %>
+      <ul class="list-group list-group-flush">
+        <%= render partial: @newest_challenges, layout: 'challenges/added_challenge', locals: { show_category: true } %>
+      </ul>
     </div>
   </div>
   <div class="col-lg-4 mb-3">
@@ -12,7 +14,9 @@
       <div class="card-header">
         <h4>Newest users</h4>
       </div>
-      <%= render 'users/list', users: @newest_users, registered_date: true %>
+      <ul class="list-group list-group-flush">
+        <%= render partial: @newest_users, layout: 'users/registered_user' %>
+      </ul>
     </div>
   </div>
   <div class="col-lg-8 mb-3">
@@ -20,7 +24,9 @@
       <div class="card-header">
         <h4>Newest solutions</h4>
       </div>
-      <%= render 'solutions/list', solutions: @newest_solutions %>
+      <ul class="list-group list-group-flush">
+        <%= render @newest_solutions %>
+      </ul>
     </div>
   </div>
   <div class="col-lg-4 mb-3">
@@ -28,7 +34,9 @@
       <div class="card-header">
         <h4>Top users</h4>
       </div>
-      <%= render 'users/list', users: @top_users, solutions_count: true %>
+      <ul class="list-group list-group-flush">
+        <%= render partial: @top_users, layout: 'users/top_user' %>
+      </ul>
     </div>
   </div>
 </div>

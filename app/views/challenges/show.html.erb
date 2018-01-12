@@ -1,8 +1,9 @@
 <% title "#{@challenge.name} | Challenges" %>
 <div class="card">
   <div class="card-header">
-    <%= content_tag :h4, @challenge.name %>
-    <%= render 'badges', challenge: @challenge, show_category: true %>
+    <h4>
+      <%= render @challenge %>
+    </h4>
   </div>
   <div class="card-body">
     <%= raw @challenge.body %>

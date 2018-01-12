@@ -1,0 +1,11 @@
+<% if current_page? category %>
+  <%= tag.span category.name %>
+<% else %>
+  <%= link_to category.name, category %>
+<% end %>
+<ul class="list-inline mb-0">
+  <li class="ist-inline-item">
+    <span class="badge badge-info">
+      <%= pluralize category.challenges.size, 'challenge' %>
+    </span>
+</ul>

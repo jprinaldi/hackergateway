@@ -1,13 +1,2 @@
 <% title "#{@category.name} | Categories" %>
-<div class="card">
-  <div class="card-header">
-    <h4>
-      <%= @category.name %>
-    </h4>
-    <%= render 'badges', category: @category %>
-  </div>
-  <%= render 'challenges/list', challenges: @category.challenges %>
-  <% if @category.challenges.empty? %>
-    <p>This category doesn't have any challenges yet.
-  <% end %>
-</div>
+<%= render partial: 'category_card', object: @category, as: :category %>

@@ -4,12 +4,6 @@
     <h1>Challenge categories</h1>
   </div>
   <ul class="list-group list-group-flush">
-    <% @categories.each do |category| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span>
-          <%= link_to category.name, category %>
-        </span>
-        <span><%= pluralize category.challenges.size, 'challenge' %></span>
-    <% end %>
+    <%= render partial: @categories, layout: 'li_layout' %>
   </ul>
 </div>

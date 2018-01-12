@@ -4,5 +4,7 @@
   <div class="card-header">
     <h1>Users</h1>
   </div>
-  <%= render 'list', users: @users, solutions_count: false %>
+  <ul class="list-group list-group-flush">
+    <%= render partial: @users, layout: 'registered_user' %>
+  </ul>
 </div>

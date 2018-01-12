@@ -4,7 +4,9 @@
   <div class="card-header">
     <%= content_tag :h1, "#{@challenge.name} solvers" %>
   </div>
-  <%= render 'solvers', challenge: @challenge %>
+  <ul class="list-group list-group-flush">
+    <%= render partial: 'challenge_solution', collection: @challenge.solutions, as: :solution %>
+  </ul>
   <% if @challenge.solvers.empty? %>
     <div class="card-body">
       <p class="card-text">This challenge doesn't have any solvers yet.
