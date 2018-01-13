@@ -43,8 +43,7 @@ class User < ApplicationRecord # :nodoc:
   end
 
   def solve(challenge)
-    solution = solutions.create!(challenge: challenge)
-    update_attributes(last_solution_at: solution.created_at)
+    solutions.create!(challenge: challenge)
   end
 
   def solved?(challenge)

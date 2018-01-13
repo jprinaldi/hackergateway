@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105205902) do
+ActiveRecord::Schema.define(version: 20180113165453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,14 +46,14 @@ ActiveRecord::Schema.define(version: 20171105205902) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "api_keys", force: :cascade do |t|
+  create_table "api_keys", id: :serial, force: :cascade do |t|
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["token"], name: "index_api_keys_on_token", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "challenges_count", default: 0
     t.string "slug"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20171105205902) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "challenges", force: :cascade do |t|
+  create_table "challenges", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "body"
     t.string "answer"
@@ -73,19 +73,20 @@ ActiveRecord::Schema.define(version: 20171105205902) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "code"
+    t.datetime "last_solution_at"
     t.index ["category_id"], name: "index_challenges_on_category_id"
     t.index ["name"], name: "index_challenges_on_name", unique: true
     t.index ["slug"], name: "index_challenges_on_slug", unique: true
   end
 
-  create_table "faqs", force: :cascade do |t|
+  create_table "faqs", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 20171105205902) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "solutions", force: :cascade do |t|
+  create_table "solutions", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "challenge_id"
     t.datetime "created_at", null: false
@@ -106,7 +107,7 @@ ActiveRecord::Schema.define(version: 20171105205902) do
     t.index ["user_id"], name: "index_solutions_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username", default: "", null: false

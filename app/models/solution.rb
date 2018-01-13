@@ -10,11 +10,15 @@ class Solution < ApplicationRecord # :nodoc:
     scope: :challenge, message: "has already solved this challenge"
   }
 
-  after_destroy do |solution|
-    new_solution = user.solutions.second_to_last
-    solution.user.update_attributes(
-      last_solution_at:
-      new_solution ? new_solution.created_at : nil
+  after_create do
+    user.update_attributes(last_solution_at: created_at)
+    challenge.update_attributes(last_solution_at: created_at)
+  end
+
+  after_destroy do
+    user.update_attributes(last_solution_at: user.solutions.last&.created_at)
+    challenge.update_attributes(
+      last_solution_at: challenge.solutions.last&.created_at
     )
   end
 end

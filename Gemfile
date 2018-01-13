@@ -179,6 +179,10 @@ group :test do
   # Use SimpleCov for code coverage analysis
   # Read more: https://github.com/colszowka/simplecov
   gem "simplecov", require: false
+
+  # Use Timecop for making it simple to test time-dependent code
+  # Read more: https://github.com/travisjeffery/timecop
+  gem "timecop"
 end
 
 group :staging, :production do
