@@ -1,6 +1,5 @@
-<li class="list-group-item d-flex justify-content-between align-items-center">
-  <%= yield %>
-  <span>
-    registered
-    <%= time_tag user.created_at, class: "timeago" %>
-  </span>
+<%= render user %>
+<span>
+  registered
+  <%= time_tag user.created_at, class: "timeago" %>
+</span>
