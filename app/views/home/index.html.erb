@@ -15,7 +15,7 @@
         <h4>Newest users</h4>
       </div>
       <ul class="list-group list-group-flush">
-        <%= render partial: 'users/registered_user', layout: 'users/li_layout', collection: @newest_users, as: :user %>
+        <%= render partial: 'users/registered_user', layout: 'users/li_layout', collection: @newest_users, as: :user, cached: true %>
       </ul>
     </div>
   </div>
@@ -25,7 +25,7 @@
         <h4>Newest solutions</h4>
       </div>
       <ul class="list-group list-group-flush">
-        <%= render @newest_solutions %>
+        <%= render @newest_solutions, cached: true %>
       </ul>
     </div>
   </div>
@@ -35,7 +35,7 @@
         <h4>Top users</h4>
       </div>
       <ul class="list-group list-group-flush">
-        <%= render partial: 'users/top_user', layout: 'users/li_layout', collection: @top_users, as: :user %>
+        <%= render partial: 'users/top_user', layout: 'users/li_layout', collection: @top_users, as: :user, cached: true %>
       </ul>
     </div>
   </div>

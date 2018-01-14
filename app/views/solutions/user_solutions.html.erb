@@ -5,7 +5,7 @@
     <%= content_tag :h1, "#{@user.username}'s solved challenges" %>
   </div>
   <ul class="list-group list-group-flush">
-    <%= render partial: 'user_solution', collection: @user.solutions, as: :solution %>
+    <%= render partial: 'user_solution', collection: @user.solutions, as: :solution, cached: true %>
   </ul>
   <% if @user.solutions.empty? %>
     <div class="card-body">

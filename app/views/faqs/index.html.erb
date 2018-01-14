@@ -3,7 +3,7 @@
   <div class="card-body">
     <h1 class="card-title">Frequently Asked Questions</h1>
     <div id="faqAccordion" data-children=".item">
-      <%= render @faqs %>
+      <%= render @faqs, cached: true %>
     </div>
   </div>
 </div>

@@ -5,6 +5,6 @@
     <%= content_tag :h1, "Solutions" %>
   </div>
   <ul class="list-group list-group-flush">
-    <%= render @solutions %>
+    <%= render @solutions, cached: true %>
   </ul>
 </div>

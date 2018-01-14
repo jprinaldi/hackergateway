@@ -5,6 +5,6 @@
     <h1>Users</h1>
   </div>
   <ul class="list-group list-group-flush">
-    <%= render partial: 'registered_user', layout: 'li_layout', collection: @users, as: :user %>
+    <%= render partial: 'registered_user', layout: 'li_layout', collection: @users, as: :user, cached: true %>
   </ul>
 </div>
