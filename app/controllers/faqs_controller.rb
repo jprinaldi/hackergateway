@@ -4,6 +4,6 @@ class FaqsController < ApplicationController
   # GET /faqs
   # GET /faqs.json
   def index
-    @faqs = Faq.all
+    @faqs = Faq.order(created_at: :asc)
   end
 end

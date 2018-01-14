@@ -11,7 +11,7 @@ class SolutionsController < ApplicationController
     elsif params[:challenge_id]
       challenge_solutions
     else
-      @solutions = Solution.includes(:user, :challenge).all
+      @solutions = Solution.includes(:user, :challenge).reverse
     end
   end
 
