@@ -7,20 +7,20 @@
   resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.3.tgz#8475e0f2d1ad1f858c4ec2e76ed9a2456a09ad83"
 
 "@fortawesome/fontawesome-free-brands@^5.0.3":
-  version "5.0.7"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.0.7.tgz#0fe131da1bfb7f5f49b7b800b9e198e530fab418"
+  version "5.0.9"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.0.9.tgz#6023e29636a6d97a67a36b7e3f4af20f3d1526b0"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.3"
 
 "@fortawesome/fontawesome-pro-solid@^5.0.3":
-  version "5.0.7"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-pro-solid/-/fontawesome-pro-solid-5.0.7.tgz#34fb107c2314b4192630b58111e030f12eb06cbd"
+  version "5.0.9"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome-pro-solid/-/fontawesome-pro-solid-5.0.9.tgz#5a4f2a7def2afe9b61b3c8067d39d528908f3a1c"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.3"
 
 "@fortawesome/fontawesome@^1.1.1":
-  version "1.1.4"
-  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome/-/fontawesome-1.1.4.tgz#03065638046206c2226e103b550196934c75be9b"
+  version "1.1.5"
+  resolved "https://npm.fontawesome.com/C174E87F-6951-4A17-B2D5-E8851F37F956/@fortawesome/fontawesome/-/fontawesome-1.1.5.tgz#c7cfafdd3364245626293cc670357f9fb8487170"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.3"
 
@@ -47,8 +47,8 @@ jquery@>=1.2.3, jquery@>=1.8.0, jquery@>=1.9.1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
 popper.js@^1.12.9:
-  version "1.12.9"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.9.tgz#0dfbc2dff96c451bb332edcfcfaaf566d331d5b3"
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.1.tgz#b8815e5cda6f62fc2042e47618649f75866e6753"
 
 timeago@^1.6.1:
   version "1.6.3"
