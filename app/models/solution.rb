@@ -11,13 +11,13 @@ class Solution < ApplicationRecord # :nodoc:
   }
 
   after_create do
-    user.update_attributes(last_solution_at: created_at)
-    challenge.update_attributes(last_solution_at: created_at)
+    user.update(last_solution_at: created_at)
+    challenge.update(last_solution_at: created_at)
   end
 
   after_destroy do
-    user.update_attributes(last_solution_at: user.solutions.last&.created_at)
-    challenge.update_attributes(
+    user.update(last_solution_at: user.solutions.last&.created_at)
+    challenge.update(
       last_solution_at: challenge.solutions.last&.created_at
     )
   end
