@@ -14,7 +14,7 @@ RSpec.describe "User creates challenge", type: :system do
       visit new_admin_challenge_path
       fill_in "Name*", with: existing_challenge.name
       click_button "Create"
-      expect(page).to have_content("Name* has already been taken")
+      expect(page).to have_content("has already been taken")
     end
 
     scenario "successfully" do

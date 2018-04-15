@@ -15,7 +15,7 @@ RSpec.describe "User updates user", type: :system do
       visit edit_admin_user_path(current_user)
       fill_in "Username*", with: existing_user.username
       click_button "Update"
-      expect(page).to have_content("Username* has already been taken")
+      expect(page).to have_content("has already been taken")
     end
 
     scenario "successfully" do

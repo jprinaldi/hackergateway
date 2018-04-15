@@ -35,7 +35,7 @@ RSpec.describe "User signs up", type: :system do
     FactoryBot.create(:user, username: "MyUsername")
     fill_in "Username", with: "mYuSeRnAmE"
     click_button "Sign up"
-    expect(page).to have_content("Username has already been taken")
+    expect(page).to have_content("has already been taken")
   end
 
   scenario "without entering username" do

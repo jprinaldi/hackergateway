@@ -15,7 +15,7 @@ RSpec.describe "User updates admin user", type: :system do
       visit edit_admin_admin_user_path(current_admin_user)
       fill_in "Email*", with: existing_admin_user.email
       click_button "Update"
-      expect(page).to have_content("Email* has already been taken")
+      expect(page).to have_content("has already been taken")
     end
 
     scenario "successfully" do

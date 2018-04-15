@@ -14,7 +14,7 @@ RSpec.describe "User creates category", type: :system do
       visit new_admin_category_path
       fill_in "Name*", with: existing_category.name
       click_button "Create"
-      expect(page).to have_content("Name* has already been taken")
+      expect(page).to have_content("has already been taken")
     end
 
     scenario "successfully" do

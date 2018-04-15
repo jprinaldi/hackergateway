@@ -15,7 +15,7 @@ RSpec.describe "User updates challenge", type: :system do
       visit edit_admin_challenge_path(current_challenge)
       fill_in "Name*", with: existing_challenge.name
       click_button "Update"
-      expect(page).to have_content("Name* has already been taken")
+      expect(page).to have_content("has already been taken")
     end
 
     scenario "successfully" do

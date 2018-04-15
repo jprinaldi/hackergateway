@@ -14,7 +14,7 @@ RSpec.describe "User creates FAQ", type: :system do
       visit new_admin_faq_path
       fill_in "Answer", with: faq.answer
       click_button "Create"
-      expect(page).to have_content("Title* can't be blank")
+      expect(page).to have_content("can't be blank")
     end
 
     scenario "without an answer" do
@@ -22,7 +22,7 @@ RSpec.describe "User creates FAQ", type: :system do
       visit new_admin_faq_path
       fill_in "Title*", with: faq.title
       click_button "Create"
-      expect(page).to have_content("Answer* can't be blank")
+      expect(page).to have_content("can't be blank")
     end
 
     scenario "successfully" do
