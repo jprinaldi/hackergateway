@@ -90,7 +90,7 @@ gem "pghero"
 
 # Use Active Admin as the administration framework
 # Read more: https://github.com/activeadmin/activeadmin
-gem "activeadmin", github: "pynixwang/activeadmin", branch: "rails-5.2"
+gem "activeadmin"
 
 # Use Rack::Attack for blocking & throttling abusive requests
 # Read more: https://github.com/kickstarter/rack-attack
