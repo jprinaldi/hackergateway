@@ -41,7 +41,6 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail
-    flags: ['--rails']
 
 PrePush:
   Brakeman:
