@@ -88,7 +88,7 @@ GEM
     chromedriver-helper (1.2.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    cloudflare-rails (0.3.0)
+    cloudflare-rails (0.4.0)
       httparty
       rails (~> 5.0)
     codecov (0.1.10)
