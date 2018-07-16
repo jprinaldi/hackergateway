@@ -24,15 +24,13 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.7"
 
-bootstrap@^4.1.1, bootstrap@^4.1.2:
+bootstrap@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.2.tgz#aee2a93472e61c471fc79fb475531dcbc87de326"
 
-bootswatch@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-4.1.1.tgz#eb4e053c469d4dc8cdaff11ff4ddbef63e86a56d"
-  dependencies:
-    bootstrap "^4.1.1"
+bootswatch@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-4.1.2.tgz#b4dfa68cdeafe711e513c500db903e8ef400e202"
 
 jquery-ujs@^1.2.2:
   version "1.2.2"
