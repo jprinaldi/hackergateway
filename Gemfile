@@ -103,7 +103,7 @@ group :development, :test do
 
   # Use RSpec as the testing framework
   # Read more: https://github.com/rspec/rspec-rails
-  gem "rspec-rails", "~> 3.5"
+  gem "rspec-rails", "~> 3.8"
   gem "rspec_junit_formatter"
 
   # Use Capybara to simulate how a real user would interact with the app
