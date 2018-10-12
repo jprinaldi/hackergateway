@@ -14,6 +14,5 @@
 //= require jquery3
 //= require bootstrap/dist/js/bootstrap.bundle
 //= require timeago/jquery.timeago
-//= require @fortawesome/fontawesome-pro/js/all
 //= require turbolinks
 //= require_tree .

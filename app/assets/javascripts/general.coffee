@@ -10,7 +10,4 @@ $(document).on 'turbolinks:load', ->
   # Enable timeago
   $("time.timeago").timeago()
 
-  # HACK: https://github.com/FortAwesome/Font-Awesome/issues/11924
-  FontAwesome.dom.i2svg()
-
   return
