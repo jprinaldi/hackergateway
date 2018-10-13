@@ -60,6 +60,7 @@ class User < ApplicationRecord # :nodoc:
 
   def move_friendly_id_error_to_username
     return if errors[:friendly_id].blank?
+
     errors.add :username, *errors.delete(:friendly_id)
   end
 end

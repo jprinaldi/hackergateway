@@ -27,6 +27,7 @@ module BootstrapDeviseHelper # :nodoc:
 
   def bootstrap_devise_error_messages!
     return "" if resource.errors.empty?
+
     bootstrap_devise_alert
   end
 end
