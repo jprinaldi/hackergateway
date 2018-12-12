@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :faq do
-    title "MyString"
-    answer "MyText"
+    title { "MyTitle" }
+    answer { "MyAnswer" }
   end
 end
