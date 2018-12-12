@@ -469,7 +469,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.12)
   rack-attack
-  rails (~> 5.2.1)
+  rails (~> 5.2.2)
   rails_real_favicon
   redis-rails
   roboto
