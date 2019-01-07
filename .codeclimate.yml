@@ -10,31 +10,32 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
-      - javascript
+        - ruby
+        - javascript
   eslint:
     enabled: true
   fixme:
     enabled: true
   rubocop:
     enabled: true
+    channel: rubocop-0-60
 ratings:
   paths:
-  - Gemfile.lock
-  - "**.erb"
-  - "**.haml"
-  - "**.rb"
-  - "**.rhtml"
-  - "**.slim"
-  - "**.coffee"
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
+    - Gemfile.lock
+    - "**.erb"
+    - "**.haml"
+    - "**.rb"
+    - "**.rhtml"
+    - "**.slim"
+    - "**.coffee"
+    - "**.inc"
+    - "**.js"
+    - "**.jsx"
+    - "**.module"
+    - "**.php"
+    - "**.py"
 exclude_paths:
-- config/
-- db/
-- spec/
-- vendor/
+  - config/
+  - db/
+  - spec/
+  - vendor/
