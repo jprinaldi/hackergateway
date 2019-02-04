@@ -18,7 +18,8 @@ RSpec.describe "User creates challenge", type: :system do
     end
 
     scenario "successfully" do
-      challenge = FactoryBot.build(:challenge)
+      category = FactoryBot.create(:category)
+      challenge = FactoryBot.build(:challenge, category: category)
       visit new_admin_challenge_path
       select challenge.category.name, from: "Category"
       fill_in "Name*", with: challenge.name

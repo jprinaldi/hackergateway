@@ -19,7 +19,9 @@ RSpec.describe "User creates solution", type: :system do
     end
 
     scenario "successfully" do
-      solution = FactoryBot.build(:solution)
+      user = FactoryBot.create(:user)
+      challenge = FactoryBot.create(:challenge)
+      solution = FactoryBot.build(:solution, user: user, challenge: challenge)
       visit new_admin_solution_path
       select solution.user.username, from: "User*"
       select solution.challenge.name, from: "Challenge*"
