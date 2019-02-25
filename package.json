@@ -5,6 +5,6 @@
     "bootstrap": "^4.3.1",
     "bootswatch": "^4.3.1",
     "jquery-ujs": "^1.2.2",
-    "timeago": "^1.6.4"
+    "timeago": "^1.6.5"
   }
 }
