@@ -145,9 +145,13 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 
-  # Use Rubocop for static code analysis support
+  # Use RuboCop for static code analysis support
   # Read more: https://github.com/bbatsov/rubocop
   gem "rubocop", require: false
+
+  # Use RuboCop Performance for performance analysis support
+  # Read more: https://github.com/rubocop-hq/rubocop-performance
+  gem "rubocop-performance"
 
   # Use Letter Opener for email previewing support
   # Read more: https://github.com/ryanb/letter_opener
