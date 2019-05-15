@@ -171,7 +171,7 @@ GEM
       responders (~> 2.0)
     iniparse (1.4.4)
     jaro_winkler (1.5.2)
-    jbuilder (2.9.0)
+    jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
