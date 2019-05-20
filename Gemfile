@@ -197,7 +197,7 @@ group :staging, :production do
   # Read more: https://github.com/roidrage/lograge
   # TODO: Had to revert lograge to version 0.10.0 due to a bug in the gem.
   # Waiting for this PR to be merged: https://github.com/roidrage/lograge/pull/286
-  gem "lograge", "~> 0.10.0"
+  gem "lograge", "~> 0.11.1"
 
   # Use this gem so that request.ip and request.remote_ip both work as expected
   # Read more: https://github.com/modosc/cloudflare-rails
