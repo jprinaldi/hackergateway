@@ -5,9 +5,9 @@
 <%= csrf_meta_tags %>
 <%= render 'application/favicon' %>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag "https://pro.fontawesome.com/releases/v5.8.0/css/all.css", rel: "stylesheet", integrity: "sha384-/pOR6TNYPdUaQQQRKQ4XHznZ4U2K/Lscb3u6jshUngC/31fLTuyX9FZb24gp4O3J", crossorigin: "anonymous", 'data-turbolinks-track': 'reload' %>
 <%= analytics_init(skip_pageview: true) if GoogleAnalytics.valid_tracker? %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'https://pro.fontawesome.com/releases/v5.8.2/js/all.js', integrity: 'sha384-RLPiEwcAdrH2NjFcwJipJtlFoIN1xvqPYeeDX5yYtSNu+HTIkQCDvPQ9thsUnPUS', crossorigin: 'anonymous', data: { mutate_approach: 'sync' } %>
 <%= render 'layouts/navbar' %>
 <div id="main-container" class="container">
   <%= flash_messages %>
