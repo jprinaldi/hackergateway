@@ -7,7 +7,7 @@
 <%= stylesheet_link_tag    'application', media: :all, data: { turbolinks_track: :reload } %>
 <%= analytics_init(skip_pageview: true) if GoogleAnalytics.valid_tracker? %>
 <%= javascript_include_tag 'application', data: { turbolinks_track: :reload } %>
-<%= javascript_include_tag 'https://kit.fontawesome.com/df0400c287.js', crossorigin: :anonymous, data: { mutate_approach: :sync } %>
+<%= javascript_include_tag 'https://kit.fontawesome.com/df0400c287.js', integrity: 'sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG', crossorigin: :anonymous, data: { mutate_approach: :sync } %>
 <%= render 'layouts/navbar' %>
 <div id="main-container" class="container">
   <%= flash_messages %>
