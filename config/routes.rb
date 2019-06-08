@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount_roboto
   authenticate :admin_user do
+    mount Coverband::Reporters::Web.new, at: "coverage"
     mount PgHero::Engine, at: "pghero"
   end
   resources :users, only: %i[index show] do

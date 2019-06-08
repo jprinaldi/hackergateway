@@ -111,6 +111,8 @@ GEM
     country_select (4.0.0)
       countries (~> 3.0)
       sort_alphabetical (~> 1.0)
+    coverband (4.2.0)
+      redis
     crass (1.0.4)
     debug_inspector (0.0.3)
     devise (4.6.2)
@@ -437,6 +439,7 @@ DEPENDENCIES
   codecov
   coffee-rails (~> 5.0)
   country_select
+  coverband
   devise
   dotenv-rails
   factory_bot_rails

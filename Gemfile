@@ -96,6 +96,10 @@ gem "activeadmin"
 # Read more: https://github.com/kickstarter/rack-attack
 gem "rack-attack"
 
+# Use Coverband to measure production code usage
+# Read more: https://github.com/danmayer/coverband
+gem "coverband"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
