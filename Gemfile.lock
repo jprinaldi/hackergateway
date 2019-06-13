@@ -149,7 +149,7 @@ GEM
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
-    httparty (0.16.4)
+    httparty (0.17.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     i18n (1.6.0)
