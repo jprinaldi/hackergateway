@@ -157,6 +157,10 @@ group :development do
   # Read more: https://github.com/rubocop-hq/rubocop-performance
   gem "rubocop-performance"
 
+  # Use RuboCop Rails for Rails code analysis support
+  # Read more: https://github.com/rubocop-hq/rubocop-rails
+  gem "rubocop-rails"
+
   # Use Letter Opener for email previewing support
   # Read more: https://github.com/ryanb/letter_opener
   gem "letter_opener"
