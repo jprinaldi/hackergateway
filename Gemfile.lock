@@ -165,7 +165,7 @@ GEM
       fspath (>= 2.1, < 4)
       image_optim (~> 0.19)
     image_size (2.0.1)
-    in_threads (1.5.2)
+    in_threads (1.5.3)
     inherited_resources (1.10.0)
       actionpack (>= 5.0, < 6.0)
       has_scope (~> 0.6)
