@@ -88,9 +88,9 @@ GEM
       xpath (~> 3.2)
     childprocess (1.0.1)
       rake (< 13.0)
-    cloudflare-rails (0.5.0)
+    cloudflare-rails (0.6.0)
       httparty
-      rails (~> 5.0)
+      rails (>= 5.0, < 6.1.0)
     codecov (0.1.14)
       json
       simplecov
