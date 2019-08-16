@@ -9,15 +9,16 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 5.2.3"
+gem "rails", "~> 6.0.0"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1.4"
 # Use Puma as the app server
 gem "puma", "~> 4.1"
 # Use SCSS for stylesheets
 gem "sassc-rails"
-# Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
+# Transpile app-like JavaScript
+# Read more: https://github.com/rails/webpacker
+gem "webpacker", "~> 4.0"
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 5.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -28,9 +29,15 @@ gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.9"
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem "redis", "~> 4.0"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", ">= 1.4.2", require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -90,7 +97,7 @@ gem "pghero"
 
 # Use Active Admin as the administration framework
 # Read more: https://github.com/activeadmin/activeadmin
-gem "activeadmin"
+gem "activeadmin", github: "activeadmin/activeadmin"
 
 # Use Rack::Attack for blocking & throttling abusive requests
 # Read more: https://github.com/kickstarter/rack-attack
@@ -103,7 +110,7 @@ gem "coverband"
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
-  gem "byebug", platform: :mri
+  gem "byebug", platforms: %i[mri mingw x64_mingw]
 
   # Use RSpec as the testing framework
   # Read more: https://github.com/rspec/rspec-rails
@@ -138,8 +145,8 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or
-  # by using <%= console %> anywhere in the code.
+  # Access an interactive console on exception pages
+  # or by calling 'console' anywhere in the code.
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "web-console", ">= 3.3.0"
 
@@ -208,10 +215,6 @@ group :staging, :production do
   # Use this gem so that request.ip and request.remote_ip both work as expected
   # Read more: https://github.com/modosc/cloudflare-rails
   gem "cloudflare-rails"
-
-  # Use Redis as the cache store
-  # Read more: https://github.com/redis-store/redis-rails
-  gem "redis-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
