@@ -484,6 +484,7 @@ DEPENDENCIES
   rails (~> 6.0.0)
   rails_real_favicon
   ransack!
+  redis (~> 4.0)
   roboto
   rollbar
   rspec-rails (~> 3.8)
