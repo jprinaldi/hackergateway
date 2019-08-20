@@ -258,8 +258,8 @@ GEM
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_query (1.1.0)
-    pghero (2.2.1)
-      activerecord
+    pghero (2.3.0)
+      activerecord (>= 5)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
     progress (3.5.2)
