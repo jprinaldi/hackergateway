@@ -298,9 +298,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
-    rails_real_favicon (0.0.12)
+    rails_real_favicon (0.0.13)
       json (>= 1.7, < 3)
-      rails (>= 3.1)
+      rails
       rubyzip (~> 1)
     railties (6.0.0)
       actionpack (= 6.0.0)
