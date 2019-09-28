@@ -126,7 +126,7 @@ GEM
     country_select (4.0.0)
       countries (~> 3.0)
       sort_alphabetical (~> 1.0)
-    coverband (4.2.2)
+    coverband (4.2.3)
       redis
     crass (1.0.4)
     debug_inspector (0.0.3)
