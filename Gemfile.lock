@@ -105,7 +105,7 @@ GEM
     cloudflare-rails (0.6.0)
       httparty
       rails (>= 5.0, < 6.1.0)
-    codecov (0.1.15)
+    codecov (0.1.16)
       json
       simplecov
       url
