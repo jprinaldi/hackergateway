@@ -168,6 +168,10 @@ group :development do
   # Read more: https://github.com/rubocop-hq/rubocop-rails
   gem "rubocop-rails"
 
+  # Use RuboCop RSpec for RSpec-specific code analysis support
+  # Read more: https://github.com/rubocop-hq/rubocop-rspec
+  gem "rubocop-rspec"
+
   # Use Letter Opener for email previewing support
   # Read more: https://github.com/ryanb/letter_opener
   gem "letter_opener"
