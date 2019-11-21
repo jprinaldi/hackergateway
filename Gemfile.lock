@@ -251,7 +251,7 @@ GEM
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_query (1.2.0)
-    pghero (2.4.0)
+    pghero (2.4.1)
       activerecord (>= 5)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
