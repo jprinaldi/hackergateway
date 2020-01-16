@@ -392,7 +392,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
-    unicode-display_width (1.6.0)
+    unicode-display_width (1.6.1)
     unicode_utils (1.4.0)
     uniform_notifier (1.13.0)
     url (0.3.2)
