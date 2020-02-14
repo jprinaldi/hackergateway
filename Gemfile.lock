@@ -315,7 +315,7 @@ GEM
       railties (>= 5.0)
     roboto (1.0.1)
       rails (>= 4.2)
-    rollbar (2.23.2)
+    rollbar (2.24.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
