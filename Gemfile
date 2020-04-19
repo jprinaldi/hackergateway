@@ -18,7 +18,7 @@ gem "puma", "~> 4.3"
 gem "sassc-rails"
 # Transpile app-like JavaScript
 # Read more: https://github.com/rails/webpacker
-gem "webpacker", "~> 5.0"
+gem "webpacker", "~> 5.1"
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 5.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
