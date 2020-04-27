@@ -16,6 +16,7 @@ module Api
       def score
         user = User.find_by(username: params[:username])
         head(:no_content) && return unless user
+
         render plain: score_data(user).values.join(":")
       end
 
