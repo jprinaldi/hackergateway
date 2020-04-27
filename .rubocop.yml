@@ -19,10 +19,23 @@ Rails/UnknownEnv:
     - staging
     - production
 
-Documentation:
+Layout/LineLength:
   Exclude:
-    - "app/controllers/*"
-    - "db/migrate/*"
+    - "config/application.rb"
+    - "config/environments/*"
+    - "config/initializers/*"
+    - "config/puma.rb"
+    - "Rakefile"
+    - "spec/*"
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
 
 Metrics/AbcSize:
   Exclude:
@@ -34,15 +47,6 @@ Metrics/BlockLength:
     - "config/routes.rb"
     - "spec/**/*"
 
-Metrics/LineLength:
-  Exclude:
-    - "config/application.rb"
-    - "config/environments/*"
-    - "config/initializers/*"
-    - "config/puma.rb"
-    - "Rakefile"
-    - "spec/*"
-
 Metrics/MethodLength:
   Exclude:
     - "db/migrate/*"
@@ -50,6 +54,23 @@ Metrics/MethodLength:
 Security/Eval:
   Exclude:
     - "app/controllers/challenges_controller.rb"
+
+Style/Documentation:
+  Exclude:
+    - "app/controllers/*"
+    - "db/migrate/*"
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
 
 Style/StringLiterals:
   Enabled: true
