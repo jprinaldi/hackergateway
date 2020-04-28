@@ -1,6 +1,8 @@
 require:
   - rubocop-performance
   - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
 
 Rails:
   Enabled: true

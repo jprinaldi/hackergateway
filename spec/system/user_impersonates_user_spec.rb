@@ -2,40 +2,40 @@
 
 require "rails_helper"
 
-RSpec.describe "User impersonates user", typqe: :feature do
-  before(:each) do
-    @user_to_impersonate = FactoryBot.create(:user, :confirmed)
-  end
+RSpec.describe "User impersonates user", type: :system do
+  subject { page }
 
-  context "while being logged in as an admin user" do
-    before(:each) do
-      admin_user = FactoryBot.create(:admin_user)
+  let(:user_to_impersonate) { FactoryBot.create(:user, :confirmed) }
+
+  context "when signed in as an admin user" do
+    let(:admin_user) { FactoryBot.create(:admin_user) }
+
+    before do
       login_as(admin_user, scope: :admin_user)
+      visit impersonate_user_path(user_to_impersonate)
     end
 
-    scenario "successfully" do
-      visit impersonate_user_path(@user_to_impersonate)
-      expect(page).to have_current_path(root_path)
-      expect(page).not_to have_content("Sign in")
-    end
+    it { is_expected.to have_current_path(root_path) }
+
+    it { is_expected.not_to have_content("Sign in") }
   end
 
-  context "while being logged in as a user" do
-    before(:each) do
-      user = FactoryBot.create(:user, :confirmed)
+  context "when signed in as a user" do
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+
+    before do
       login_as(user, scope: :user)
+      visit impersonate_user_path(user_to_impersonate)
     end
 
-    scenario "unsuccessfully" do
-      visit impersonate_user_path(@user_to_impersonate)
-      expect(page).to have_current_path(new_admin_user_session_path)
-    end
+    it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
 
-  context "without being logged in" do
-    scenario "unsuccessfully" do
-      visit impersonate_user_path(@user_to_impersonate)
-      expect(page).to have_current_path(new_admin_user_session_path)
+  context "when not signed in" do
+    before do
+      visit impersonate_user_path(user_to_impersonate)
     end
+
+    it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
 end

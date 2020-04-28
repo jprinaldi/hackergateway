@@ -3,113 +3,196 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  it "has a valid factory" do
-    user = FactoryBot.build(:user)
-    expect(user).to be_valid
+  context "with valid properties" do
+    subject(:user) { FactoryBot.build(:user) }
+
+    it { is_expected.to be_valid }
   end
 
-  it "is invalid without an email" do
-    user = FactoryBot.build(:user, email: nil)
-    expect(user).not_to be_valid
+  context "without an email" do
+    subject(:user) { FactoryBot.build(:user, email: nil) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a non-unique email" do
-    existing_user = FactoryBot.create(:user)
-    user = FactoryBot.build(:user, email: existing_user.email)
-    expect(user).not_to be_valid
+  context "with a non-unique email" do
+    subject(:user) { FactoryBot.build(:user, email: existing_user.email) }
+
+    let(:existing_user) { FactoryBot.create(:user) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid without a username" do
-    user = FactoryBot.build(:user, username: nil)
-    expect(user).not_to be_valid
+  context "without a username" do
+    subject(:user) { FactoryBot.build(:user, username: nil) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a short username" do
-    user = FactoryBot.build(:user, username: "012")
-    expect(user).not_to be_valid
+  context "with a short username" do
+    subject(:user) { FactoryBot.build(:user, username: "012") }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a long username" do
-    user = FactoryBot.build(:user, username: "0123456789abcdef")
-    expect(user).not_to be_valid
+  context "with a long username" do
+    subject(:user) { FactoryBot.build(:user, username: "0123456789abcdef") }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a username containing unallowed characters" do
-    user = FactoryBot.build(:user, username: "0123_abCD")
-    expect(user).not_to be_valid
+  context "with a username containing unallowed characters" do
+    subject(:user) { FactoryBot.build(:user, username: "0123_abCD") }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a non-unique username" do
-    existing_user = FactoryBot.create(:user)
-    user = FactoryBot.build(:user, username: existing_user.username)
-    expect(user).not_to be_valid
+  context "with a non-unique username" do
+    subject(:user) { FactoryBot.build(:user, username: existing_user.username) }
+
+    let(:existing_user) { FactoryBot.create(:user) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid without a password" do
-    user = FactoryBot.build(:user, password: nil)
-    expect(user).not_to be_valid
+  context "without a password" do
+    subject(:user) { FactoryBot.build(:user, password: nil) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a short password" do
-    user = FactoryBot.build(:user, password: "a" * 7)
-    expect(user).not_to be_valid
+  context "with a short password" do
+    subject(:user) { FactoryBot.build(:user, password: "a" * 7) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is invalid with a long password" do
-    user = FactoryBot.build(:user, password: "a" * 129)
-    expect(user).not_to be_valid
+  context "with a long password" do
+    subject(:user) { FactoryBot.build(:user, password: "a" * 129) }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "is valid without a country code" do
-    user = FactoryBot.build(:user, country_code: nil)
-    expect(user).to be_valid
+  context "without a country code" do
+    subject(:user) { FactoryBot.build(:user, country_code: nil) }
+
+    it { is_expected.to be_valid }
   end
 
-  it "is invalid with an invalid country code" do
-    user = FactoryBot.build(:user, country_code: "XX")
-    expect(user).not_to be_valid
+  context "with an invalid country code" do
+    subject(:user) { FactoryBot.build(:user, country_code: "XX") }
+
+    it { is_expected.not_to be_valid }
   end
 
-  it "has access to its countrie's information" do
-    user = FactoryBot.build(:user, country_code: "AR")
-    country = user.country
-    expect(country.name).to eq("Argentina")
-    expect(country.emoji_flag).to eq("🇦🇷")
+  context "with a valid country code" do
+    subject(:country) { user.country }
+
+    let(:user) { FactoryBot.build(:user, country_code: "AR") }
+
+    it "has a valid country name" do
+      expect(country.name).to eq("Argentina")
+    end
+
+    it "has a valid country emoji flag" do
+      expect(country.emoji_flag).to eq("🇦🇷")
+    end
   end
 
-  it "can solve challenges" do
-    user = FactoryBot.create(:user, :confirmed)
-    challenge = FactoryBot.create(:challenge)
-    expect { user.solve(challenge) }
-      .to change { Solution.count }
-      .by(1)
-      .and change { user.solutions_count }
-      .by(1)
-      .and change { challenge.solutions_count }
-      .by(1)
+  context "when solving a challenge" do
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:challenge) { FactoryBot.create(:challenge) }
+    let(:other_user) { FactoryBot.create(:user, :confirmed) }
+    let(:other_challenge) { FactoryBot.create(:challenge) }
+    let(:challenges) { [challenge, other_challenge] }
+
+    it "increments the total solutions count" do
+      expect { user.solve(challenge) }
+        .to change(Solution, :count)
+        .by(1)
+    end
+
+    it "increments the user's solutions count" do
+      expect { user.solve(challenge) }
+        .to change(user, :solutions_count)
+        .by(1)
+    end
+
+    it "increments the challenge's solutions count" do
+      expect { user.solve(challenge) }
+        .to change(challenge, :solutions_count)
+        .by(1)
+    end
+
+    context "when not in first place" do
+      before do
+        other_user.solve(challenge)
+      end
+
+      it "can improve her rank" do
+        expect { challenges.map { |challenge| user.solve(challenge) } }
+          .to change(user, :rank)
+          .by(-1)
+      end
+    end
+
+    context "when not in last place" do
+      before do
+        user.solve(challenge)
+      end
+
+      it "can lose her rank" do
+        expect { challenges.map { |challenge| other_user.solve(challenge) } }
+          .to change(user, :rank)
+          .by(1)
+      end
+    end
   end
 
-  it "can improve her rank" do
-    user = FactoryBot.create(:user, :confirmed)
-    other_user = FactoryBot.create(:user, :confirmed)
-    challenge = FactoryBot.create(:challenge)
-    other_challenge = FactoryBot.create(:challenge)
-    other_user.solve(challenge)
-    expect(other_user.rank).to eq(1)
-    expect(user.rank).to eq(2)
-    expect { user.solve(challenge) && user.solve(other_challenge) }
-      .to change { user.rank }
-      .by(-1)
-      .and change { other_user.rank }
-      .by(1)
+  context "when destroyed" do
+    let(:solution) { FactoryBot.create(:solution) }
+
+    it "correctly updates its related objects counts" do
+      expect { solution.user.destroy }
+        .to change(Solution, :count)
+        .by(-1)
+        .and change { solution.challenge.reload.solutions_count }
+        .by(-1)
+    end
   end
 
-  it "correctly updates its related objects counts when destroyed" do
-    solution = FactoryBot.create(:solution)
-    expect { solution.user.destroy }
-      .to change { Solution.count }
-      .by(-1)
-      .and change { solution.challenge.reload.solutions_count }
-      .by(-1)
+  context "when destroying the only solution" do
+    subject { user.last_solution_at }
+
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:challenge) { FactoryBot.create(:challenge) }
+    let!(:only_solution) { user.solve(challenge) }
+
+    before do
+      only_solution.destroy
+    end
+
+    it { is_expected.to be_nil }
+  end
+
+  context "when destroying the last solution" do
+    subject { user.last_solution_at }
+
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:first_challenge) { FactoryBot.create(:challenge) }
+    let(:second_challenge) { FactoryBot.create(:challenge) }
+    let!(:first_solution) { user.solve(first_challenge) }
+    let!(:last_solution) do
+      Timecop.travel(1.day.from_now)
+      last_solution = user.solve(second_challenge)
+      Timecop.return
+      last_solution
+    end
+
+    before do
+      last_solution.destroy
+    end
+
+    it { is_expected.to be_within(1.second).of first_solution.created_at }
   end
 end

@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "User checks leaderboard", type: :system do
-  scenario "successfully" do
+  it "successfully" do
     user = FactoryBot.create(:user)
     visit leaderboard_path
     expect(page)
