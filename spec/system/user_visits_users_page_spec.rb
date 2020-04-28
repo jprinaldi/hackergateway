@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "User visits users page", type: :system do
-  scenario "successfully" do
+  it "successfully" do
     user = FactoryBot.create(:user)
     visit users_path
     expect(page)

@@ -3,51 +3,65 @@
 require "rails_helper"
 
 RSpec.describe "User creates challenge", type: :system do
-  context "while being logged in as an admin user" do
-    before(:each) do
-      admin_user = FactoryBot.create(:admin_user)
+  subject { page }
+
+  context "when signed in as an admin user" do
+    let(:admin_user) { FactoryBot.create(:admin_user) }
+
+    before do
       login_as(admin_user, scope: :admin_user)
     end
 
-    scenario "with a non-unique name" do
-      existing_challenge = FactoryBot.create(:challenge)
-      visit new_admin_challenge_path
-      fill_in "Name*", with: existing_challenge.name
-      click_button "Create"
-      expect(page).to have_content("has already been taken")
+    context "with a non-unique name" do
+      let(:existing_challenge) { FactoryBot.create(:challenge) }
+
+      before do
+        visit new_admin_challenge_path
+        fill_in "Name*", with: existing_challenge.name
+        click_button "Create"
+      end
+
+      it { is_expected.to have_content("has already been taken") }
     end
 
-    scenario "successfully" do
-      category = FactoryBot.create(:category)
-      challenge = FactoryBot.build(:challenge, category: category)
-      visit new_admin_challenge_path
-      select challenge.category.name, from: "Category"
-      fill_in "Name*", with: challenge.name
-      fill_in "Body*", with: challenge.body
-      fill_in "Answer*", with: challenge.answer
-      click_button "Create"
-      expect(page).to have_current_path(admin_challenge_path(Challenge.last))
-      expect(page).to have_content("Challenge was successfully created")
-      expect(page).to have_content(challenge.name)
+    context "with valid properties" do
+      let!(:category) { FactoryBot.create(:category) }
+      let(:challenge) { FactoryBot.build(:challenge, category: category) }
+      let(:last_challenge_path) { admin_challenge_path(Challenge.last) }
+
+      before do
+        visit new_admin_challenge_path
+        select challenge.category.name, from: "Category"
+        fill_in "Name*", with: challenge.name
+        fill_in "Body*", with: challenge.body
+        fill_in "Answer*", with: challenge.answer
+        click_button "Create"
+      end
+
+      it { is_expected.to have_current_path(last_challenge_path) }
+
+      it { is_expected.to have_content("Challenge was successfully created") }
+
+      it { is_expected.to have_content(challenge.name) }
     end
   end
 
-  context "while being logged in as a user" do
-    before(:each) do
-      user = FactoryBot.create(:user, :confirmed)
+  context "when signed in as a user" do
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+
+    before do
       login_as(user, scope: :user)
+      visit new_admin_challenge_path
     end
 
-    scenario "unsuccessfully" do
-      visit new_admin_challenge_path
-      expect(page).to have_current_path(new_admin_user_session_path)
-    end
+    it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
 
-  context "without being logged in" do
-    scenario "unsuccessfully" do
+  context "when not signed in" do
+    before do
       visit new_admin_challenge_path
-      expect(page).to have_current_path(new_admin_user_session_path)
     end
+
+    it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
 end

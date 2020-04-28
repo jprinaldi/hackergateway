@@ -3,8 +3,9 @@
 require "rails_helper"
 
 RSpec.describe AdminUser, type: :model do
-  it "has a valid factory" do
-    admin_user = FactoryBot.build(:admin_user)
-    expect(admin_user).to be_valid
+  context "with valid parameters" do
+    subject(:admin_user) { FactoryBot.build(:admin_user) }
+
+    it { is_expected.to be_valid }
   end
 end

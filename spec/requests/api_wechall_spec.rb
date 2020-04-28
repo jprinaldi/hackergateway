@@ -3,87 +3,129 @@
 require "rails_helper"
 
 RSpec.describe "API for WeChall", type: :request do
+  subject { response }
+
   describe "validate" do
-    before(:each) do
+    before do
       host! "api.lvh.me"
     end
 
-    it "is unauthorized without a token" do
-      get api_wechall_users_validate_path
-      expect(response).to have_http_status(401)
+    context "without a token" do
+      before do
+        get api_wechall_users_validate_path
+      end
+
+      it { is_expected.to have_http_status(:unauthorized) }
     end
 
-    it "is unauthorized without a valid token" do
-      api_key = FactoryBot.create(:api_key)
-      get api_wechall_users_validate_path(token: "invlaid #{api_key.token}")
-      expect(response).to have_http_status(401)
+    context "without a valid token" do
+      let(:api_key) { FactoryBot.create(:api_key) }
+
+      before do
+        get api_wechall_users_validate_path(token: "invlaid #{api_key.token}")
+      end
+
+      it { is_expected.to have_http_status(:unauthorized) }
     end
 
-    it "returns 0 with non-matching credentials" do
-      user = FactoryBot.create(:user)
-      api_key = FactoryBot.create(:api_key)
-      get api_wechall_users_validate_path(
-        username: user.username,
-        email: "different #{user.email}",
-        token: api_key.token
-      )
-      expect(response).to have_http_status(200)
-      expect(response.body).to include("0")
+    context "with non-matching credentials" do
+      let(:user) { FactoryBot.create(:user) }
+      let(:api_key) { FactoryBot.create(:api_key) }
+
+      before do
+        get api_wechall_users_validate_path(
+          username: user.username,
+          email: "different #{user.email}",
+          token: api_key.token
+        )
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+
+      it "returns 0" do
+        expect(response.body).to include("0")
+      end
     end
 
-    it "returns 1 with matching credentials" do
-      user = FactoryBot.create(:user)
-      api_key = FactoryBot.create(:api_key)
-      get api_wechall_users_validate_path(
-        username: user.username,
-        email: user.email,
-        token: api_key.token
-      )
-      expect(response).to have_http_status(200)
-      expect(response.body).to include("1")
+    context "with matching credentials" do
+      before do
+        user = FactoryBot.create(:user)
+        api_key = FactoryBot.create(:api_key)
+        get api_wechall_users_validate_path(
+          username: user.username,
+          email: user.email,
+          token: api_key.token
+        )
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+
+      it "returns 1" do
+        expect(response.body).to include("1")
+      end
     end
   end
 
   describe "score" do
-    it "is unauthorized without a token" do
-      user = FactoryBot.create(:user)
-      get api_wechall_users_score_path(user)
-      expect(response).to have_http_status(401)
-    end
+    context "without a token" do
+      let(:user) { FactoryBot.create(:user) }
 
-    it "is unauthorized without a valid token" do
-      user = FactoryBot.create(:user)
-      api_key = FactoryBot.create(:api_key)
-      get api_wechall_users_score_path(
-        username: user.username,
-        token: "invlaid #{api_key.token}"
-      )
-      expect(response).to have_http_status(401)
-    end
-
-    it "works" do
-      user = FactoryBot.create(:user)
-      challenges = FactoryBot.create_list(:challenge, 10)
-      api_key = FactoryBot.create(:api_key)
-      challenges[0..5].each do |challenge|
-        user.solve(challenge)
+      before do
+        get api_wechall_users_score_path(user)
       end
-      score_data = {
-        username: user.username,
-        rank: user.rank,
-        score: user.solutions_count,
-        max_score: Challenge.count,
-        solutions_count: user.solutions_count,
-        challenges_count: Challenge.count,
-        users_count: User.count
-      }
-      get api_wechall_users_score_path(
-        username: user.username,
-        token: api_key.token
-      )
-      expect(response).to have_http_status(200)
-      expect(response.body)
-        .to include(score_data.values.join(":"))
+
+      it { is_expected.to have_http_status(:unauthorized) }
+    end
+
+    context "without a valid token" do
+      let(:user) { FactoryBot.create(:user) }
+      let(:api_key) { FactoryBot.create(:api_key) }
+
+      before do
+        get api_wechall_users_score_path(
+          username: user.username,
+          token: "invlaid #{api_key.token}"
+        )
+      end
+
+      it { is_expected.to have_http_status(:unauthorized) }
+    end
+
+    context "with a valid token" do
+      let(:user) { FactoryBot.create(:user) }
+      let(:challenges) do
+        challenges = FactoryBot.create_list(:challenge, 10)
+        challenges[0..5].each do |challenge|
+          user.solve(challenge)
+        end
+        challenges
+      end
+      let(:api_key) { FactoryBot.create(:api_key) }
+      let(:score_data) do
+        {
+          username: user.username,
+          rank: user.rank,
+          score: user.solutions_count,
+          max_score: Challenge.count,
+          solutions_count: user.solutions_count,
+          challenges_count: Challenge.count,
+          users_count: User.count
+        }
+      end
+
+      before do
+        get api_wechall_users_score_path(
+          username: user.username,
+          token: api_key.token
+        )
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+
+      it "returns a valid result" do
+        expect(response.body)
+          .to include(score_data.values.join(":"))
+      end
     end
   end
 end

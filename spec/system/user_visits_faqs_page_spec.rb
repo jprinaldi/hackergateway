@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "User visits FAQs page", type: :system do
-  scenario "successfully" do
+  it "successfully" do
     faq = FactoryBot.create(:faq)
     visit faqs_path
     expect(page)

@@ -3,12 +3,17 @@
 require "rails_helper"
 
 RSpec.describe "User checks someone's solutions", type: :system do
-  scenario "successfully" do
-    solution = FactoryBot.create(:solution)
+  subject { page }
+
+  let(:solution) { FactoryBot.create(:solution) }
+
+  before do
     visit user_solutions_path(solution.user)
-    expect(page)
-      .to have_current_path(user_solutions_path(solution.user))
-      .and have_content(solution.user.username)
-      .and have_content(solution.challenge.name)
   end
+
+  it { is_expected.to have_current_path(user_solutions_path(solution.user)) }
+
+  it { is_expected.to have_content(solution.user.username) }
+
+  it { is_expected.to have_content(solution.challenge.name) }
 end

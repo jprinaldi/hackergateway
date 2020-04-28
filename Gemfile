@@ -168,6 +168,10 @@ group :development do
   # Read more: https://github.com/rubocop-hq/rubocop-rails
   gem "rubocop-rails"
 
+  # Use RuboCop Rake for Rake-specific code analysis support
+  # Read more: https://github.com/rubocop-hq/rubocop-rake
+  gem "rubocop-rake"
+
   # Use RuboCop RSpec for RSpec-specific code analysis support
   # Read more: https://github.com/rubocop-hq/rubocop-rspec
   gem "rubocop-rspec"

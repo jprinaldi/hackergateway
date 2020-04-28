@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "User visits policies page", type: :system do
-  scenario "successfully" do
+  it "successfully" do
     visit policies_path
     expect(page)
       .to have_current_path(policies_path)

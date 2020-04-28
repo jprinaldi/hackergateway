@@ -3,50 +3,63 @@
 require "rails_helper"
 
 RSpec.describe "User creates solution", type: :system do
-  context "while being logged in as an admin user" do
-    before(:each) do
+  subject { page }
+
+  context "when signed in as an admin user" do
+    before do
       admin_user = FactoryBot.create(:admin_user)
       login_as(admin_user, scope: :admin_user)
     end
 
-    scenario "which already exists" do
-      existing_solution = FactoryBot.create(:solution)
-      visit new_admin_solution_path
-      select existing_solution.user.username, from: "User*"
-      select existing_solution.challenge.name, from: "Challenge*"
-      click_button "Create"
-      expect(page).to have_content("has already solved this challenge")
+    context "when it already exists" do
+      let!(:existing_solution) { FactoryBot.create(:solution) }
+
+      before do
+        visit new_admin_solution_path
+        select existing_solution.user.username, from: "User*"
+        select existing_solution.challenge.name, from: "Challenge*"
+        click_button "Create"
+      end
+
+      it { is_expected.to have_content("has already solved this challenge") }
     end
 
-    scenario "successfully" do
-      user = FactoryBot.create(:user)
-      challenge = FactoryBot.create(:challenge)
-      solution = FactoryBot.build(:solution, user: user, challenge: challenge)
-      visit new_admin_solution_path
-      select solution.user.username, from: "User*"
-      select solution.challenge.name, from: "Challenge*"
-      click_button "Create"
-      expect(page).to have_current_path(admin_solution_path(Solution.last))
-      expect(page).to have_content("Solution was successfully created")
+    context "with valid parameters" do
+      let!(:user) { FactoryBot.create(:user) }
+      let!(:challenge) { FactoryBot.create(:challenge) }
+      let(:solution) do
+        FactoryBot.build(:solution, user: user, challenge: challenge)
+      end
+      let(:last_solution_path) { admin_solution_path(Solution.last) }
+
+      before do
+        visit new_admin_solution_path
+        select solution.user.username, from: "User*"
+        select solution.challenge.name, from: "Challenge*"
+        click_button "Create"
+      end
+
+      it { is_expected.to have_current_path(last_solution_path) }
+
+      it { is_expected.to have_content("Solution was successfully created") }
     end
   end
 
-  context "while being logged in as a user" do
-    before(:each) do
+  context "when signed in as a user" do
+    before do
       user = FactoryBot.create(:user, :confirmed)
       login_as(user, scope: :user)
+      visit new_admin_solution_path
     end
 
-    scenario "unsuccessfully" do
-      visit new_admin_solution_path
-      expect(page).to have_current_path(new_admin_user_session_path)
-    end
+    it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
 
-  context "without being logged in" do
-    scenario "unsuccessfully" do
+  context "when not signed in" do
+    before do
       visit new_admin_solution_path
-      expect(page).to have_current_path(new_admin_user_session_path)
     end
+
+    it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
 end
