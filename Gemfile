@@ -103,10 +103,6 @@ gem "activeadmin"
 # Read more: https://github.com/kickstarter/rack-attack
 gem "rack-attack"
 
-# Use Coverband to measure production code usage
-# Read more: https://github.com/danmayer/coverband
-gem "coverband"
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
@@ -223,6 +219,10 @@ group :staging, :production do
   # Use this gem so that request.ip and request.remote_ip both work as expected
   # Read more: https://github.com/modosc/cloudflare-rails
   gem "cloudflare-rails"
+
+  # Use Coverband to measure production code usage
+  # Read more: https://github.com/danmayer/coverband
+  gem "coverband"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

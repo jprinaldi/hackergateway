@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount_roboto
   authenticate :admin_user do
-    mount Coverband::Reporters::Web.new, at: "coverage"
+    if Rails.env.staging? || Rails.env.production?
+      mount Coverband::Reporters::Web.new, at: "coverage"
+    end
     mount PgHero::Engine, at: "pghero"
   end
   resources :users, only: %i[index show] do
