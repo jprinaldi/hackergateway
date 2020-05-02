@@ -11,7 +11,10 @@ RSpec.describe "User signs out", type: :system do
     before do
       login_as(user, scope: :user)
       visit root_path
-      within("nav") { click_link user.username }
+      within("nav") do
+        click_button
+        click_link user.username
+      end
       click_link "Sign out"
     end
 
