@@ -65,7 +65,6 @@ jobs:
       - type: shell
         command: >
           bundle exec rspec
-          --profile
           --out test_results/rspec.xml
           $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 

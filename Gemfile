@@ -113,6 +113,10 @@ group :development, :test do
   gem "rspec-rails", "~> 4.0"
   gem "rspec_junit_formatter"
 
+  # Use Fuubar for improved RSpec formatting
+  # Read more: https://github.com/thekompanee/fuubar
+  gem "fuubar"
+
   # Use Capybara to simulate how a real user would interact with the app
   # Read more: https://github.com/teamcapybara/capybara
   gem "capybara"

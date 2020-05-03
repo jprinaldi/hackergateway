@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "User visits FAQs page", type: :system do
   it "successfully" do
     faq = FactoryBot.create(:faq)

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "User visits privacy policy page", type: :system do
   it "successfully" do
     visit policies_privacy_path

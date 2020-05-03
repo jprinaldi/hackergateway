@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "User visits someone's profile", type: :system do
   it "successfully" do
     user = FactoryBot.create(:user)
