@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Solution, type: :model do
   context "with valid parameters" do
     subject(:solution) { FactoryBot.build(:solution) }

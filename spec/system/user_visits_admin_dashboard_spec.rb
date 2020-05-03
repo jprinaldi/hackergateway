@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "User visits admin dashobard", type: :system do
   context "when signed in as an admin user" do
     before do

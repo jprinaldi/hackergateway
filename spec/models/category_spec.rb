@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Category, type: :model do
   context "with valid properties" do
     subject(:category) { FactoryBot.build(:category) }

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "User checks challenge's solutions", type: :system do
   let(:solution) { FactoryBot.create(:solution) }
 

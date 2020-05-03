@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "Solutions", type: :request do
   describe "GET /solutions" do
     it "works! (now write some real specs)" do
