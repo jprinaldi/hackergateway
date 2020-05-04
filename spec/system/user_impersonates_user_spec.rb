@@ -30,9 +30,7 @@ RSpec.describe "User impersonates user", type: :system do
   end
 
   context "when not signed in" do
-    before do
-      visit impersonate_user_path(user_to_impersonate)
-    end
+    before { visit impersonate_user_path(user_to_impersonate) }
 
     it { is_expected.to have_current_path(new_admin_user_session_path) }
   end

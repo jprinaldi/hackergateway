@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe "User visits terms of service page", type: :system do
-  it "successfully" do
-    visit policies_terms_path
-    expect(page)
-      .to have_current_path(policies_terms_path)
-      .and have_content("Terms of Service")
-  end
+  subject { page }
+
+  before { visit policies_terms_path }
+
+  it { is_expected.to have_current_path(policies_terms_path) }
+
+  it { is_expected.to have_content("Terms of Service") }
 end

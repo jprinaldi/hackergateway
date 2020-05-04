@@ -6,9 +6,7 @@ RSpec.describe "User updates user", type: :system do
   context "when signed in as an admin user" do
     let(:admin_user) { FactoryBot.create(:admin_user) }
 
-    before do
-      login_as(admin_user, scope: :admin_user)
-    end
+    before { login_as(admin_user, scope: :admin_user) }
 
     context "with a non-unique username" do
       let(:existing_user) { FactoryBot.create(:user) }
@@ -57,9 +55,7 @@ RSpec.describe "User updates user", type: :system do
   context "when not signed in" do
     let(:other_user) { FactoryBot.create(:user) }
 
-    before do
-      visit edit_admin_user_path(other_user)
-    end
+    before { visit edit_admin_user_path(other_user) }
 
     it { is_expected.to have_current_path(new_admin_user_session_path) }
   end

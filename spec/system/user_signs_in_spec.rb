@@ -4,8 +4,9 @@ RSpec.describe "User signs in", type: :system do
   subject { page }
 
   context "when unconfirmed" do
+    let(:user) { FactoryBot.create(:user) }
+
     before do
-      user = FactoryBot.create(:user)
       visit new_user_session_path
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
@@ -18,9 +19,10 @@ RSpec.describe "User signs in", type: :system do
   end
 
   context "with invalid credentials" do
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:invalid_password) { "invalid #{user.password}" }
+
     before do
-      user = FactoryBot.create(:user, :confirmed)
-      invalid_password = "invalid #{user.password}"
       visit new_user_session_path
       fill_in "Email", with: user.email
       fill_in "Password", with: invalid_password
@@ -33,8 +35,9 @@ RSpec.describe "User signs in", type: :system do
   end
 
   context "with valid credentials" do
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+
     before do
-      user = FactoryBot.create(:user, :confirmed)
       visit new_user_session_path
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password

@@ -120,9 +120,7 @@ RSpec.describe "User signs up", type: :system do
   end
 
   context "with correct properties" do
-    before do
-      click_button "Sign up"
-    end
+    before { click_button "Sign up" }
 
     it { is_expected.to have_current_path(root_path) }
 

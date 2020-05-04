@@ -5,16 +5,15 @@ RSpec.describe "User creates FAQ", type: :system do
 
   context "when signed in as an admin user" do
     let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:faq) { FactoryBot.build(:faq) }
 
     before do
       login_as(admin_user, scope: :admin_user)
+      visit new_admin_faq_path
     end
 
     context "without a title" do
-      let(:faq) { FactoryBot.build(:faq) }
-
       before do
-        visit new_admin_faq_path
         fill_in "Answer", with: faq.answer
         click_button "Create"
       end
@@ -23,10 +22,7 @@ RSpec.describe "User creates FAQ", type: :system do
     end
 
     context "without an answer" do
-      let(:faq) { FactoryBot.build(:faq) }
-
       before do
-        visit new_admin_faq_path
         fill_in "Title*", with: faq.title
         click_button "Create"
       end
@@ -35,10 +31,7 @@ RSpec.describe "User creates FAQ", type: :system do
     end
 
     context "with valid parameters" do
-      let(:faq) { FactoryBot.build(:faq) }
-
       before do
-        visit new_admin_faq_path
         fill_in "Title*", with: faq.title
         fill_in "Answer*", with: faq.answer
         click_button "Create"
@@ -62,9 +55,7 @@ RSpec.describe "User creates FAQ", type: :system do
   end
 
   context "when not signed in" do
-    before do
-      visit new_admin_faq_path
-    end
+    before { visit new_admin_faq_path }
 
     it { is_expected.to have_current_path(new_admin_user_session_path) }
   end

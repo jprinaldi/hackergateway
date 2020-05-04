@@ -5,9 +5,7 @@ RSpec.describe "User checks someone's solutions", type: :system do
 
   let(:solution) { FactoryBot.create(:solution) }
 
-  before do
-    visit user_solutions_path(solution.user)
-  end
+  before { visit user_solutions_path(solution.user) }
 
   it { is_expected.to have_current_path(user_solutions_path(solution.user)) }
 

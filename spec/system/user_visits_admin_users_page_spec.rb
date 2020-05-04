@@ -27,9 +27,7 @@ RSpec.describe "User visits admin users page", type: :system do
   end
 
   context "when not signed in" do
-    before do
-      visit admin_admin_users_path
-    end
+    before { visit admin_admin_users_path }
 
     it { is_expected.to have_current_path(new_admin_user_session_path) }
   end

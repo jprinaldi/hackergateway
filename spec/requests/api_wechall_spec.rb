@@ -3,6 +3,11 @@
 RSpec.describe "API for WeChall", type: :request do
   subject { response }
 
+  let(:user) { FactoryBot.create(:user) }
+  let(:non_existent_user_email) { "non-existent #{user.email}" }
+  let(:api_key) { FactoryBot.create(:api_key) }
+  let(:invalid_token) { "invlaid #{api_key.token}" }
+
   describe "validate" do
     before do
       host! "api.lvh.me"
@@ -13,32 +18,27 @@ RSpec.describe "API for WeChall", type: :request do
         get api_wechall_users_validate_path
       end
 
-      it { is_expected.to have_http_status(:unauthorized) }
+      it { is_expected.to be_unauthorized }
     end
 
     context "without a valid token" do
-      let(:api_key) { FactoryBot.create(:api_key) }
-
       before do
-        get api_wechall_users_validate_path(token: "invlaid #{api_key.token}")
+        get api_wechall_users_validate_path(token: invalid_token)
       end
 
-      it { is_expected.to have_http_status(:unauthorized) }
+      it { is_expected.to be_unauthorized }
     end
 
     context "with non-matching credentials" do
-      let(:user) { FactoryBot.create(:user) }
-      let(:api_key) { FactoryBot.create(:api_key) }
-
       before do
         get api_wechall_users_validate_path(
           username: user.username,
-          email: "different #{user.email}",
+          email: non_existent_user_email,
           token: api_key.token
         )
       end
 
-      it { is_expected.to have_http_status(:ok) }
+      it { is_expected.to be_ok }
 
       it "returns 0" do
         expect(response.body).to include("0")
@@ -47,8 +47,6 @@ RSpec.describe "API for WeChall", type: :request do
 
     context "with matching credentials" do
       before do
-        user = FactoryBot.create(:user)
-        api_key = FactoryBot.create(:api_key)
         get api_wechall_users_validate_path(
           username: user.username,
           email: user.email,
@@ -56,7 +54,7 @@ RSpec.describe "API for WeChall", type: :request do
         )
       end
 
-      it { is_expected.to have_http_status(:ok) }
+      it { is_expected.to be_ok }
 
       it "returns 1" do
         expect(response.body).to include("1")
@@ -66,19 +64,14 @@ RSpec.describe "API for WeChall", type: :request do
 
   describe "score" do
     context "without a token" do
-      let(:user) { FactoryBot.create(:user) }
-
       before do
         get api_wechall_users_score_path(user)
       end
 
-      it { is_expected.to have_http_status(:unauthorized) }
+      it { is_expected.to be_unauthorized }
     end
 
     context "without a valid token" do
-      let(:user) { FactoryBot.create(:user) }
-      let(:api_key) { FactoryBot.create(:api_key) }
-
       before do
         get api_wechall_users_score_path(
           username: user.username,
@@ -86,43 +79,40 @@ RSpec.describe "API for WeChall", type: :request do
         )
       end
 
-      it { is_expected.to have_http_status(:unauthorized) }
+      it { is_expected.to be_unauthorized }
     end
 
     context "with a valid token" do
-      let(:user) { FactoryBot.create(:user) }
-      let(:challenges) do
-        challenges = FactoryBot.create_list(:challenge, 10)
-        challenges[0..5].each do |challenge|
-          user.solve(challenge)
-        end
-        challenges
-      end
-      let(:api_key) { FactoryBot.create(:api_key) }
+      let(:challenges_count) { 10 }
+      let(:solved_challenges_count) { 5 }
       let(:score_data) do
         {
           username: user.username,
           rank: user.rank,
-          score: user.solutions_count,
-          max_score: Challenge.count,
-          solutions_count: user.solutions_count,
-          challenges_count: Challenge.count,
+          score: solved_challenges_count,
+          max_score: challenges_count,
+          solutions_count: solved_challenges_count,
+          challenges_count: challenges_count,
           users_count: User.count
         }
       end
 
       before do
+        challenges = FactoryBot.create_list(:challenge, challenges_count)
+        challenges.first(solved_challenges_count).each do |challenge|
+          user.solve(challenge)
+        end
         get api_wechall_users_score_path(
           username: user.username,
           token: api_key.token
         )
       end
 
-      it { is_expected.to have_http_status(:ok) }
+      it { is_expected.to be_ok }
 
       it "returns a valid result" do
         expect(response.body)
-          .to include(score_data.values.join(":"))
+          .to eq(score_data.values.join(":"))
       end
     end
   end

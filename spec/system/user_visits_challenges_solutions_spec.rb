@@ -1,16 +1,19 @@
 # frozen_string_literal: true
 
 RSpec.describe "User checks challenge's solutions", type: :system do
-  let(:solution) { FactoryBot.create(:solution) }
+  subject { page }
 
-  before do
-    visit challenge_solutions_path(solution.challenge)
+  let(:this_challenge) { FactoryBot.create(:challenge) }
+  let!(:solution) { FactoryBot.create(:solution, challenge: this_challenge) }
+  let(:this_challenge_solutions_path) do
+    challenge_solutions_path(this_challenge)
   end
 
-  it "works" do
-    expect(page)
-      .to have_current_path(challenge_solutions_path(solution.challenge))
-      .and have_content(solution.user.username)
-      .and have_content(solution.challenge.name)
-  end
+  before { visit this_challenge_solutions_path }
+
+  it { is_expected.to have_current_path(this_challenge_solutions_path) }
+
+  it { is_expected.to have_content(solution.user.username) }
+
+  it { is_expected.to have_content(solution.challenge.name) }
 end

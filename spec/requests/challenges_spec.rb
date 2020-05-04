@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe "Challenges", type: :request do
+  subject { response }
+
   describe "GET /challenges" do
-    it "works! (now write some real specs)" do
+    before do
       get challenges_path
-      expect(response).to have_http_status(:ok)
     end
+
+    it { is_expected.to be_ok }
   end
 end

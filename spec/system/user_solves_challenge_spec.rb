@@ -3,61 +3,60 @@
 RSpec.describe "User solves challenge", type: :system do
   subject { page }
 
-  let(:challenge) { FactoryBot.create(:challenge) }
+  let(:this_challenge) { FactoryBot.create(:challenge) }
+  let(:this_challenge_path) { challenge_path(this_challenge) }
 
-  before do
-    visit challenge_path(challenge)
-  end
+  before { visit challenge_path(this_challenge) }
 
-  context "with correct answer" do
+  context "when signed in" do
     let(:user) { FactoryBot.create(:user, :confirmed) }
 
-    before do
-      login_as(user, scope: :user)
-      fill_in "Answer", with: challenge.answer
-      click_button "Solve"
+    before { login_as(user, scope: :user) }
+
+    context "with correct answer" do
+      let(:solved_message) { "You solved this challenge!" }
+
+      before do
+        fill_in "Answer", with: this_challenge.answer
+        click_button "Solve"
+      end
+
+      it { is_expected.to have_current_path(this_challenge_path) }
+
+      it { is_expected.to have_content(solved_message) }
     end
 
-    it { is_expected.to have_current_path(challenge_path(challenge)) }
+    context "with incorrect answer" do
+      let(:wrong_answer_message) { "Your answer is wrong!" }
 
-    it { is_expected.to have_content("You solved this challenge!") }
-  end
+      before do
+        fill_in "Answer", with: "wrong #{this_challenge.answer}"
+        click_button "Solve"
+      end
 
-  context "with incorrect answer" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+      it { is_expected.to have_current_path(this_challenge_path) }
 
-    before do
-      login_as(user, scope: :user)
-      visit challenge_path(challenge)
-      fill_in "Answer", with: "wrong #{challenge.answer}"
-      click_button "Solve"
+      it { is_expected.to have_content(wrong_answer_message) }
     end
 
-    it { is_expected.to have_current_path(challenge_path(challenge)) }
+    context "when she already solved it" do
+      let(:already_solved_message) { "You've already solved this challenge!" }
 
-    it { is_expected.to have_content("Your answer is wrong!") }
-  end
+      before do
+        user.solve(this_challenge)
+        fill_in "Answer", with: this_challenge.answer
+        click_button "Solve"
+      end
 
-  context "when she already solved it" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+      it { is_expected.to have_current_path(this_challenge_path) }
 
-    before do
-      user.solve(challenge)
-      login_as(user, scope: :user)
-      visit challenge_path(challenge)
-      fill_in "Answer", with: challenge.answer
-      click_button "Solve"
+      it { is_expected.to have_content(already_solved_message) }
     end
-
-    it { is_expected.to have_current_path(challenge_path(challenge)) }
-
-    it { is_expected.to have_content("You've already solved this challenge!") }
   end
 
   context "when not signed in" do
     before do
-      visit challenge_path(challenge)
-      fill_in "Answer", with: challenge.answer
+      fill_in "Answer", with: this_challenge.answer
       click_button "Solve"
     end
 

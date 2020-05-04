@@ -4,15 +4,17 @@ RSpec.describe "User creates category", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
+    let(:admin_user) { FactoryBot.create(:admin_user) }
+
     before do
-      admin_user = FactoryBot.create(:admin_user)
       login_as(admin_user, scope: :admin_user)
+      visit new_admin_category_path
     end
 
     context "with a non-unique name" do
+      let(:existing_category) { FactoryBot.create(:category) }
+
       before do
-        existing_category = FactoryBot.create(:category)
-        visit new_admin_category_path
         fill_in "Name*", with: existing_category.name
         click_button "Create"
       end
@@ -25,7 +27,6 @@ RSpec.describe "User creates category", type: :system do
       let(:last_category_path) { admin_category_path(Category.last) }
 
       before do
-        visit new_admin_category_path
         fill_in "Name*", with: category.name
         click_button "Create"
       end
@@ -39,8 +40,9 @@ RSpec.describe "User creates category", type: :system do
   end
 
   context "when signed in as a user" do
+    let(:user) { FactoryBot.create(:user, :confirmed) }
+
     before do
-      user = FactoryBot.create(:user, :confirmed)
       login_as(user, scope: :user)
       visit new_admin_category_path
     end
@@ -49,9 +51,7 @@ RSpec.describe "User creates category", type: :system do
   end
 
   context "when not signed in" do
-    before do
-      visit new_admin_category_path
-    end
+    before { visit new_admin_category_path }
 
     it { is_expected.to have_current_path(new_admin_user_session_path) }
   end

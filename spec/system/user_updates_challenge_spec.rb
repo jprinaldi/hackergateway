@@ -6,9 +6,7 @@ RSpec.describe "User updates challenge", type: :system do
   context "when signed in as an admin user" do
     let(:admin_user) { FactoryBot.create(:admin_user) }
 
-    before do
-      login_as(admin_user, scope: :admin_user)
-    end
+    before { login_as(admin_user, scope: :admin_user) }
 
     context "with a non-unique name" do
       let(:existing_challenge) { FactoryBot.create(:challenge) }
@@ -57,9 +55,7 @@ RSpec.describe "User updates challenge", type: :system do
   context "when not signed in" do
     let(:challenge) { FactoryBot.create(:challenge) }
 
-    before do
-      visit edit_admin_challenge_path(challenge)
-    end
+    before { visit edit_admin_challenge_path(challenge) }
 
     it { is_expected.to have_current_path(new_admin_user_session_path) }
   end
