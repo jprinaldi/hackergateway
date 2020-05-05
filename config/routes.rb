@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   get "policies/terms"
   get "faq", to: "faq#index"
   get "about", to: "about#index"
-  get "chat", to: "chat#index"
 
   namespace :api do
     namespace :wechall do
