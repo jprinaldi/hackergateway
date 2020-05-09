@@ -29,7 +29,6 @@ RSpec.describe "User updates admin user", type: :system do
         visit edit_admin_admin_user_path(this_admin_user)
         fill_in "Email*", with: new_admin_user_email
         fill_in "Password*", with: this_admin_user.password
-        fill_in "Password confirmation", with: this_admin_user.password
         click_button "Update"
       end
 

@@ -10,7 +10,6 @@ RSpec.describe "User signs up", type: :system do
     fill_in "Username", with: user.username
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-    fill_in "Password confirmation", with: user.password
     check "terms"
   end
 
@@ -72,16 +71,6 @@ RSpec.describe "User signs up", type: :system do
   context "without entering password" do
     before do
       fill_in "Password", with: ""
-      fill_in "Password confirmation", with: ""
-      click_button "Sign up"
-    end
-
-    it { is_expected.to have_current_path(new_user_registration_path) }
-  end
-
-  context "with non-matching passwords" do
-    before do
-      fill_in "Password confirmation", with: "non-matching #{user.password}"
       click_button "Sign up"
     end
 
@@ -92,7 +81,6 @@ RSpec.describe "User signs up", type: :system do
     before do
       short_password = "a" * 7
       fill_in "Password", with: short_password
-      fill_in "Password confirmation", with: short_password
       click_button "Sign up"
     end
 
@@ -103,7 +91,6 @@ RSpec.describe "User signs up", type: :system do
     before do
       long_password = "a" * 129
       fill_in "Password", with: long_password
-      fill_in "Password confirmation", with: long_password
       click_button "Sign up"
     end
 

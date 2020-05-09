@@ -57,16 +57,6 @@ RSpec.describe "User updates profile", type: :system do
     it { is_expected.to have_current_path(edit_user_registration_path) }
   end
 
-  context "with non-matching new passwords" do
-    before do
-      fill_in "Password", with: "new #{user.password}"
-      fill_in "Password confirmation", with: "other #{user.password}"
-      click_button "Update"
-    end
-
-    it { is_expected.to have_current_path(edit_user_registration_path) }
-  end
-
   context "with a blank current password" do
     before do
       fill_in "Current password", with: ""
