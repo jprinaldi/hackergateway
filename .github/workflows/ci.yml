@@ -18,11 +18,14 @@ jobs:
           rubocop-rake
           rubocop-rspec
       - name: Run RuboCop
-        run: rubocop
+        run: rubocop --parallel
   test:
     name: Test
     runs-on: ubuntu-latest
     env:
+      BUNDLE_JOBS: 4
+      BUNDLE_RETRY: 3
+      BUNDLE_PATH: vendor/bundle
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       DATABASE_URL: postgres://postgres:@localhost:5432/test
       RAILS_ENV: test
@@ -64,9 +67,8 @@ jobs:
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundle install
       - name: Prepare database
-        run: bundle exec rails db:prepare
+        run: bin/rails db:prepare
       - name: Run tests
         run: bundle exec rspec --profile
