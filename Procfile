@@ -1,2 +1,2 @@
-web: bundle exec puma -C config/puma.rb
+web: bin/rails server
 release: bin/rails db:prepare
