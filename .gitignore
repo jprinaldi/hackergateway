@@ -32,6 +32,9 @@ spec/examples.txt
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 
+# Ignore local SSL configuration files.
+config/ssl/*
+
 /public/packs
 /public/packs-test
 /node_modules
