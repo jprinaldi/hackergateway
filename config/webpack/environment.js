@@ -1,3 +1,5 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require('@rails/webpacker');
+const jquery = require('./plugins/jquery');
 
-module.exports = environment
+environment.plugins.prepend('jquery', jquery);
+module.exports = environment;

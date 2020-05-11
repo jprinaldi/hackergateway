@@ -1,8 +1,18 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  lint:
-    name: Lint
+  lint-javascript:
+    name: Lint JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Run ESLint
+        run: yarn lint
+  lint-ruby:
+    name: Lint Ruby
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -34,7 +44,7 @@ jobs:
     services:
       db:
         image: postgres:12
-        ports: ["5432:5432"]
+        ports: ['5432:5432']
         env:
           POSTGRES_DB: HackerGateway_test
           POSTGRES_USER: postgres
@@ -46,7 +56,7 @@ jobs:
           --health-retries 5
       redis:
         image: redis
-        ports: ["6379:6379"]
+        ports: ['6379:6379']
         options: --entrypoint redis-server
     steps:
       - uses: actions/checkout@v1

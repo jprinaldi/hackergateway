@@ -46,6 +46,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - "config/environments/*"
+    - "config/initializers/content_security_policy.rb"
     - "config/routes.rb"
     - "spec/**/*"
 

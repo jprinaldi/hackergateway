@@ -8,8 +8,7 @@
 
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
-  policy.connect_src :self,
-                     "kit-pro.fontawesome.com"
+  policy.connect_src "kit-pro.fontawesome.com"
   policy.font_src "fonts.gstatic.com"
   policy.frame_src "w.soundcloud.com"
   policy.img_src :self,
@@ -24,18 +23,22 @@ Rails.application.config.content_security_policy do |policy|
                     "static.cloudflareinsights.com",
                     "kit.fontawesome.com",
                     "kit-pro.fontawesome.com",
-                    "'sha256-2G7ydRU40Z+O1K3aJl1RO6ptAKOjSQyfznSXqWNk7n4='",
-                    "'sha256-shZ9wZRxDUsfDTcHqGViIOX2T9EgsLmmv+TecA8574Q='"
+                    "'sha256-pDz4vhGBfDjPcpVpEEbETB8WCXjegQKQKK7W7YkV5po='",
+                    "'sha256-2G7ydRU40Z+O1K3aJl1RO6ptAKOjSQyfznSXqWNk7n4='"
   policy.style_src :self,
                    :data,
                    "fonts.googleapis.com",
+                   "'sha256-BOZ1LCc/+axZqSnyr/B1TM044LAzTlNLcIqziXpcNsE='",
                    "'sha256-ixVUGs3ai0rMA0pgIVBN0KVlYbQip7/5SGmnUwJPNqE='",
+                   "'sha256-voXja0NHK+kj/CO6kVFGewEz+qyDFbxR+WW6e9vfN3o='",
+                   "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='",
                    "'sha256-ailVKDfjFoOAPKgaCr9c3kGwJ7vcsb6WJkg4lxE4FN8='",
-                   "'sha256-BOZ1LCc/+axZqSnyr/B1TM044LAzTlNLcIqziXpcNsE='"
+                   "'sha256-XsFlCmmILSp2LI6LZSVDFN6EMyGZiJcu0iLGHsZ+b+I='"
+
   # If you are using webpack-dev-server then specify webpack-dev-server host
-  # if Rails.env.development?
-  #   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035"
-  # end
+  if Rails.env.development?
+    policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035"
+  end
 
   # Specify URI for violation reports
   # policy.report_uri "/csp-violation-report-endpoint"
