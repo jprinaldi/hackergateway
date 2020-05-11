@@ -204,7 +204,7 @@ group :test do
   gem "timecop"
 end
 
-group :staging, :production do
+group :production do
   # Use Lograge for improved logs
   # Read more: https://github.com/roidrage/lograge
   gem "lograge"
