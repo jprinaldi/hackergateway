@@ -21,6 +21,7 @@ Rails.application.config.content_security_policy do |policy|
   policy.manifest_src :self,
                       "hackergateway.cloudflareaccess.com"
   policy.script_src :self,
+                    "static.cloudflareinsights.com",
                     "kit.fontawesome.com",
                     "kit-pro.fontawesome.com",
                     "'sha256-2G7ydRU40Z+O1K3aJl1RO6ptAKOjSQyfznSXqWNk7n4='",
