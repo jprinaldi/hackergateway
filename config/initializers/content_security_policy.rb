@@ -8,7 +8,8 @@
 
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
-  policy.connect_src "kit-pro.fontawesome.com"
+  policy.connect_src :self,
+                     "kit-pro.fontawesome.com"
   policy.font_src "fonts.gstatic.com"
   policy.frame_src "w.soundcloud.com"
   policy.img_src :self,
