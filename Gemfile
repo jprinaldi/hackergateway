@@ -76,10 +76,6 @@ gem "kaminari"
 # Read more: https://github.com/kpumuk/meta-tags
 gem "meta-tags"
 
-# Use Roboto for environment specific robots.txt support
-# Read more: https://github.com/LaunchAcademy/roboto
-gem "roboto"
-
 # Use Seedbank for environment specific seed data support
 # Read more: https://github.com/james2m/seedbank
 gem "seedbank"

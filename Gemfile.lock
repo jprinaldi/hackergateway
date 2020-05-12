@@ -291,8 +291,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
-    roboto (1.0.1)
-      rails (>= 4.2)
     rollbar (2.25.0)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
@@ -441,7 +439,6 @@ DEPENDENCIES
   rack-attack
   rails (~> 6.0.3)
   redis (~> 4.1)
-  roboto
   rollbar
   rspec-rails (~> 4.0)
   rspec_junit_formatter
