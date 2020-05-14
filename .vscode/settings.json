@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true,
+      "forceExclusion": true
+    }
+  },
+  "ruby.format": "rubocop"
+}
