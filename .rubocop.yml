@@ -9,10 +9,10 @@ Rails:
 
 AllCops:
   Exclude:
-    - "bin/*"
-    - "db/migrate/*"
-    - "db/schema.rb"
-    - "node_modules/**/*"
+    - 'bin/*'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
 
 Rails/UnknownEnv:
   Environments:
@@ -20,16 +20,22 @@ Rails/UnknownEnv:
     - test
     - production
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
 Layout/LineLength:
   Exclude:
-    - "config/application.rb"
-    - "config/environments/*"
-    - "config/initializers/*"
-    - "config/puma.rb"
-    - "Rakefile"
-    - "spec/*"
+    - 'config/application.rb'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'config/puma.rb'
+    - 'Rakefile'
+    - 'spec/*'
 
 Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
   Enabled: true
 
 Lint/RaiseException:
@@ -40,27 +46,27 @@ Lint/StructNewOverride:
 
 Metrics/AbcSize:
   Exclude:
-    - "db/migrate/*"
+    - 'db/migrate/*'
 
 Metrics/BlockLength:
   Exclude:
-    - "config/environments/*"
-    - "config/initializers/content_security_policy.rb"
-    - "config/routes.rb"
-    - "spec/**/*"
+    - 'config/environments/*'
+    - 'config/initializers/content_security_policy.rb'
+    - 'config/routes.rb'
+    - 'spec/**/*'
 
 Metrics/MethodLength:
   Exclude:
-    - "db/migrate/*"
+    - 'db/migrate/*'
 
 Security/Eval:
   Exclude:
-    - "app/controllers/challenges_controller.rb"
+    - 'app/controllers/challenges_controller.rb'
 
 Style/Documentation:
   Exclude:
-    - "app/controllers/*"
-    - "db/migrate/*"
+    - 'app/controllers/*'
+    - 'db/migrate/*'
 
 Style/ExponentialNotation:
   Enabled: true
@@ -72,6 +78,9 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
   Enabled: true
 
 Style/StringLiterals:
