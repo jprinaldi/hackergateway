@@ -205,9 +205,9 @@ group :production do
   # Read more: https://github.com/roidrage/lograge
   gem "lograge"
 
-  # Use this gem so that request.ip and request.remote_ip both work as expected
-  # Read more: https://github.com/modosc/cloudflare-rails
-  gem "cloudflare-rails"
+  # Use this gem so that request.remote_ip works as expected
+  # Read more: https://github.com/customink/actionpack-cloudflare
+  gem "actionpack-cloudflare"
 
   # Use Coverband to measure production code usage
   # Read more: https://github.com/danmayer/coverband
