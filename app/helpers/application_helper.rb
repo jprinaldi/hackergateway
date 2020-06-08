@@ -4,7 +4,7 @@ module ApplicationHelper # :nodoc:
   # Create nav items in Bootstrap 4 style
   def nav_item(url, &block)
     active = "active" if current_page?(url)
-    content_tag :li, class: "nav-item #{active}" do
+    tag.li class: "nav-item #{active}" do
       link_to(url, { class: "nav-link" }, &block)
     end
   end
