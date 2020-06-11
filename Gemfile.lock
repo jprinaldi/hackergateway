@@ -73,7 +73,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     arbre (1.2.1)
       activesupport (>= 3.0.0)
-    ast (2.4.0)
+    ast (2.4.1)
     bcrypt (3.1.13)
     better_errors (2.7.1)
       coderay (>= 1.0.0)
