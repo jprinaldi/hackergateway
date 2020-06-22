@@ -83,6 +83,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+Style/RedundantFetchBlock:
+  Enabled: true
+
 Style/RedundantRegexpCharacterClass:
   Enabled: true
 
