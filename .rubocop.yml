@@ -66,6 +66,12 @@ Security/Eval:
   Exclude:
     - 'app/controllers/challenges_controller.rb'
 
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
 Style/Documentation:
   Exclude:
     - 'app/controllers/*'
@@ -81,6 +87,9 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantAssignment:
   Enabled: true
 
 Style/RedundantFetchBlock:
