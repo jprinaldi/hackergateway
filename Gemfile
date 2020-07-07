@@ -86,8 +86,8 @@ gem "newrelic_rpm"
 
 # Use PgHero for PostgreSQL performance dashboard support
 # Read more: https://github.com/ankane/pghero
-gem "pg_query"
 gem "pghero"
+gem "pg_query"
 
 # Use Active Admin as the administration framework
 # Read more: https://github.com/activeadmin/activeadmin
@@ -104,8 +104,8 @@ group :development, :test do
 
   # Use RSpec as the testing framework
   # Read more: https://github.com/rspec/rspec-rails
-  gem "rspec-rails", "~> 4.0"
   gem "rspec_junit_formatter"
+  gem "rspec-rails", "~> 4.0"
 
   # Use Fuubar for improved RSpec formatting
   # Read more: https://github.com/thekompanee/fuubar
