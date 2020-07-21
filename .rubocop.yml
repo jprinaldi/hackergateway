@@ -50,12 +50,6 @@ Rails/RenderPlainText:
 Rails/ShortI18n:
   Enabled: true
 
-Rails/UnknownEnv:
-  Environments:
-    - development
-    - test
-    - production
-
 Rails/WhereExists:
   Enabled: true
 
