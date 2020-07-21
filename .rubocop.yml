@@ -14,11 +14,50 @@ AllCops:
     - 'db/schema.rb'
     - 'node_modules/**/*'
 
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+
+Rails/FindById:
+  Enabled: true
+
+Rails/Inquiry:
+  Enabled: true
+
+Rails/MailerName:
+  Enabled: true
+
+Rails/MatchRoute:
+  Enabled: true
+
+Rails/NegateInclude:
+  Enabled: true
+
+Rails/Pluck:
+  Enabled: true
+
+Rails/PluckId:
+  Enabled: true
+
+Rails/PluckInWhere:
+  Enabled: true
+
+Rails/RenderInline:
+  Enabled: true
+
+Rails/RenderPlainText:
+  Enabled: true
+
+Rails/ShortI18n:
+  Enabled: true
+
 Rails/UnknownEnv:
   Environments:
     - development
     - test
     - production
+
+Rails/WhereExists:
+  Enabled: true
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
