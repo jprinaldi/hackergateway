@@ -4,9 +4,7 @@ RSpec.describe "API for WeChall", type: :request do
   subject { response }
 
   let(:user) { FactoryBot.create(:user) }
-  let(:non_existent_user_email) { "non-existent #{user.email}" }
   let(:api_key) { FactoryBot.create(:api_key) }
-  let(:invalid_token) { "invlaid #{api_key.token}" }
 
   describe "validate" do
     before do
@@ -22,6 +20,8 @@ RSpec.describe "API for WeChall", type: :request do
     end
 
     context "without a valid token" do
+      let(:invalid_token) { "invlaid #{api_key.token}" }
+
       before do
         get api_wechall_users_validate_path(token: invalid_token)
       end
@@ -30,6 +30,8 @@ RSpec.describe "API for WeChall", type: :request do
     end
 
     context "with non-matching credentials" do
+      let(:non_existent_user_email) { "non-existent #{user.email}" }
+
       before do
         get api_wechall_users_validate_path(
           username: user.username,
