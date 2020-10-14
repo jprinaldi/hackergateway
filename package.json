@@ -10,7 +10,7 @@
     "@rails/activestorage": "^6.0.3",
     "@rails/ujs": "^6.0.3",
     "@rails/webpacker": "^5.1.1",
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.5.3",
     "bootswatch": "^4.5.2",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0"
