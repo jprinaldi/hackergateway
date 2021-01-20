@@ -114,7 +114,7 @@ group :development, :test do
   # Use Capybara to simulate how a real user would interact with the app
   # Read more: https://github.com/teamcapybara/capybara
   gem "capybara"
-  gem "webdrivers", "~> 4.4"
+  gem "webdrivers", "~> 4.5"
 
   # Use Factory Bot for test data support
   # Read more: https://github.com/thoughtbot/factory_bot_rails
