@@ -6,9 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: actions/setup-node@v2
         with:
-          cmd: install
+          node-version: '14'
+      - name: Install JavaScript dependencies
+        run: yarn install
       - name: Run ESLint
         run: yarn lint
   lint-ruby:
@@ -64,16 +66,18 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.0
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: actions/setup-node@v2
         with:
-          cmd: install
+          node-version: '14'
+      - name: Install JavaScript dependencies
+        run: yarn install
       - uses: actions/cache@v1
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      - name: Install dependencies
+      - name: Install Ruby dependencies
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
