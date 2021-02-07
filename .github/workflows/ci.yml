@@ -9,8 +9,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Install JavaScript dependencies
-        run: yarn install
+      - name: Install development JavaScript dependencies
+        run: yarn install --production=false
       - name: Run ESLint
         run: yarn lint
   lint-ruby:
@@ -21,16 +21,13 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.0
-      - name: Install RuboCop
-        run: >
-          gem install --no-document
-          rubocop
-          rubocop-performance
-          rubocop-rails
-          rubocop-rake
-          rubocop-rspec
+      - name: Install development Ruby dependencies
+        run: |
+          gem install bundler
+          bundle config set without 'test production'
+          bundle install
       - name: Run RuboCop
-        run: rubocop --parallel
+        run: bundle exec rubocop --parallel
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -81,6 +78,7 @@ jobs:
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler
+          bundle config set without 'production'
           bundle install
       - name: Prepare database
         run: bin/rails db:prepare
