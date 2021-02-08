@@ -42,7 +42,7 @@ jobs:
       RUBYOPT: -W:no-deprecated
     services:
       db:
-        image: postgres:12
+        image: postgres:13
         ports: ['5432:5432']
         env:
           POSTGRES_DB: HackerGateway_test
