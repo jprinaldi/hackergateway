@@ -8,7 +8,7 @@
     "@activeadmin/activeadmin": "^2.9.0",
     "@rails/actioncable": "^6.1.2",
     "@rails/activestorage": "^6.1.2",
-    "@rails/ujs": "^6.1.1",
+    "@rails/ujs": "^6.1.2",
     "@rails/webpacker": "^5.2.1",
     "bootstrap": "^4.6.0",
     "bootswatch": "^4.6.0",
