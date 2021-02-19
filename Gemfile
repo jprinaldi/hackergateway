@@ -111,11 +111,6 @@ group :development, :test do
   # Read more: https://github.com/thekompanee/fuubar
   gem "fuubar"
 
-  # Use Capybara to simulate how a real user would interact with the app
-  # Read more: https://github.com/teamcapybara/capybara
-  gem "capybara"
-  gem "webdrivers", "~> 4.5"
-
   # Use Factory Bot for test data support
   # Read more: https://github.com/thoughtbot/factory_bot_rails
   gem "factory_bot_rails"
@@ -134,16 +129,16 @@ group :development, :test do
 end
 
 group :development do
-  # Access an interactive console on exception pages
-  # or by calling 'console' anywhere in the code.
-  gem "listen", ">= 3.0.5", "< 3.5"
-  gem "web-console", ">= 3.3.0"
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem "web-console", ">= 4.1.0"
 
-  # Spring speeds up development by keeping your
-  # application running in the background.
-  # Read more: https://github.com/rails/spring
+  # Display performance information such as SQL time and flame graphs for each request in your browser.
+  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem "listen", "~> 3.3"
+  gem "rack-mini-profiler", "~> 2.0"
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
 
   # Use RuboCop for static code analysis support
   # Read more: https://github.com/bbatsov/rubocop
@@ -187,6 +182,13 @@ group :development do
 end
 
 group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem "capybara", ">= 3.26"
+  gem "selenium-webdriver"
+
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem "webdrivers"
+
   # Use SimpleCov for code coverage analysis
   # Read more: https://github.com/colszowka/simplecov
   gem "simplecov", require: false
