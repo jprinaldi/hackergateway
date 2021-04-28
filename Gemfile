@@ -18,7 +18,7 @@ gem "puma", "~> 5.2"
 gem "sassc-rails"
 # Transpile app-like JavaScript
 # Read more: https://github.com/rails/webpacker
-gem "webpacker", "~> 5.2"
+gem "webpacker", "~> 5.3"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
