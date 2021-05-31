@@ -168,6 +168,7 @@ GEM
       railties (>= 5.2, < 6.2)
       responders (>= 2, < 4)
     iniparse (1.5.0)
+    io-wait (0.1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     jquery-rails (4.4.0)
@@ -208,9 +209,16 @@ GEM
       actionpack (>= 3.2.0, < 6.2)
     method_source (1.0.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.5.2)
+      net-ftp (~> 0.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    net-ftp (0.1.2)
+      net-protocol
+      time
+    net-protocol (0.1.1)
+      io-wait
+      timeout
     newrelic_rpm (7.0.0)
     nio4r (2.5.7)
     nokogiri (1.11.5)
@@ -369,7 +377,9 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     tilt (2.0.10)
+    time (0.1.0)
     timecop (0.9.4)
+    timeout (0.1.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
