@@ -1,5 +1,4 @@
 {
-  "name": "hackergateway",
   "private": true,
   "scripts": {
     "lint": "./node_modules/.bin/eslint --ext .js"
