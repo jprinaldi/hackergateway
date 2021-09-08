@@ -1,46 +1,48 @@
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-  <%= link_to root_path, class: 'navbar-brand' do %>
-    <%= image_tag 'logo-navbar.png', size: 28, alt: 'Hacker Gateway' %>
-    <span>Hacker Gateway</span>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container-fluid">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag 'logo-navbar.png', size: 28, alt: 'Hacker Gateway' %>
+      <span>Hacker Gateway</span>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <%= nav_item challenges_path do %>
-        <i class="fas fa-star fa-fw"></i> Challenges
-      <% end %>
-      <%= nav_item leaderboard_path do %>
-        <i class="fas fa-trophy-alt fa-fw"></i> Leaderboard
-      <% end %>
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user fa-fw"></i> <%= current_user.username %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to current_user, class: 'dropdown-item' do %>
-              <i class="fas fa-eye fa-fw"></i> View profile
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <%= nav_item challenges_path do %>
+          <i class="fas fa-star fa-fw"></i> Challenges
+        <% end %>
+        <%= nav_item leaderboard_path do %>
+          <i class="fas fa-trophy-alt fa-fw"></i> Leaderboard
+        <% end %>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user fa-fw"></i> <%= current_user.username %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to current_user, class: 'dropdown-item' do %>
+                <i class="fas fa-eye fa-fw"></i> View profile
+              <% end %>
+              <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+                <i class="fas fa-pencil fa-fw"></i> Edit profile
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
+                <i class="fas fa-sign-out fa-fw"></i> Sign out
+              <% end %>
+            </div>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_user_session_path, class: 'nav-link' do %>
+              <i class="fas fa-sign-in fa-fw"></i> Sign in
             <% end %>
-            <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-              <i class="fas fa-pencil fa-fw"></i> Edit profile
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class: 'nav-link' do %>
+              <i class="fas fa-user-plus fa-fw"></i> Sign up
             <% end %>
-            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
-              <i class="fas fa-sign-out fa-fw"></i> Sign out
-            <% end %>
-          </div>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to new_user_session_path, class: 'nav-link' do %>
-            <i class="fas fa-sign-in fa-fw"></i> Sign in
-          <% end %>
-        <li class="nav-item">
-          <%= link_to new_user_registration_path, class: 'nav-link' do %>
-            <i class="fas fa-user-plus fa-fw"></i> Sign up
-          <% end %>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
