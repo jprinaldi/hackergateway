@@ -184,6 +184,10 @@ group :development do
   # Use Overcommit to manage and configure Git hooks
   # Read more: https://github.com/brigade/overcommit
   gem "overcommit"
+
+  # Use Localhost to support SSL locally
+  # Read more: https://github.com/socketry/localhost
+  gem "localhost"
 end
 
 group :test do

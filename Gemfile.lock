@@ -192,6 +192,7 @@ GEM
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    localhost (1.1.9)
     lograge (0.11.2)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -429,6 +430,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   listen (~> 3.7)
+  localhost
   lograge
   meta-tags
   newrelic_rpm

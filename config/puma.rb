@@ -43,10 +43,3 @@ pidfile ENV.fetch("PIDFILE", "tmp/pids/server.pid")
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-
-if @config.environment == "development"
-  ssl_port = ENV.fetch("SSL_PORT", 3001)
-  key = "config/ssl/hackergateway.local-key.pem"
-  cert = "config/ssl/hackergateway.local.pem"
-  ssl_bind "localhost", ssl_port, key: key, cert: cert
-end
