@@ -283,7 +283,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.4.0)
+    redis (4.5.0)
     regexp_parser (2.1.1)
     request_store (1.5.0)
       rack (>= 1.4)
@@ -443,7 +443,7 @@ DEPENDENCIES
   rack-attack
   rack-mini-profiler (~> 2.3)
   rails (~> 6.1.4)
-  redis (~> 4.4)
+  redis (~> 4.5)
   rollbar
   rspec-rails (~> 5.0)
   rspec_junit_formatter
