@@ -97,11 +97,6 @@ gem "activeadmin"
 # Read more: https://github.com/kickstarter/rack-attack
 gem "rack-attack"
 
-# TODO: Remove the following line once
-# https://github.com/protocolbuffers/protobuf/issues/8199
-# is resolved.
-gem "google-protobuf", github: "bouk/protobuf", branch: "ruby-build", submodules: true
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
