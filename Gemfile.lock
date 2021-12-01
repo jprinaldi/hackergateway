@@ -154,7 +154,7 @@ GEM
       activesupport (>= 5.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    i18n_data (0.13.0)
+    i18n_data (0.13.1)
     inherited_resources (1.13.0)
       actionpack (>= 5.2, < 6.2)
       has_scope (~> 0.6)
