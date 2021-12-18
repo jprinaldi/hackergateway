@@ -133,7 +133,7 @@ Rails.application.configure do
 
   config.after_initialize do
     # Google Analytics tracking ID
-    GA.tracker = Rails.application.secrets.google_analytics_tracking_id
+    GA.tracker = ENV.fetch("GOOGLE_ANALYTICS_TRACKING_ID")
   end
 
   config.lograge.enabled = true
