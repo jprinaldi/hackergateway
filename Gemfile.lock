@@ -141,7 +141,7 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.4)
-    forest_liana (7.4.2)
+    forest_liana (7.4.5)
       arel-helpers
       bcrypt
       forestadmin-jsonapi-serializers (>= 0.14.0)
