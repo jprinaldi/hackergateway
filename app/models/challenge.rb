@@ -11,7 +11,6 @@ class Challenge < ApplicationRecord # :nodoc:
   validates :name, presence: true, uniqueness: true
   validates :body, presence: true
   validates :answer, presence: true
-  validates :category, presence: true
 
   def check(proposed_answer)
     answer.casecmp(proposed_answer).zero?
