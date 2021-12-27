@@ -4,12 +4,12 @@ RSpec.describe "User creates solution", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:admin_user) { create(:admin_user) }
 
     before { login_as(admin_user, scope: :admin_user) }
 
     context "when it already exists" do
-      let!(:existing_solution) { FactoryBot.create(:solution) }
+      let!(:existing_solution) { create(:solution) }
 
       before do
         visit new_admin_solution_path
@@ -22,10 +22,10 @@ RSpec.describe "User creates solution", type: :system do
     end
 
     context "with valid parameters" do
-      let!(:user) { FactoryBot.create(:user) }
-      let!(:challenge) { FactoryBot.create(:challenge) }
+      let!(:user) { create(:user) }
+      let!(:challenge) { create(:challenge) }
       let(:solution) do
-        FactoryBot.build(:solution, user: user, challenge: challenge)
+        build(:solution, user: user, challenge: challenge)
       end
       let(:last_solution_path) { admin_solution_path(Solution.last) }
 
@@ -43,7 +43,7 @@ RSpec.describe "User creates solution", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)

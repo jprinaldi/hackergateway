@@ -3,7 +3,7 @@
 RSpec.describe "User visits FAQs page", type: :system do
   subject { page }
 
-  let!(:faq) { FactoryBot.create(:faq) }
+  let!(:faq) { create(:faq) }
 
   before { visit faqs_path }
 

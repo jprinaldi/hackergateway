@@ -3,7 +3,7 @@
 RSpec.describe "User visits category", type: :system do
   subject { page }
 
-  let(:challenge) { FactoryBot.create(:challenge) }
+  let(:challenge) { create(:challenge) }
 
   before { visit category_path(challenge.category) }
 

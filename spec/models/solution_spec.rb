@@ -2,25 +2,25 @@
 
 RSpec.describe Solution, type: :model do
   context "with valid parameters" do
-    subject(:solution) { FactoryBot.build(:solution) }
+    subject(:solution) { build(:solution) }
 
     it { is_expected.to be_valid }
   end
 
   context "without a user reference" do
-    subject(:solution) { FactoryBot.build(:solution, user: nil) }
+    subject(:solution) { build(:solution, user: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "without a challenge reference" do
-    subject(:solution) { FactoryBot.build(:solution, challenge: nil) }
+    subject(:solution) { build(:solution, challenge: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "when destroyed" do
-    let(:solution) { FactoryBot.create(:solution) }
+    let(:solution) { create(:solution) }
 
     it "decrements the user's solutions count" do
       expect { solution.destroy }

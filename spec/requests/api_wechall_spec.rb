@@ -3,8 +3,8 @@
 RSpec.describe "API for WeChall", type: :request do
   subject { response }
 
-  let(:user) { FactoryBot.create(:user) }
-  let(:api_key) { FactoryBot.create(:api_key) }
+  let(:user) { create(:user) }
+  let(:api_key) { create(:api_key) }
 
   describe "validate" do
     before do
@@ -100,7 +100,7 @@ RSpec.describe "API for WeChall", type: :request do
       end
 
       before do
-        challenges = FactoryBot.create_list(:challenge, challenges_count)
+        challenges = create_list(:challenge, challenges_count)
         challenges.first(solved_challenges_count).each do |challenge|
           user.solve(challenge)
         end

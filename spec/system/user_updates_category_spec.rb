@@ -4,13 +4,13 @@ RSpec.describe "User updates category", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:admin_user) { create(:admin_user) }
 
     before { login_as(admin_user, scope: :admin_user) }
 
     context "with a non-unique name" do
-      let(:existing_category) { FactoryBot.create(:category) }
-      let(:current_category) { FactoryBot.create(:category) }
+      let(:existing_category) { create(:category) }
+      let(:current_category) { create(:category) }
 
       before do
         visit edit_admin_category_path(current_category)
@@ -22,7 +22,7 @@ RSpec.describe "User updates category", type: :system do
     end
 
     context "with valid parameters" do
-      let(:category) { FactoryBot.create(:category) }
+      let(:category) { create(:category) }
       let(:new_category_name) { "c4t3g0ry" }
       let(:new_category_path) { admin_category_path(new_category_name) }
 
@@ -41,11 +41,11 @@ RSpec.describe "User updates category", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)
-      category = FactoryBot.create(:category)
+      category = create(:category)
       visit edit_admin_category_path(category)
     end
 
@@ -53,7 +53,7 @@ RSpec.describe "User updates category", type: :system do
   end
 
   context "when not signed in" do
-    let(:category) { FactoryBot.create(:category) }
+    let(:category) { create(:category) }
 
     before { visit edit_admin_category_path(category) }
 

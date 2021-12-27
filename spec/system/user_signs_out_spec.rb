@@ -4,7 +4,7 @@ RSpec.describe "User signs out", type: :system do
   subject { page }
 
   context "when signed in" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)

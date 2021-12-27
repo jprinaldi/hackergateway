@@ -3,7 +3,7 @@
 RSpec.describe "User updates profile", type: :system do
   subject { page }
 
-  let(:user) { FactoryBot.create(:user, :confirmed) }
+  let(:user) { create(:user, :confirmed) }
 
   before do
     login_as(user, scope: :user)

@@ -4,13 +4,13 @@ RSpec.describe "User updates challenge", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:admin_user) { create(:admin_user) }
 
     before { login_as(admin_user, scope: :admin_user) }
 
     context "with a non-unique name" do
-      let(:existing_challenge) { FactoryBot.create(:challenge) }
-      let(:current_challenge) { FactoryBot.create(:challenge) }
+      let(:existing_challenge) { create(:challenge) }
+      let(:current_challenge) { create(:challenge) }
 
       before do
         visit edit_admin_challenge_path(current_challenge)
@@ -22,7 +22,7 @@ RSpec.describe "User updates challenge", type: :system do
     end
 
     context "with valid parameters" do
-      let(:challenge) { FactoryBot.create(:challenge) }
+      let(:challenge) { create(:challenge) }
       let(:new_challenge_name) { "ch4ll3ng3" }
       let(:new_challenge_path) { admin_challenge_path(new_challenge_name) }
 
@@ -41,8 +41,8 @@ RSpec.describe "User updates challenge", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
-    let(:challenge) { FactoryBot.create(:challenge) }
+    let(:user) { create(:user, :confirmed) }
+    let(:challenge) { create(:challenge) }
 
     before do
       login_as(user, scope: :user)
@@ -53,7 +53,7 @@ RSpec.describe "User updates challenge", type: :system do
   end
 
   context "when not signed in" do
-    let(:challenge) { FactoryBot.create(:challenge) }
+    let(:challenge) { create(:challenge) }
 
     before { visit edit_admin_challenge_path(challenge) }
 

@@ -4,7 +4,7 @@ RSpec.describe "User creates category", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:admin_user) { create(:admin_user) }
 
     before do
       login_as(admin_user, scope: :admin_user)
@@ -12,7 +12,7 @@ RSpec.describe "User creates category", type: :system do
     end
 
     context "with a non-unique name" do
-      let(:existing_category) { FactoryBot.create(:category) }
+      let(:existing_category) { create(:category) }
 
       before do
         fill_in "Name*", with: existing_category.name
@@ -23,7 +23,7 @@ RSpec.describe "User creates category", type: :system do
     end
 
     context "with valid parameters" do
-      let(:category) { FactoryBot.build(:category) }
+      let(:category) { build(:category) }
       let(:last_category_path) { admin_category_path(Category.last) }
 
       before do
@@ -40,7 +40,7 @@ RSpec.describe "User creates category", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)

@@ -3,7 +3,7 @@
 RSpec.describe "User signs up", type: :system do
   subject { page }
 
-  let(:user) { FactoryBot.build(:user) }
+  let(:user) { build(:user) }
 
   before do
     visit new_user_registration_path
@@ -42,7 +42,7 @@ RSpec.describe "User signs up", type: :system do
 
   context "with a taken username" do
     before do
-      FactoryBot.create(:user, username: "MyUsername")
+      create(:user, username: "MyUsername")
       fill_in "Username", with: "mYuSeRnAmE"
       click_button "Sign up"
     end

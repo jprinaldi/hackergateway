@@ -3,7 +3,7 @@
 RSpec.describe "User cancels account", type: :system do
   subject { page }
 
-  let(:user) { FactoryBot.create(:user, :confirmed) }
+  let(:user) { create(:user, :confirmed) }
 
   context "when signed in" do
     before do

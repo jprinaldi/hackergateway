@@ -3,7 +3,7 @@
 RSpec.describe "User visits someone's profile", type: :system do
   subject { page }
 
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before { visit user_path(user) }
 
