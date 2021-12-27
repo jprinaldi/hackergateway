@@ -3,7 +3,7 @@
 RSpec.describe "User checks someone's solutions", type: :system do
   subject { page }
 
-  let(:solution) { FactoryBot.create(:solution) }
+  let(:solution) { create(:solution) }
 
   before { visit user_solutions_path(solution.user) }
 

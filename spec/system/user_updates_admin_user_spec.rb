@@ -3,14 +3,14 @@
 RSpec.describe "User updates admin user", type: :system do
   subject { page }
 
-  let(:admin_user) { FactoryBot.create(:admin_user) }
-  let(:this_admin_user) { FactoryBot.create(:admin_user) }
+  let(:admin_user) { create(:admin_user) }
+  let(:this_admin_user) { create(:admin_user) }
 
   context "when signed in as an admin user" do
     before { login_as(admin_user, scope: :admin_user) }
 
     context "with a non-unique email" do
-      let(:that_admin_user) { FactoryBot.create(:admin_user) }
+      let(:that_admin_user) { create(:admin_user) }
 
       before do
         visit edit_admin_admin_user_path(this_admin_user)
@@ -41,7 +41,7 @@ RSpec.describe "User updates admin user", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)

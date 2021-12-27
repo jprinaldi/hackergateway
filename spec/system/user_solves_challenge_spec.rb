@@ -3,13 +3,13 @@
 RSpec.describe "User solves challenge", type: :system do
   subject { page }
 
-  let(:this_challenge) { FactoryBot.create(:challenge) }
+  let(:this_challenge) { create(:challenge) }
   let(:this_challenge_path) { challenge_path(this_challenge) }
 
   before { visit challenge_path(this_challenge) }
 
   context "when signed in" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before { login_as(user, scope: :user) }
 

@@ -3,10 +3,10 @@
 RSpec.describe "User impersonates user", type: :system do
   subject { page }
 
-  let(:user_to_impersonate) { FactoryBot.create(:user, :confirmed) }
+  let(:user_to_impersonate) { create(:user, :confirmed) }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:admin_user) { create(:admin_user) }
 
     before do
       login_as(admin_user, scope: :admin_user)
@@ -19,7 +19,7 @@ RSpec.describe "User impersonates user", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)

@@ -3,8 +3,8 @@
 RSpec.describe "User checks challenge's solutions", type: :system do
   subject { page }
 
-  let(:this_challenge) { FactoryBot.create(:challenge) }
-  let!(:solution) { FactoryBot.create(:solution, challenge: this_challenge) }
+  let(:this_challenge) { create(:challenge) }
+  let!(:solution) { create(:solution, challenge: this_challenge) }
   let(:this_challenge_solutions_path) do
     challenge_solutions_path(this_challenge)
   end

@@ -4,13 +4,13 @@ RSpec.describe "User updates user", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
+    let(:admin_user) { create(:admin_user) }
 
     before { login_as(admin_user, scope: :admin_user) }
 
     context "with a non-unique username" do
-      let(:existing_user) { FactoryBot.create(:user) }
-      let(:current_user) { FactoryBot.create(:user) }
+      let(:existing_user) { create(:user) }
+      let(:current_user) { create(:user) }
 
       before do
         visit edit_admin_user_path(current_user)
@@ -22,7 +22,7 @@ RSpec.describe "User updates user", type: :system do
     end
 
     context "with valid parameters" do
-      let(:user) { FactoryBot.create(:user) }
+      let(:user) { create(:user) }
       let(:new_user_username) { "us3rn4m3" }
       let(:new_user_path) { admin_user_path(new_user_username) }
 
@@ -41,8 +41,8 @@ RSpec.describe "User updates user", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
-    let(:other_user) { FactoryBot.create(:user) }
+    let(:user) { create(:user, :confirmed) }
+    let(:other_user) { create(:user) }
 
     before do
       login_as(user, scope: :user)
@@ -53,7 +53,7 @@ RSpec.describe "User updates user", type: :system do
   end
 
   context "when not signed in" do
-    let(:other_user) { FactoryBot.create(:user) }
+    let(:other_user) { create(:user) }
 
     before { visit edit_admin_user_path(other_user) }
 

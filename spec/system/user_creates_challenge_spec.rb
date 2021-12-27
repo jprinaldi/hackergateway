@@ -4,8 +4,8 @@ RSpec.describe "User creates challenge", type: :system do
   subject { page }
 
   context "when signed in as an admin user" do
-    let(:admin_user) { FactoryBot.create(:admin_user) }
-    let!(:category) { FactoryBot.create(:category) }
+    let(:admin_user) { create(:admin_user) }
+    let!(:category) { create(:category) }
 
     before do
       login_as(admin_user, scope: :admin_user)
@@ -13,7 +13,7 @@ RSpec.describe "User creates challenge", type: :system do
     end
 
     context "with a non-unique name" do
-      let(:existing_challenge) { FactoryBot.create(:challenge) }
+      let(:existing_challenge) { create(:challenge) }
 
       before do
         fill_in "Name*", with: existing_challenge.name
@@ -24,7 +24,7 @@ RSpec.describe "User creates challenge", type: :system do
     end
 
     context "with valid properties" do
-      let(:challenge) { FactoryBot.build(:challenge, category: category) }
+      let(:challenge) { build(:challenge, category: category) }
       let(:last_challenge_path) { admin_challenge_path(Challenge.last) }
 
       before do
@@ -44,7 +44,7 @@ RSpec.describe "User creates challenge", type: :system do
   end
 
   context "when signed in as a user" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       login_as(user, scope: :user)

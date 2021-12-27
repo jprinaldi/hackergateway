@@ -2,83 +2,83 @@
 
 RSpec.describe User, type: :model do
   context "with valid properties" do
-    subject(:user) { FactoryBot.build(:user) }
+    subject(:user) { build(:user) }
 
     it { is_expected.to be_valid }
   end
 
   context "without an email" do
-    subject(:user) { FactoryBot.build(:user, email: nil) }
+    subject(:user) { build(:user, email: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a non-unique email" do
-    subject(:user) { FactoryBot.build(:user, email: existing_user.email) }
+    subject(:user) { build(:user, email: existing_user.email) }
 
-    let(:existing_user) { FactoryBot.create(:user) }
+    let(:existing_user) { create(:user) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "without a username" do
-    subject(:user) { FactoryBot.build(:user, username: nil) }
+    subject(:user) { build(:user, username: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a short username" do
-    subject(:user) { FactoryBot.build(:user, username: "012") }
+    subject(:user) { build(:user, username: "012") }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a long username" do
-    subject(:user) { FactoryBot.build(:user, username: "0123456789abcdef") }
+    subject(:user) { build(:user, username: "0123456789abcdef") }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a username containing unallowed characters" do
-    subject(:user) { FactoryBot.build(:user, username: "0123_abCD") }
+    subject(:user) { build(:user, username: "0123_abCD") }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a non-unique username" do
-    subject(:user) { FactoryBot.build(:user, username: existing_user.username) }
+    subject(:user) { build(:user, username: existing_user.username) }
 
-    let(:existing_user) { FactoryBot.create(:user) }
+    let(:existing_user) { create(:user) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "without a password" do
-    subject(:user) { FactoryBot.build(:user, password: nil) }
+    subject(:user) { build(:user, password: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a short password" do
-    subject(:user) { FactoryBot.build(:user, password: "a" * 7) }
+    subject(:user) { build(:user, password: "a" * 7) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "with a long password" do
-    subject(:user) { FactoryBot.build(:user, password: "a" * 129) }
+    subject(:user) { build(:user, password: "a" * 129) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "without a country code" do
-    subject(:user) { FactoryBot.build(:user, country_code: nil) }
+    subject(:user) { build(:user, country_code: nil) }
 
     it { is_expected.to be_valid }
   end
 
   context "with an invalid country code" do
-    subject(:user) { FactoryBot.build(:user, country_code: "XX") }
+    subject(:user) { build(:user, country_code: "XX") }
 
     it { is_expected.not_to be_valid }
   end
@@ -86,7 +86,7 @@ RSpec.describe User, type: :model do
   context "with a valid country code" do
     subject(:country) { user.country }
 
-    let(:user) { FactoryBot.build(:user, country_code: "AR") }
+    let(:user) { build(:user, country_code: "AR") }
 
     it "has a valid country name" do
       expect(country.name).to eq("Argentina")
@@ -98,10 +98,10 @@ RSpec.describe User, type: :model do
   end
 
   context "when solving a challenge" do
-    let(:user) { FactoryBot.create(:user, :confirmed) }
-    let(:challenge) { FactoryBot.create(:challenge) }
-    let(:other_user) { FactoryBot.create(:user, :confirmed) }
-    let(:other_challenge) { FactoryBot.create(:challenge) }
+    let(:user) { create(:user, :confirmed) }
+    let(:challenge) { create(:challenge) }
+    let(:other_user) { create(:user, :confirmed) }
+    let(:other_challenge) { create(:challenge) }
     let(:challenges) { [challenge, other_challenge] }
 
     it "increments the total solutions count" do
@@ -148,7 +148,7 @@ RSpec.describe User, type: :model do
   end
 
   context "when destroyed" do
-    let(:solution) { FactoryBot.create(:solution) }
+    let(:solution) { create(:solution) }
 
     it "correctly updates its related objects counts" do
       expect { solution.user.destroy }
@@ -162,8 +162,8 @@ RSpec.describe User, type: :model do
   context "when destroying the only solution" do
     subject { user.last_solution_at }
 
-    let(:user) { FactoryBot.create(:user, :confirmed) }
-    let(:challenge) { FactoryBot.create(:challenge) }
+    let(:user) { create(:user, :confirmed) }
+    let(:challenge) { create(:challenge) }
     let!(:only_solution) { user.solve(challenge) }
 
     before do
@@ -176,9 +176,9 @@ RSpec.describe User, type: :model do
   context "when destroying the last solution" do
     subject { user.last_solution_at }
 
-    let(:user) { FactoryBot.create(:user, :confirmed) }
-    let(:first_challenge) { FactoryBot.create(:challenge) }
-    let(:second_challenge) { FactoryBot.create(:challenge) }
+    let(:user) { create(:user, :confirmed) }
+    let(:first_challenge) { create(:challenge) }
+    let(:second_challenge) { create(:challenge) }
     let!(:first_solution) { user.solve(first_challenge) }
     let!(:last_solution) do
       Timecop.travel(1.day.from_now)

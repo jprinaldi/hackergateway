@@ -2,31 +2,31 @@
 
 RSpec.describe Challenge, type: :model do
   context "with valid properties" do
-    subject(:challenge) { FactoryBot.build(:challenge) }
+    subject(:challenge) { build(:challenge) }
 
     it { is_expected.to be_valid }
   end
 
   context "without a name" do
-    subject(:challenge) { FactoryBot.build(:challenge, name: nil) }
+    subject(:challenge) { build(:challenge, name: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "without a body" do
-    subject(:challenge) { FactoryBot.build(:challenge, body: nil) }
+    subject(:challenge) { build(:challenge, body: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "without a category" do
-    subject(:challenge) { FactoryBot.build(:challenge, category: nil) }
+    subject(:challenge) { build(:challenge, category: nil) }
 
     it { is_expected.not_to be_valid }
   end
 
   context "when destroyed" do
-    let!(:solution) { FactoryBot.create(:solution) }
+    let!(:solution) { create(:solution) }
 
     it "decrements the total solutions count" do
       expect { solution.challenge.destroy }
@@ -50,8 +50,8 @@ RSpec.describe Challenge, type: :model do
   context "when destroying the only solution" do
     subject { challenge.last_solution_at }
 
-    let(:user) { FactoryBot.create(:user, :confirmed) }
-    let(:challenge) { FactoryBot.create(:challenge) }
+    let(:user) { create(:user, :confirmed) }
+    let(:challenge) { create(:challenge) }
     let!(:solution) { user.solve(challenge) }
 
     before do
@@ -64,9 +64,9 @@ RSpec.describe Challenge, type: :model do
   context "when destroying the last solution" do
     subject { challenge.last_solution_at }
 
-    let(:challenge) { FactoryBot.create(:challenge) }
-    let(:first_user) { FactoryBot.create(:user, :confirmed) }
-    let(:second_user) { FactoryBot.create(:user, :confirmed) }
+    let(:challenge) { create(:challenge) }
+    let(:first_user) { create(:user, :confirmed) }
+    let(:second_user) { create(:user, :confirmed) }
     let!(:first_solution) { first_user.solve(challenge) }
     let!(:last_solution) do
       Timecop.travel(1.day.from_now)
