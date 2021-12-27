@@ -20,6 +20,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "spec_helper"
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
+require "support/bullet"
 require "support/factory_bot"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -73,16 +74,5 @@ RSpec.configure do |config|
 
   config.before(type: :system) do
     driven_by :selenium_chrome_headless
-  end
-
-  if Bullet.enable?
-    config.before do
-      Bullet.start_request
-    end
-
-    config.after do
-      Bullet.perform_out_of_channel_notifications if Bullet.notification?
-      Bullet.end_request
-    end
   end
 end
