@@ -168,7 +168,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     google-analytics-rails (1.1.1)
-    google-protobuf (3.19.3)
+    google-protobuf (3.19.4)
     gravtastic (3.2.6)
     groupdate (6.0.1)
       activesupport (>= 5.2)
