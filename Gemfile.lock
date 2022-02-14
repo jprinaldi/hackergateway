@@ -118,8 +118,8 @@ GEM
     country_select (6.1.1)
       countries (~> 4.2)
       sort_alphabetical (~> 1.1)
-    coverband (5.2.1)
-      redis
+    coverband (5.2.2)
+      redis (>= 3.0)
     crass (1.0.6)
     debug_inspector (1.1.0)
     devise (4.8.1)
