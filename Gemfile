@@ -139,7 +139,7 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem "listen", "~> 3.7"
-  gem "rack-mini-profiler", "~> 2.3"
+  gem "rack-mini-profiler", "~> 3.0"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
