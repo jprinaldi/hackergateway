@@ -435,7 +435,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
     unicode_utils (1.4.0)
-    uniform_notifier (1.14.2)
+    uniform_notifier (1.16.0)
     useragent (0.16.10)
     validate_email (0.1.6)
       activemodel (>= 3.0)
