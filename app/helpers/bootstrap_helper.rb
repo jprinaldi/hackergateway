@@ -25,7 +25,7 @@ module BootstrapHelper # :nodoc:
       tag.span("\u00D7", aria: { hidden: true }),
       type: "button",
       class: "close",
-      data: { dismiss: "alert" },
+      data: { "bs-dismiss": "alert" },
       aria: { label: "Close" }
     )
   end
