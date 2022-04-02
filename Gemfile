@@ -93,10 +93,6 @@ gem "pg_query"
 # Read more: https://github.com/activeadmin/activeadmin
 gem "activeadmin"
 
-# Use Forest Admin as an administration framework
-# Read more: https://github.com/ForestAdmin/forest-rails
-gem "forest_liana"
-
 # Use Rack::Attack for blocking & throttling abusive requests
 # Read more: https://github.com/kickstarter/rack-attack
 gem "rack-attack"
