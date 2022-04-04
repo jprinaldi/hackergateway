@@ -89,7 +89,7 @@ RSpec.describe User, type: :model do
     let(:user) { build(:user, country_code: "AR") }
 
     it "has a valid country name" do
-      expect(country.name).to eq("Argentina")
+      expect(country.iso_short_name).to eq("Argentina")
     end
 
     it "has a valid country emoji flag" do

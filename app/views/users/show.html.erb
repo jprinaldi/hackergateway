@@ -15,7 +15,7 @@
         <% if @user.country_code? %>
           <%= @user.country.emoji_flag %>
           <span>
-            <%= @user.country.name %>
+            <%= @user.country.iso_short_name %>
           </span>
         <% else %>
           <i class="fas fa-question-circle fa-fw"></i> Unknown
