@@ -33,9 +33,9 @@ class SolutionsController < ApplicationController
       flash.notice = "You've already solved this challenge!"
     elsif @challenge.check(params[:answer])
       current_user.solve(@challenge)
-      flash[:success] = "You solved this challenge!"
+      flash[:success] = I18n.t("challenges.correct_answer")
     else
-      flash[:error] = "Your answer is wrong!"
+      flash[:error] = I18n.t("challenges.incorrect_answer")
     end
     redirect_to @challenge
   end

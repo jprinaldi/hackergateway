@@ -5,7 +5,7 @@ class Solution < ApplicationRecord # :nodoc:
   belongs_to :challenge, counter_cache: true
 
   validates :user, uniqueness: {
-    scope: :challenge, message: "has already solved this challenge"
+    scope: :challenge, message: I18n.t("challenges.already_solved")
   }
 
   after_create do

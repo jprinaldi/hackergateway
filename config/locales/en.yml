@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  challenges:
+    already_solved: "has already solved this challenge"
+    correct_answer: "You solved this challenge!"
+    incorrect_answer: "Your answer is wrong!"
+  countries:
+    invalid: "is not valid"
+  usernames:
+    allowed_charset: "only allows letters, numbers and hyphens"
