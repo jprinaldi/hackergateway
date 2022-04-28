@@ -25,12 +25,12 @@ class User < ApplicationRecord # :nodoc:
             length: { minimum: 4, maximum: 15 },
             format: {
               with: /\A[a-zA-Z0-9\-]+\z/,
-              message: "only allows letters, numbers and hyphens"
+              message: I18n.t("usernames.allowed_charset")
             }
   validates :country_code, inclusion: {
     in: ISO3166::Country.all.map(&:alpha2),
     allow_blank: true,
-    message: "is not valid"
+    message: I18n.t("countries.invalid")
   }
   validates :terms_of_service, acceptance: true
 
