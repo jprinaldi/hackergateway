@@ -7,7 +7,7 @@ SimpleCov.start "rails" do
   add_filter "/app/mailers/"
 end
 
-if ENV["CI"] == "true"
+if ENV.fetch("CI", nil) == "true"
   require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
