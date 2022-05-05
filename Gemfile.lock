@@ -210,7 +210,7 @@ GEM
     msgpack (1.5.1)
     newrelic_rpm (8.7.0)
     nio4r (2.5.8)
-    nokogiri (1.13.4)
+    nokogiri (1.13.5)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     oj (3.13.11)
