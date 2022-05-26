@@ -147,7 +147,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     google-analytics-rails (1.1.1)
-    google-protobuf (3.20.1)
+    google-protobuf (3.21.0)
     gravtastic (3.2.6)
     has_scope (0.8.0)
       actionpack (>= 5.2)
