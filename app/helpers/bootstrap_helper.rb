@@ -13,7 +13,7 @@ module BootstrapHelper # :nodoc:
   def bootstrap_alert(msg_type, message, &block)
     tag.div(
       message,
-      class: "alert #{bootstrap_class_for(msg_type)} "\
+      class: "alert #{bootstrap_class_for(msg_type)} " \
              "alert-dismissible fade show",
       role: "alert",
       &block
