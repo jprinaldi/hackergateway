@@ -10,13 +10,13 @@ module BootstrapHelper # :nodoc:
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 
-  def bootstrap_alert(msg_type, message, &block)
+  def bootstrap_alert(msg_type, message, &)
     tag.div(
       message,
       class: "alert #{bootstrap_class_for(msg_type)} " \
              "alert-dismissible fade show",
       role: "alert",
-      &block
+      &
     )
   end
 
