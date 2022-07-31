@@ -25,7 +25,7 @@ RSpec.describe "User creates solution", type: :system do
       let!(:user) { create(:user) }
       let!(:challenge) { create(:challenge) }
       let(:solution) do
-        build(:solution, user: user, challenge: challenge)
+        build(:solution, user:, challenge:)
       end
       let(:last_solution_path) { admin_solution_path(Solution.last) }
 

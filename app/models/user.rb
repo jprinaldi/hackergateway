@@ -43,7 +43,7 @@ class User < ApplicationRecord # :nodoc:
   end
 
   def solve(challenge)
-    solutions.create!(challenge: challenge)
+    solutions.create!(challenge:)
   end
 
   def solved?(challenge)

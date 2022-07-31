@@ -24,7 +24,7 @@ RSpec.describe "User creates challenge", type: :system do
     end
 
     context "with valid properties" do
-      let(:challenge) { build(:challenge, category: category) }
+      let(:challenge) { build(:challenge, category:) }
       let(:last_challenge_path) { admin_challenge_path(Challenge.last) }
 
       before do

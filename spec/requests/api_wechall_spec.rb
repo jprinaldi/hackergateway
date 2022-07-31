@@ -94,7 +94,7 @@ RSpec.describe "API for WeChall", type: :request do
           score: solved_challenges_count,
           max_score: challenges_count,
           solutions_count: solved_challenges_count,
-          challenges_count: challenges_count,
+          challenges_count:,
           users_count: User.count
         }
       end
