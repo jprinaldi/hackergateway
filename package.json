@@ -2,43 +2,34 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --ext .js"
+    "lint": "./node_modules/.bin/eslint --ext .js",
+    "build": "webpack --config ./config/webpack/webpack.config.js"
   },
   "dependencies": {
     "@activeadmin/activeadmin": "^2.13.1",
     "@babel/core": "^7.18.9",
-    "@babel/plugin-transform-runtime": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
-    "@babel/runtime": "^7.18.9",
     "@rails/actioncable": "^7.0.3-1",
     "@rails/activestorage": "^7.0.3-1",
     "@rails/ujs": "^7.0.3-1",
     "babel-loader": "^8.2.5",
     "bootstrap": "^5.2.0",
     "bootswatch": "^5.2.0",
-    "compression-webpack-plugin": "^10.0.0",
-    "pnp-webpack-plugin": "1",
-    "shakapacker": "^6.5.0",
-    "terser-webpack-plugin": "^5.3.3",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
-    "webpack": "^5.74.0",
-    "webpack-assets-manifest": "^5.1.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-merge": "^5.8.0",
-    "webpack-sources": "^3.2.3"
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
-    "webpack-dev-server": "^4.9.3"
+    "webpack-cli": "^4.10.0"
   },
   "version": "0.1.0",
   "babel": {
     "presets": [
-      "./node_modules/shakapacker/package/babel/preset.js"
+      "@babel/preset-env"
     ]
   },
   "browserslist": [
