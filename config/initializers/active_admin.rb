@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 ActiveAdmin.setup do |config|
-  config.use_webpacker = true
-
   # == Site Title
   #
   # Set the title that is displayed on the main layout
