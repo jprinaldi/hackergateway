@@ -68,6 +68,8 @@ jobs:
           node-version: '18.7.0'
       - name: Install JavaScript dependencies
         run: yarn install
+      - name: Build JavaScript
+        run: yarn build
       - uses: actions/cache@v3
         with:
           path: vendor/bundle

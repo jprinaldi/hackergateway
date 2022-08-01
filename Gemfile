@@ -16,9 +16,6 @@ gem "pg", "~> 1.4.2"
 gem "puma", "~> 5.6"
 # Use SCSS for stylesheets
 gem "sassc-rails"
-# Transpile app-like JavaScript
-# Read more: https://github.com/shakacode/shakapacker
-gem "shakapacker", "~> 6.5"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -96,6 +93,10 @@ gem "activeadmin"
 # Use Rack::Attack for blocking & throttling abusive requests
 # Read more: https://github.com/kickstarter/rack-attack
 gem "rack-attack"
+
+# Use jsbundling-rails for JavaScript bundling support
+# Read more: https://github.com/rails/jsbundling-rails
+gem "jsbundling-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
