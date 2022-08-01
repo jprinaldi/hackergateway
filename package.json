@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "lint": "./node_modules/.bin/eslint --ext .js",
-    "build": "webpack --config ./config/webpack/webpack.config.js"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "dependencies": {
     "@activeadmin/activeadmin": "^2.13.1",
@@ -15,16 +15,15 @@
     "babel-loader": "^8.2.5",
     "bootstrap": "^5.2.0",
     "bootswatch": "^5.2.0",
+    "esbuild": "^0.14.51",
     "timeago.js": "^4.0.2",
-    "turbolinks": "^5.2.0",
-    "webpack": "^5.74.0"
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1",
-    "webpack-cli": "^4.10.0"
+    "prettier": "^2.7.1"
   },
   "version": "0.1.0",
   "babel": {
