@@ -17,8 +17,8 @@ gem "puma", "~> 5.6"
 # Use SCSS for stylesheets
 gem "sassc-rails"
 # Transpile app-like JavaScript
-# Read more: https://github.com/rails/webpacker
-gem "webpacker", "~> 5.4"
+# Read more: https://github.com/shakacode/shakapacker
+gem "shakapacker", "~> 6.5"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
