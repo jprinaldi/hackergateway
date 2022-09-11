@@ -229,7 +229,6 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.10.0)
     nio4r (2.5.8)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
@@ -447,7 +446,6 @@ DEPENDENCIES
   localhost
   lograge
   meta-tags
-  newrelic_rpm
   oj
   overcommit
   pg (~> 1.4.3)

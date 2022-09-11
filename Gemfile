@@ -77,10 +77,6 @@ gem "meta-tags"
 # Read more: https://github.com/james2m/seedbank
 gem "seedbank"
 
-# Use New Relic for performance management support
-# Read more: https://github.com/newrelic/rpm
-gem "newrelic_rpm"
-
 # Use PgHero for PostgreSQL performance dashboard support
 # Read more: https://github.com/ankane/pghero
 gem "pghero"
