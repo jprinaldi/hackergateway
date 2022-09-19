@@ -11,7 +11,7 @@
     "@rails/activestorage": "^7.0.4",
     "@rails/ujs": "^7.0.4",
     "bootstrap": "^5.2.1",
-    "bootswatch": "^5.2.0",
+    "bootswatch": "^5.2.1",
     "esbuild": "^0.15.7",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0"
