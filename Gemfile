@@ -102,7 +102,7 @@ group :development, :test do
   # Use RSpec as the testing framework
   # Read more: https://github.com/rspec/rspec-rails
   gem "rspec_junit_formatter"
-  gem "rspec-rails", "~> 5.1"
+  gem "rspec-rails", "~> 6.0"
 
   # Use Fuubar for improved RSpec formatting
   # Read more: https://github.com/thekompanee/fuubar
