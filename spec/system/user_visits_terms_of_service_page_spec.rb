@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User visits terms of service page", type: :system do
+RSpec.describe "User visits terms of service page" do
   subject { page }
 
   before { visit policies_terms_path }

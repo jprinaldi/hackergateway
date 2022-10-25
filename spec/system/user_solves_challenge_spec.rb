@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User solves challenge", type: :system do
+RSpec.describe "User solves challenge" do
   subject { page }
 
   let(:this_challenge) { create(:challenge) }

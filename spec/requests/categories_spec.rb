@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "Categories", type: :request do
+RSpec.describe "Categories" do
   subject { response }
 
   describe "GET /categories" do

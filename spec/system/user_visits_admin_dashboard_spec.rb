@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User visits admin dashobard", type: :system do
+RSpec.describe "User visits admin dashobard" do
   subject { page }
 
   context "when signed in as an admin user" do

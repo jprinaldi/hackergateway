@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User visits users page", type: :system do
+RSpec.describe "User visits users page" do
   subject { page }
 
   let!(:user) { create(:user) }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User checks someone's solutions", type: :system do
+RSpec.describe "User checks someone's solutions" do
   subject { page }
 
   let(:solution) { create(:solution) }

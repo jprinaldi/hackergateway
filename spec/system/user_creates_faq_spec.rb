@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User creates FAQ", type: :system do
+RSpec.describe "User creates FAQ" do
   subject { page }
 
   context "when signed in as an admin user" do

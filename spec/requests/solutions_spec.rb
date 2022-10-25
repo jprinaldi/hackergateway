@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "Solutions", type: :request do
+RSpec.describe "Solutions" do
   subject { response }
 
   describe "GET /solutions" do

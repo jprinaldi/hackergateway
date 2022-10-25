@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe User, type: :model do
+RSpec.describe User do
   context "with valid properties" do
     subject(:user) { build(:user) }
 

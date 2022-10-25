@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Solution, type: :model do
+RSpec.describe Solution do
   context "with valid parameters" do
     subject(:solution) { build(:solution) }
 

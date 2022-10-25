@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User updates admin user", type: :system do
+RSpec.describe "User updates admin user" do
   subject { page }
 
   let(:admin_user) { create(:admin_user) }

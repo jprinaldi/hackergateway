@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User creates category", type: :system do
+RSpec.describe "User creates category" do
   subject { page }
 
   context "when signed in as an admin user" do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User visits category", type: :system do
+RSpec.describe "User visits category" do
   subject { page }
 
   let(:challenge) { create(:challenge) }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User cancels account", type: :system do
+RSpec.describe "User cancels account" do
   subject { page }
 
   let(:user) { create(:user, :confirmed) }
