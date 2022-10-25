@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Category, type: :model do
+RSpec.describe Category do
   context "with valid properties" do
     subject(:category) { build(:category) }
 

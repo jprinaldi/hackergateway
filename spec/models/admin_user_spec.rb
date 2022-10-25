@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe AdminUser, type: :model do
+RSpec.describe AdminUser do
   context "with valid parameters" do
     subject { build(:admin_user) }
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User updates profile", type: :system do
+RSpec.describe "User updates profile" do
   subject { page }
 
   let(:user) { create(:user, :confirmed) }

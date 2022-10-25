@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User impersonates user", type: :system do
+RSpec.describe "User impersonates user" do
   subject { page }
 
   let(:user_to_impersonate) { create(:user, :confirmed) }

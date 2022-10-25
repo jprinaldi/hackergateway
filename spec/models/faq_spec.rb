@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Faq, type: :model do
+RSpec.describe Faq do
   context "with valid properties" do
     subject(:faq) { build(:faq) }
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User signs in", type: :system do
+RSpec.describe "User signs in" do
   subject { page }
 
   context "when unconfirmed" do

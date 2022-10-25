@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "API for WeChall", type: :request do
+RSpec.describe "API for WeChall" do
   subject { response }
 
   let(:user) { create(:user) }

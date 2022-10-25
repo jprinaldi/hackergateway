@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User visits privacy policy page", type: :system do
+RSpec.describe "User visits privacy policy page" do
   subject { page }
 
   before { visit policies_privacy_path }

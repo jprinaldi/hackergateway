@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User visits about page", type: :system do
+RSpec.describe "User visits about page" do
   subject { page }
 
   before { visit about_path }

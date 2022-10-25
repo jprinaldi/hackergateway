@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User updates challenge", type: :system do
+RSpec.describe "User updates challenge" do
   subject { page }
 
   context "when signed in as an admin user" do

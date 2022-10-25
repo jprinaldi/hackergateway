@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Challenge, type: :model do
+RSpec.describe Challenge do
   context "with valid properties" do
     subject(:challenge) { build(:challenge) }
 

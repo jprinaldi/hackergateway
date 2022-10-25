@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User signs out", type: :system do
+RSpec.describe "User signs out" do
   subject { page }
 
   context "when signed in" do

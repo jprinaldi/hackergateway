@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User checks leaderboard", type: :system do
+RSpec.describe "User checks leaderboard" do
   subject { page }
 
   let!(:user) { create(:user) }
