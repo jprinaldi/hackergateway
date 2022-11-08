@@ -4,7 +4,7 @@
   <div class="card-body">
     <%= content_tag :h1, "#{@user.username}'s profile", class: "card-title" %>
     <dl class="row">
-      <dt class="col-md-3"><i class="fas fa-portrait fa-fw"></i> Profile image
+      <dt class="col-md-3"><i class="fas fa-id-badge fa-fw"></i> Profile image
       <dd class="col-md-9"><%= image_tag @user.gravatar_url %>
       <dt class="col-md-3"><i class="fas fa-user-secret fa-fw"></i> Username
       <dd class="col-md-9"><%= @user.username %>
@@ -22,7 +22,7 @@
         <% end %>
       <dt class="col-md-3"><i class="fas fa-user-plus fa-fw"></i> Joined
       <dd class="col-md-9"><%= time_tag(@user.created_at.to_date) %>
-      <dt class="col-md-3"><i class="fas fa-trophy-alt fa-fw"></i> Rank
+      <dt class="col-md-3"><i class="fas fa-trophy fa-fw"></i> Rank
       <dd class="col-md-9"><%= @user.rank %>
       <dt class="col-md-3"><i class="fas fa-check-circle fa-fw"></i> Solved challenges
       <dd class="col-md-9"><%= link_to @user.solutions_count, user_solutions_path(@user) %>

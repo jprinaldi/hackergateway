@@ -8,9 +8,9 @@
 
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
-  policy.connect_src :self,
-                     "kit-pro.fontawesome.com"
-  policy.font_src "fonts.gstatic.com"
+  policy.connect_src :self
+  policy.font_src :self,
+                  "fonts.gstatic.com"
   policy.frame_src "w.soundcloud.com"
   policy.img_src :self,
                  :data,
@@ -22,8 +22,6 @@ Rails.application.config.content_security_policy do |policy|
                       "hackergateway.cloudflareaccess.com"
   policy.script_src :self,
                     "static.cloudflareinsights.com",
-                    "kit.fontawesome.com",
-                    "kit-pro.fontawesome.com",
                     "'sha256-pDz4vhGBfDjPcpVpEEbETB8WCXjegQKQKK7W7YkV5po='",
                     "'sha256-2G7ydRU40Z+O1K3aJl1RO6ptAKOjSQyfznSXqWNk7n4='"
   policy.style_src :self,
