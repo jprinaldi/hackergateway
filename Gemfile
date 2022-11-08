@@ -73,10 +73,6 @@ gem "kaminari"
 # Read more: https://github.com/kpumuk/meta-tags
 gem "meta-tags"
 
-# Use Seedbank for environment specific seed data support
-# Read more: https://github.com/james2m/seedbank
-gem "seedbank"
-
 # Use PgHero for PostgreSQL performance dashboard support
 # Read more: https://github.com/ankane/pghero
 gem "pghero"

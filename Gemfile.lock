@@ -356,8 +356,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    seedbank (0.5.0)
-      rake (>= 10.0)
     selenium-webdriver (4.5.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -458,7 +456,6 @@ DEPENDENCIES
   rubocop-rake
   rubocop-rspec
   sassc-rails
-  seedbank
   selenium-webdriver
   simplecov
   timecop
