@@ -53,14 +53,6 @@ gem "country_select"
 # Read more: https://github.com/chrislloyd/gravtastic
 gem "gravtastic"
 
-# Use Rollbar for exception tracking and logging support
-# Read more: https://github.com/rollbar/rollbar-gem
-gem "rollbar"
-
-# Rollbar recommended installing this gem
-# Read more: https://github.com/ohler55/oj
-gem "oj"
-
 # Use this gem for Google Analytis tracking support
 # Read more: https://github.com/bgarret/google-analytics-rails
 gem "google-analytics-rails", "1.1.1"
