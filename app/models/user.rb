@@ -24,7 +24,7 @@ class User < ApplicationRecord # :nodoc:
             uniqueness: { case_sensitive: false },
             length: { minimum: 4, maximum: 15 },
             format: {
-              with: /\A[a-zA-Z0-9\-]+\z/,
+              with: /\A[a-zA-Z0-9-]+\z/,
               message: I18n.t("usernames.allowed_charset")
             }
   validates :country_code, inclusion: {
