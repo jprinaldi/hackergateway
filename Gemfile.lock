@@ -118,7 +118,7 @@ GEM
       unaccent (~> 0.3)
     country_select (8.0.0)
       countries (~> 5.0)
-    coverband (5.2.4)
+    coverband (5.2.5)
       redis (>= 3.0)
     crass (1.0.6)
     date (3.3.3)
