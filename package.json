@@ -13,7 +13,7 @@
     "@rails/ujs": "^7.0.4",
     "bootstrap": "^5.2.3",
     "bootswatch": "^5.2.3",
-    "esbuild": "^0.16.10",
+    "esbuild": "^0.16.13",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0"
   },
