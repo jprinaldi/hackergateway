@@ -13,7 +13,7 @@ gem "rails", "~> 7.0.6"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.5.3"
 # Use Puma as the app server
-gem "puma", "~> 6.2"
+gem "puma", "~> 6.3"
 # Use SCSS for stylesheets
 gem "sassc-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes
