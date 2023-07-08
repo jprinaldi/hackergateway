@@ -35,7 +35,6 @@ jobs:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 3
       BUNDLE_PATH: vendor/bundle
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       DATABASE_URL: postgres://postgres:@localhost:5432/test
       RAILS_ENV: test
       REDIS_URL: redis://localhost:6379/0
@@ -86,3 +85,7 @@ jobs:
         run: bin/rails db:prepare
       - name: Run tests
         run: bundle exec rspec --profile
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

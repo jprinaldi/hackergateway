@@ -7,10 +7,8 @@ SimpleCov.start "rails" do
   add_filter "/app/mailers/"
 end
 
-if ENV.fetch("CI", nil) == "true"
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
+require "simplecov-cobertura"
+SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= "test"
